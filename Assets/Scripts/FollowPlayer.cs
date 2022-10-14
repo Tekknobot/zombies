@@ -19,6 +19,8 @@ public class FollowPlayer : MonoBehaviour
     public GameObject[] zombieCount;
     public GameObject[] soldierCount;
 
+    public int index;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +92,14 @@ public class FollowPlayer : MonoBehaviour
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
         if (zombieCount.Length <= 3) {
             GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>().target = zombieCount[0];
-        }        
+        }   
+
+        if (Input.GetButton("Right Bumper")) {
+            GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
+            if (index >= zombieCount.Length) {
+                index = 0;
+            }
+        }             
     }    
 
     void OnDrawGizmosSelected()
