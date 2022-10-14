@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour
     public GameObject xpCount;
     public GameObject levelCount;
 
+    public GameObject[] zombieCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,10 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+        zombieDeathCount.GetComponent<Text>().text = zombieCount.Length.ToString();
+
         xpCount.GetComponent<Text>().text = xp.ToString();
-        zombieDeathCount.GetComponent<Text>().text = zombieDeaths.ToString();
         soldierDeathCount.GetComponent<Text>().text = soldierDeaths.ToString();
         civilianDeathCount.GetComponent<Text>().text = civilianDeaths.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();

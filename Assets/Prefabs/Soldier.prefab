@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c116ecec50214991ff26275f4b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 90
+  health: 100
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}
@@ -354,7 +354,7 @@ MonoBehaviour:
   bullet: {fileID: 7712507716706664509, guid: 82b7ff7d7505ffd41a359e5da22aa01a, type: 3}
   fireRate: 1000
   shootingPower: 1
-  range: 2.5
+  range: 5
   deathEffect: {fileID: 0}
 --- !u!114 &7302091632892366472
 MonoBehaviour:
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  range: 5
+  range: 2.5
   stoppingDistance: 0
   run: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}

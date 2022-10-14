@@ -19,7 +19,7 @@ public class AvoidPlayer : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        speed = Random.Range(2, 5);
+        speed = 2;
     }
 
     // Update is called once per frame

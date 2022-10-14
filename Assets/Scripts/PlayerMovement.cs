@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape)) {
             Application.Quit();
         }   
+
+        if (Input.GetKey(KeyCode.R)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }        
     }
 
     void FixedUpdate()

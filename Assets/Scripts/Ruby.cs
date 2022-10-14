@@ -28,7 +28,7 @@ public class Ruby : MonoBehaviour
     }
 
     IEnumerator WaitForCollider() {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         GetComponent<BoxCollider2D>().enabled = true;
     }    
 }
