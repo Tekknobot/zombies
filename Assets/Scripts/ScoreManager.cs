@@ -20,6 +20,8 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject[] zombieCount;
 
+    public int currentXPLevel;
+
     // Start is called before the first frame update
     void Start()
     {

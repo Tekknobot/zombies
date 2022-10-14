@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ruby : MonoBehaviour
 {
     public GameObject sfx;
+    public GameObject[] zombies;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class Ruby : MonoBehaviour
     {
         if(other.tag == "zombie") {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
+            zombies = GameObject.FindGameObjectsWithTag("zombie");
+            foreach (GameObject zombie in zombies) {
+                zombie.GetComponent<damage>().health += 1;
+            }
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
         }       

@@ -2989,7 +2989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &241927609
 Transform:
   m_ObjectHideFlags: 0
@@ -34541,7 +34541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &743629336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144351,6 +144351,7 @@ MonoBehaviour:
   xpCount: {fileID: 1987176549}
   levelCount: {fileID: 470677671}
   zombieCount: []
+  currentXPLevel: 0
 --- !u!4 &2071941056
 Transform:
   m_ObjectHideFlags: 0

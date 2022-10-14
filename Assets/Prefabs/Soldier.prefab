@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  range: 25
+  range: 50
   stoppingDistance: 0
   run: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
@@ -280,6 +280,7 @@ MonoBehaviour:
   levelUp: {fileID: 0}
   zombieCount: []
   soldierCount: []
+  index: 0
 --- !u!50 &6614213287842399275
 Rigidbody2D:
   serializedVersion: 4

@@ -21,22 +21,30 @@ public class FollowPlayer : MonoBehaviour
 
     public int index;
 
+    public int currentXPLevel = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        speed = Random.Range(2, 5);
+
+        if (this.tag == "zombie") {
+            speed = Random.Range(2+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel, GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+5);
+            range = 10+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;
+            GetComponent<damage>().health = 100+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;
+            GetComponent<flash>().dmg = 5+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel; 
+        }
         
         if (this.tag == "soldier") {
-            speed = 2;
+            speed = Random.Range(2, 5);
         }        
     }
 
     // Update is called once per frame
     void Update()
     {   
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
         foreach (Collider2D collider in colliders) {
             if (this.tag == "zombie") {
                 if (collider.tag == "civilian" || collider.tag == "soldier") {
@@ -71,6 +79,8 @@ public class FollowPlayer : MonoBehaviour
 
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
+            this.currentXPLevel += 1;
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = this.currentXPLevel;
             range += 1;
             speed += 1;
             GetComponent<damage>().health += 1;
@@ -86,7 +96,7 @@ public class FollowPlayer : MonoBehaviour
             }
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.1f);
-            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.1f; 
+            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.2f; 
         }   
 
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
