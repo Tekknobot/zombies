@@ -96,7 +96,7 @@ public class FollowPlayer : MonoBehaviour
             }
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.1f);
-            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.2f; 
+            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.1f; 
         }   
 
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");

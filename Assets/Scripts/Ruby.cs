@@ -25,7 +25,7 @@ public class Ruby : MonoBehaviour
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
             zombies = GameObject.FindGameObjectsWithTag("zombie");
             foreach (GameObject zombie in zombies) {
-                zombie.GetComponent<damage>().health += 3f;
+                zombie.GetComponent<damage>().health += 2f;
             }
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
