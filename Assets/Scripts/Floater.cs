@@ -15,12 +15,12 @@ public class Floater : MonoBehaviour
     {
         if (tag == "levelup") {
             transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-            Destroy(this.gameObject, 2.0f);
+            Destroy(this.gameObject, 5.0f);
         }
 
         if (tag == "fireup") {
             //transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-            Destroy(this.gameObject, 5.0f);
+            //Destroy(this.gameObject, 5.0f);
         }
     }
 }

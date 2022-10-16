@@ -21,11 +21,11 @@ public class ZombieShoot : MonoBehaviour
         choice = Random.Range(0,2);
         if (choice == 0) {
             this.GetComponent<FollowPlayer>().enabled = true; 
-            this.GetComponent<ZombieShoot>().enabled = false;
+            this.GetComponent<ZombieShoot>().enabled = true;
         }
         else if (choice == 1){
-            this.GetComponent<AvoidPlayer>().enabled = true;
-            this.GetComponent<ZombieShoot>().enabled = true;
+            this.GetComponent<FollowPlayer>().enabled = true; 
+            this.GetComponent<ZombieShoot>().enabled = false;
         }        
     }
  

@@ -22,6 +22,7 @@ public class FollowPlayer : MonoBehaviour
     public int index;
 
     public int currentXPLevel = 0;
+    public bool onFire = false;
 
     // Start is called before the first frame update
     void Start()

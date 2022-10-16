@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6614213287842399272}
   - component: {fileID: 6614213287842399275}
   - component: {fileID: 4458262890319663748}
+  - component: {fileID: 6946254477202095373}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: zombie
@@ -277,6 +278,9 @@ MonoBehaviour:
   levelUp: {fileID: 2669608364828651773, guid: 93c6d1c61eea8ad4b9f351a2a23a9e2b, type: 3}
   zombieCount: []
   soldierCount: []
+  index: 0
+  currentXPLevel: 0
+  onFire: 0
 --- !u!114 &6614213287842399272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,3 +336,22 @@ MonoBehaviour:
   audioSource_growl: {fileID: 6614213287842399278}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
+--- !u!114 &6946254477202095373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614213287842399284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0ddba5a04fa0a45bb9ffa2c652976d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  weaponMuzzle: {fileID: 6614213287842399285}
+  bullet: {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
+  fireRate: 3000
+  shootingPower: 1
+  range: 10
+  deathEffect: {fileID: 0}

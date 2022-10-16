@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour {
         if(col.tag == "zombie") {
             var tempFire = Instantiate(vfx, col.transform.position, Quaternion.identity);
             tempFire.transform.parent = col.transform;
-            col.GetComponent<flash>().dmg +=2;
+            col.GetComponent<FollowPlayer>().onFire = true;
             StartCoroutine(StopFire(col));
             //Destroy(this.gameObject);
         }
@@ -24,6 +24,6 @@ public class Fire : MonoBehaviour {
     
     IEnumerator StopFire(Collider2D col) {
         yield return new WaitForSeconds(5);
-        col.GetComponent<flash>().dmg +=2;
+        col.GetComponent<FollowPlayer>().onFire = false;
     }
 }
