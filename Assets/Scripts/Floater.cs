@@ -13,7 +13,14 @@ public class Floater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-        Destroy(this.gameObject, 2.0f);
+        if (tag == "levelup") {
+            transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+            Destroy(this.gameObject, 2.0f);
+        }
+
+        if (tag == "fireup") {
+            //transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+            Destroy(this.gameObject, 5.0f);
+        }
     }
 }

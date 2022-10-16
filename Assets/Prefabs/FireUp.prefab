@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2669608364828651772}
   - component: {fileID: 2669608364828651769}
   m_Layer: 0
-  m_Name: LevelUp
-  m_TagString: levelup
+  m_Name: FireUp
+  m_TagString: fireup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7136751229079235475, guid: 515a6257af57bfd41b73addc995c9cfd,
+  m_Sprite: {fileID: -7605292037893533546, guid: b6c839ca896e31c4595c402899111058,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 2669608364828651773}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77c92a3dd8419424bb8a948f928d21a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4365405cf6c1bcd4a9f4ff3f75d756ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\BlendFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
      <Compile Include="Assets\Scripts\EnemyShoot.cs" />
+     <Compile Include="Assets\Scripts\Fire.cs" />
      <Compile Include="Assets\Scripts\Floater.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Grenade.cs" />
