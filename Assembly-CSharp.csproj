@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\ShakeBehavior.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\SpeedModifier.cs" />
+     <Compile Include="Assets\Scripts\Throw.cs" />
      <Compile Include="Assets\Scripts\WanderAI.cs" />
      <Compile Include="Assets\Scripts\XboxControllerTest.cs" />
      <Compile Include="Assets\Scripts\ZombieShoot.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets\Scripts\rotate.cs" />
      <Compile Include="Assets\Scripts\soldierflash.cs" />
      <Compile Include="Assets\Scripts\weaponSwitch.cs" />
+     <Compile Include="Assets\Scripts\zombiebone.cs" />
      <Compile Include="Assets\Scripts\zombiebullet.cs" />
      <None Include="Assets\Materials\2Sided.shader" />
      <None Include="Assets\AnimationImporter\readme.txt" />

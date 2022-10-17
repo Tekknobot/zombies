@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zombiebullet : MonoBehaviour
+public class zombiebone : MonoBehaviour
 {
+    public float rotationSpeed = 90;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,7 @@ public class zombiebullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));       
     }
 
     void OnTriggerEnter2D(Collider2D other)
