@@ -44,15 +44,27 @@ public class FollowPlayer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    { 
+        zombieCount = GameObject.FindGameObjectsWithTag("zombie");  
+        if (Input.GetButton("Right Bumper")) {
+            GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
+            if (index >= zombieCount.Length) {
+                index = 0;
+            }
+        }  
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
         foreach (Collider2D collider in colliders) {
             if (this.tag == "zombie") {
+                if (Input.GetButton("Fire1")) {
+                    target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+                    break;
+                }                 
                 if (collider.tag == "civilian" || collider.tag == "soldier") {
                     target = collider.transform; 
                     break;                    
                 }
-                else {
+                else {                    
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                 }                
             }
@@ -61,7 +73,7 @@ public class FollowPlayer : MonoBehaviour
                     target = collider.transform; 
                     break;
                 }
-                else {
+                else {                    
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                 }
             }            
@@ -99,19 +111,7 @@ public class FollowPlayer : MonoBehaviour
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.1f);
             GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.1f; 
-        }   
-
-        zombieCount = GameObject.FindGameObjectsWithTag("zombie");
-        // if (zombieCount.Length <= 3) {
-        //     GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>().target = zombieCount[0];
-        // }   
-
-        if (Input.GetButton("Right Bumper")) {
-            GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
-            if (index >= zombieCount.Length) {
-                index = 0;
-            }
-        }             
+        }                    
     }    
 
     void OnDrawGizmosSelected()
