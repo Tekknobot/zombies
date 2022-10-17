@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\ShakeBehavior.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\SpeedModifier.cs" />
      <Compile Include="Assets\Scripts\WanderAI.cs" />
      <Compile Include="Assets\Scripts\XboxControllerTest.cs" />
      <Compile Include="Assets\Scripts\ZombieShoot.cs" />
