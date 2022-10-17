@@ -102,9 +102,9 @@ public class FollowPlayer : MonoBehaviour
         }   
 
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
-        if (zombieCount.Length <= 3) {
-            GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>().target = zombieCount[0];
-        }   
+        // if (zombieCount.Length <= 3) {
+        //     GameObject.Find("Main Camera").GetComponent<CameraFollowPlayer>().target = zombieCount[0];
+        // }   
 
         if (Input.GetButton("Right Bumper")) {
             GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
