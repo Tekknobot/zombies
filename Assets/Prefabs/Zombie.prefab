@@ -351,7 +351,7 @@ MonoBehaviour:
   target: {fileID: 0}
   weaponMuzzle: {fileID: 6614213287842399285}
   bullet: {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
-  fireRate: 3000
+  fireRate: 2000
   shootingPower: 1
   range: 10
   deathEffect: {fileID: 0}

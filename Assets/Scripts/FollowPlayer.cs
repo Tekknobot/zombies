@@ -84,8 +84,9 @@ public class FollowPlayer : MonoBehaviour
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = this.currentXPLevel;
             range += 1;
             speed += 1;
-            GetComponent<damage>().health += 1;
+            GetComponent<damage>().health += 25;
             GetComponent<flash>().dmg += 1;
+            GetComponent<ZombieShoot>().fireRate -= 500;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");
             
             StartCoroutine(WaitForXPUpdate());

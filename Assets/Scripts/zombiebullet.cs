@@ -26,4 +26,8 @@ public class zombiebullet : MonoBehaviour
             Destroy(this.gameObject);
         }        
     }    
+
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }    
 }
