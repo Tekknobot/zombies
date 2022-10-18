@@ -7,6 +7,8 @@ public class laser : MonoBehaviour
     public GameObject gun;
     public GameObject laserParticles;
     private LineRenderer _lineRenderer;
+    public Transform target;
+    public int range = 10;
 
     // Use this for initialization
     void Start()
@@ -20,29 +22,23 @@ public class laser : MonoBehaviour
         AudioSource laserSFX = gameObject.GetComponent<AudioSource>();
         
         _lineRenderer.SetPosition(0, transform.position);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
-        if (hit.collider)
-        {
-            _lineRenderer.SetPosition(1, new Vector3(hit.point.x, hit.point.y, transform.position.z));
-            //Instantiate(laserParticles, hit.point, Quaternion.identity);
-            laserSFX.Play();
-            
-        }
-        else
-        {
-            _lineRenderer.SetPosition(1, transform.up * 2000);
-        }
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
+        foreach (Collider2D collider in colliders) { 
+            if (collider.tag == "zombie") {
+                target = collider.transform;
+                _lineRenderer.SetPosition(1, new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z));
+                //Instantiate(laserParticles, hit.point, Quaternion.identity);
+                laserSFX.Play();                                                    
+                break;
+            }
+            else
+            {
+                _lineRenderer.SetPosition(1, transform.up * 2000);
+            }
 
-        if (hit.transform.tag == "zombie") {
-            hit.collider.GetComponent<damage>().health -= 2.0f;
-            hit.collider.GetComponent<flash>().FlashRed();
-            Instantiate(laserParticles, hit.point, Quaternion.identity);
-        }
-
-        if (hit.transform.tag == "soldier") {
-            hit.collider.GetComponent<damageSoldier>().health -= 2.0f;
-            hit.collider.GetComponent<soldierflash>().FlashRed();
-            Instantiate(laserParticles, hit.point, Quaternion.identity);
-        }        
+            if (collider.transform.tag == "soldier") {
+                Instantiate(laserParticles, collider.transform.position, Quaternion.identity);
+            }             
+        }       
     }    
 }

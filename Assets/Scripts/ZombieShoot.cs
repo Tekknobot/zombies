@@ -9,13 +9,11 @@ public class ZombieShoot : MonoBehaviour
     public GameObject[] bullet; //Your set-up prefab
     public float fireRate = 3000f; //Fire every 3 seconds
     public float shootingPower = 20f; //force of projection
-    public float range = 2.5f;
+    public float range = 10f;
 
     int choice;
  
     private float shootingTime; //local to store last time we shot so we can make sure its done every 3s
- 
-    public GameObject deathEffect;
 
     void Start() {
         choice = Random.Range(0,2);

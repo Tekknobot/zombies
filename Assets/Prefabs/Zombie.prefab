@@ -351,10 +351,10 @@ MonoBehaviour:
   target: {fileID: 0}
   weaponMuzzle: {fileID: 6614213287842399285}
   bullet:
-  - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
   - {fileID: 7712507716706664509, guid: a50b9b2a21c219f4e9c71fc4517958bb, type: 3}
+  - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
   - {fileID: 7712507716706664509, guid: 0d365632a4829844585c34ed300424af, type: 3}
+  - {fileID: 7712507716706664509, guid: 48d87cefbf9becf42b49116c8ccd997c, type: 3}
   fireRate: 2000
   shootingPower: 1
   range: 10
-  deathEffect: {fileID: 0}

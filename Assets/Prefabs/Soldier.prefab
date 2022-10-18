@@ -281,6 +281,8 @@ MonoBehaviour:
   zombieCount: []
   soldierCount: []
   index: 0
+  currentXPLevel: 0
+  onFire: 0
 --- !u!50 &6614213287842399275
 Rigidbody2D:
   serializedVersion: 4
