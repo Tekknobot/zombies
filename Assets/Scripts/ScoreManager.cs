@@ -35,8 +35,8 @@ public class ScoreManager : MonoBehaviour
         zombieDeathCount.GetComponent<Text>().text = zombieCount.Length.ToString();
 
         xpCount.GetComponent<Text>().text = xp.ToString();
-        soldierDeathCount.GetComponent<Text>().text = soldierDeaths.ToString();
-        civilianDeathCount.GetComponent<Text>().text = civilianDeaths.ToString();
+        //soldierDeathCount.GetComponent<Text>().text = soldierDeaths.ToString();
+        //civilianDeathCount.GetComponent<Text>().text = civilianDeaths.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();
     }
 }
