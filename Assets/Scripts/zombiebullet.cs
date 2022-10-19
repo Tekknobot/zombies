@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class zombiebullet : MonoBehaviour
 {
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,20 @@ public class zombiebullet : MonoBehaviour
 
         if(other.tag == "building") {
             Destroy(this.gameObject);
-        }        
+        }    
+
+        if (this.GetComponent<SpriteRenderer>().sprite.name == "zombie_grenade 0")
+        {
+            if(other.tag == "soldier" || other.tag == "civilian") {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
+
+            if(other.tag == "building" || other.tag == "landmine") {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            } 
+        }             
     }    
 
     void OnBecameInvisible() {

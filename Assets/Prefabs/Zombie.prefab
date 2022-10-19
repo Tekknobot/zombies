@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   zombieGrowlSFX: {fileID: 8300000, guid: 6c4d7ee230ef31544b184050c7dfd708, type: 3}
   audioSource_growl: {fileID: 6614213287842399278}
@@ -355,6 +356,7 @@ MonoBehaviour:
   - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
   - {fileID: 7712507716706664509, guid: 0d365632a4829844585c34ed300424af, type: 3}
   - {fileID: 7712507716706664509, guid: 48d87cefbf9becf42b49116c8ccd997c, type: 3}
+  - {fileID: 7712507716706664509, guid: 7e61da4ec99469f499124e13b1e59727, type: 3}
   fireRate: 2000
   shootingPower: 1
   range: 10

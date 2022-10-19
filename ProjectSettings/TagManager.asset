@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - building
+  - laser
+  - soldier
+  - civilian
+  - zombie
+  - bullet
+  - explosion
+  - fireup
+  - levelup
+  - zombiebullet
+  - landmine
   layers:
   - Default
   - TransparentFX

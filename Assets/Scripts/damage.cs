@@ -5,6 +5,7 @@ using UnityEngine;
 public class damage : MonoBehaviour
 {
     public float health = 90;
+    public float maxHealth = 100;
     public GameObject blood;
 
     public AudioClip zombieGrowlSFX;

@@ -16,9 +16,12 @@ GameObject:
   - component: {fileID: 4042129469907475842}
   - component: {fileID: -6849462986242033093}
   - component: {fileID: 3528516590124300477}
+  - component: {fileID: 8924796344465438685}
+  - component: {fileID: 1432659788104520633}
+  - component: {fileID: -1611478293101789302}
   m_Layer: 0
-  m_Name: ZombieBullet
-  m_TagString: zombiebullet
+  m_Name: ZombieGrenade
+  m_TagString: grenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,13 +79,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 4007208457334540149, guid: 69bbc0fe24feb404782e8ce3f777fe59,
+  m_Sprite: {fileID: 2024602503208394352, guid: 7d1113f3c79995149a71ec7ada3fda82,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.5, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,7 +100,7 @@ Animation:
   m_GameObject: {fileID: 7712507716706664509}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: bda4d8ad4e4f20841a56c2564abfb27d, type: 2}
+  m_Animation: {fileID: 7400000, guid: db39fe5551f8d2a4aa383322ddb7a052, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -113,7 +116,7 @@ Animator:
   m_GameObject: {fileID: 7712507716706664509}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9933432f6247582488d1ee6404e8612d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81554511615339342a7c5a0964914cf7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -269,3 +272,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8924796344465438685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7712507716706664509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8375ee209414c864396fe9dd77cc2967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 720
+--- !u!114 &1432659788104520633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7712507716706664509}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a84adccb3af869438e75655b22de54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 5
+--- !u!114 &-1611478293101789302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7712507716706664509}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41eb5131861634d824a4e3653734c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 10}
+  rigidbodyObject: {fileID: 4832692968499958849}
