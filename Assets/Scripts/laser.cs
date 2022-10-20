@@ -5,10 +5,13 @@ using UnityEngine;
 public class laser : MonoBehaviour
 {
     public GameObject gun;
-    public GameObject laserParticles;
+    public GameObject blood;
     private LineRenderer _lineRenderer;
     public Transform target;
     public int range = 10;
+    public AudioClip laserSFX;
+    public bool flag = false; 
+    public float timeLeft = 0.1f;  
 
     // Use this for initialization
     void Start()
@@ -19,26 +22,30 @@ public class laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AudioSource laserSFX = gameObject.GetComponent<AudioSource>();
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
         
         _lineRenderer.SetPosition(0, transform.position);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "zombie") {
+            if (collider.tag == "zombie" && flag == false) {
                 target = collider.transform;
-                _lineRenderer.SetPosition(1, new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z));
-                //Instantiate(laserParticles, hit.point, Quaternion.identity);
-                laserSFX.Play();                                                    
-                break;
-            }
-            else
-            {
-                _lineRenderer.SetPosition(1, transform.up * 2000);
-            }
+                this._lineRenderer.enabled = true;
+                this._lineRenderer.SetPosition(1, new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z));
+                audio.clip = laserSFX;
+                audio.Play(); 
+                collider.GetComponent<flash>().FlashRed();
+                collider.GetComponent<flash>().SendMessage("Damage", 1f); 
+                flag = true;
+                break; 
+            }   
+        }
 
-            if (collider.transform.tag == "soldier") {
-                Instantiate(laserParticles, collider.transform.position, Quaternion.identity);
-            }             
-        }       
-    }    
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            flag = false;
+            timeLeft = 0.1f;
+            this._lineRenderer.enabled = false;
+        }    
+    }
 }

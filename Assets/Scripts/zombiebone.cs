@@ -26,7 +26,7 @@ public class zombiebone : MonoBehaviour
 
         if(other.tag == "building") {
             Destroy(this.gameObject);
-        }        
+        }      
     }    
 
     void OnBecameInvisible() {

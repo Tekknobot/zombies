@@ -15,6 +15,7 @@ TagManager:
   - levelup
   - zombiebullet
   - landmine
+  - grenade
   layers:
   - Default
   - TransparentFX

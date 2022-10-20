@@ -10,6 +10,8 @@ public class GroupSpawner : MonoBehaviour
     public float startTimeBtwSpawn = 5;
     public float decreaseTime;
     public int spawnSide;
+    public GameObject[] soldierCount;
+
     void Start()
     {
         spawnSide = Random.Range(0, 4);
@@ -17,7 +19,7 @@ public class GroupSpawner : MonoBehaviour
  
     void Update()
     {
-        if(timeBtwSpawn <= 0) {
+        if(timeBtwSpawn <= 0 && soldierCount.Length < 200) {
             if(spawnSide == 0) {
                 Instantiate(group[Random.Range(0,group.Length)], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);
@@ -39,5 +41,7 @@ public class GroupSpawner : MonoBehaviour
         else {
             timeBtwSpawn -= Time.deltaTime;
         }
+
+        soldierCount = GameObject.FindGameObjectsWithTag("soldier");
     }
 }

@@ -95,7 +95,7 @@ public class FollowPlayer : MonoBehaviour
             this.currentXPLevel += 1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = this.currentXPLevel;
             range += 1;
-            speed += 1;
+            speed += 0.5f;
             GetComponent<damage>().health = GetComponent<damage>().maxHealth;
             //GetComponent<flash>().dmg += 1;
             GetComponent<ZombieShoot>().fireRate -= 500;
@@ -106,7 +106,7 @@ public class FollowPlayer : MonoBehaviour
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");
             foreach (GameObject soldier in soldierCount) {
                 //soldier.GetComponent<damageSoldier>().health += 1;
-                soldier.GetComponent<soldierflash>().dmg += 2;
+                //soldier.GetComponent<soldierflash>().dmg += 1;
             }
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.1f);

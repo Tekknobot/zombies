@@ -30,15 +30,10 @@ public class zombiebullet : MonoBehaviour
 
         if (this.GetComponent<SpriteRenderer>().sprite.name == "zombie_grenade 0")
         {
-            if(other.tag == "soldier" || other.tag == "civilian") {
+            if(other.tag == "landmine") {
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
-            }
-
-            if(other.tag == "building" || other.tag == "landmine") {
-                Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
-            } 
+            }              
         }             
     }    
 
