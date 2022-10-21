@@ -94,7 +94,7 @@ public class FollowPlayer : MonoBehaviour
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             this.currentXPLevel += 1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = this.currentXPLevel;
-            range += 1;
+            //range += 1;
             speed += 0.5f;
             GetComponent<damage>().health = GetComponent<damage>().maxHealth;
             //GetComponent<flash>().dmg += 1;
@@ -109,8 +109,8 @@ public class FollowPlayer : MonoBehaviour
                 //soldier.GetComponent<soldierflash>().dmg += 1;
             }
 
-            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.1f);
-            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.1f; 
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
+            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.25f; 
         }                    
     }    
 

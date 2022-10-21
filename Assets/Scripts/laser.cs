@@ -30,11 +30,11 @@ public class laser : MonoBehaviour
             if (collider.tag == "zombie" && flag == false) {
                 target = collider.transform;
                 this._lineRenderer.enabled = true;
-                this._lineRenderer.SetPosition(1, new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z));
+                this._lineRenderer.SetPosition(1, new Vector3(target.transform.position.x, target.transform.position.y, 0));
                 audio.clip = laserSFX;
                 audio.Play(); 
                 collider.GetComponent<flash>().FlashRed();
-                collider.GetComponent<flash>().SendMessage("Damage", 1f); 
+                collider.GetComponent<flash>().SendMessage("Damage", 1); 
                 flag = true;
                 break; 
             }   

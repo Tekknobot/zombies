@@ -394,9 +394,10 @@ MonoBehaviour:
   gun: {fileID: 6614213287842399284}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   target: {fileID: 0}
-  range: 10
+  range: 5
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
-  fireRate: 3
+  flag: 0
+  timeLeft: 1
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +436,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
