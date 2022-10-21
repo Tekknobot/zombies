@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 7302091632892366472}
   - component: {fileID: 7027271992008678649}
   - component: {fileID: 3785647477362483842}
+  - component: {fileID: -5990309028767167642}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: soldier
@@ -495,3 +496,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-5990309028767167642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614213287842399284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.25067997, y: -0.5723438, z: 0}
+  - {x: 0.20742798, y: -0.5735245, z: 0}
+  - {x: 0.21017933, y: -0.43390465, z: 0}
+  - {x: -0.25234413, y: -0.4306717, z: 0}
+  m_ShapePathHash: 1601553269
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 1145370

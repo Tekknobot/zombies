@@ -62,7 +62,7 @@ public class damageSoldier : MonoBehaviour
 
     IEnumerator WaitForSFX()
     {
-        yield return new WaitForSeconds(0.888f);
+        yield return new WaitForSeconds(0f);
         Destroy(gameObject);
     }
 }

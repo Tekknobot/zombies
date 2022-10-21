@@ -24,7 +24,7 @@ public class MissileScope : MonoBehaviour
 
     IEnumerator TargetHorde() {
         flag = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
         
