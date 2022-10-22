@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class damageSoldier : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class damageSoldier : MonoBehaviour
 
     public GameObject zombie; 
     public GameObject gem;
+    public GameObject screamSFX;
+
+    public GameObject healthbar;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,7 @@ public class damageSoldier : MonoBehaviour
                 Instantiate(blood, transform.position, Quaternion.identity);
                 Instantiate(zombie, transform.position, Quaternion.identity);
                 Instantiate(gem, transform.position, Quaternion.identity);
+                Instantiate(screamSFX, transform.position, Quaternion.identity);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<FollowPlayer>().speed = 0f;
                 boxCol.enabled = false;
@@ -58,6 +63,8 @@ public class damageSoldier : MonoBehaviour
                 StartCoroutine(WaitForSFX());
             }
         }
+
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
     }    
 
     IEnumerator WaitForSFX()

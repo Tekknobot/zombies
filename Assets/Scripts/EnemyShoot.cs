@@ -25,6 +25,7 @@ public class EnemyShoot : MonoBehaviour
         }
         else if (choice == 1){
             this.GetComponent<FollowPlayer>().enabled = true;
+            //this.GetComponent<AvoidPlayer>().enabled = true;
             this.GetComponent<EnemyShoot>().enabled = true;
         } 
         else if (choice == 2){

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class damage : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class damage : MonoBehaviour
     private bool hasPlayed = false;
 
     public BoxCollider2D boxCol;
-    public BoxCollider2D boxCol2;    
+    public BoxCollider2D boxCol2; 
+
+    public GameObject healthbar;
+       
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,8 @@ public class damage : MonoBehaviour
                 StartCoroutine(WaitForSFX());
             }
         }
+
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
     }    
 
     IEnumerator WaitForSFX()

@@ -34,7 +34,7 @@ public class laser : MonoBehaviour
                 audio.clip = laserSFX;
                 audio.Play(); 
                 collider.GetComponent<flash>().FlashRed();
-                collider.GetComponent<flash>().SendMessage("Damage", 1); 
+                collider.GetComponent<flash>().SendMessage("Damage", 2); 
                 flag = true;
                 break; 
             }   

@@ -31,10 +31,7 @@ public class FollowPlayer : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (this.tag == "zombie") {
-            speed = Random.Range(2+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel, GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+5);
-            range = 10+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;
-            GetComponent<damage>().health = 100+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;
-            GetComponent<flash>().dmg = 5+GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel; 
+            speed = Random.Range(2, 5);        
         }
         
         if (this.tag == "soldier") {
@@ -93,12 +90,8 @@ public class FollowPlayer : MonoBehaviour
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             this.currentXPLevel += 1;
-            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = this.currentXPLevel;
-            //range += 1;
-            speed += 0.5f;
-            GetComponent<damage>().health = GetComponent<damage>().maxHealth;
-            //GetComponent<flash>().dmg += 1;
-            GetComponent<ZombieShoot>().fireRate -= 500;
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
+            GetComponent<ZombieShoot>().fireRate -= 250;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");
             
             StartCoroutine(WaitForXPUpdate());
