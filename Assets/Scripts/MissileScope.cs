@@ -8,11 +8,11 @@ public class MissileScope : MonoBehaviour
     public bool flag;
 
     public AudioSource audioData;
-    public int i = 0;
 
     public Transform target;
     public float range = 10;
     public float speed;
+    public float minute = 60;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class MissileScope : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
 
-       if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel > i && flag == false) {
+       if (GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > minute && flag == false) {
             GetComponent<SpriteRenderer>().enabled = true;
             audioData.Play();
             StartCoroutine(TargetHorde());        
@@ -37,11 +37,11 @@ public class MissileScope : MonoBehaviour
 
     IEnumerator TargetHorde() {
         flag = true;
-        i++;
         yield return new WaitForSeconds(5);
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
         audioData.Stop();
+        minute += 60;
         flag = false;        
     }
 }

@@ -34,15 +34,6 @@ public class soldierflash : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "zombie" && col.GetComponent<FollowPlayer>().onFire == false) {
-            FlashRed();
-            this.transform.SendMessage("Damage", dmg);
-        } 
-        if(col.tag == "zombie" && col.GetComponent<FollowPlayer>().onFire == true) {
-            FlashRed();
-            this.transform.SendMessage("Damage", dmg+10);
-        }    
-
         if(col.tag == "zombiebullet") {
             FlashRed();
             this.transform.SendMessage("Damage", dmg);
@@ -51,7 +42,7 @@ public class soldierflash : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if(col.tag == "zombie" && col.GetComponent<FollowPlayer>().onFire == false) {
+        if(col.tag == "zombie") {
             currentDamageTime += Time.deltaTime;
             if(currentDamageTime > damageTime)
             {
@@ -59,15 +50,6 @@ public class soldierflash : MonoBehaviour
                 currentDamageTime = 0.0f;
                 this.transform.SendMessage("Damage", dmg);
             }    
-        }
-        if(col.tag == "zombie" && col.GetComponent<FollowPlayer>().onFire == true) {
-            currentDamageTime += Time.deltaTime;
-            if(currentDamageTime > damageTime)
-            {
-                FlashRed();
-                currentDamageTime = 0.0f;
-                this.transform.SendMessage("Damage", dmg+10);
-            }    
-        }        
+        }       
     }           
 }

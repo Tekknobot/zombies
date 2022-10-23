@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\SpeedModifier.cs" />
      <Compile Include="Assets\Scripts\Throw.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\WanderAI.cs" />
      <Compile Include="Assets\Scripts\XboxControllerTest.cs" />
      <Compile Include="Assets\Scripts\ZombieShoot.cs" />

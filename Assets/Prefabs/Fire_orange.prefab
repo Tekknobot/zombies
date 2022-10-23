@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5936670039431946153}
   - component: {fileID: 5936670039431946154}
   - component: {fileID: 651601740762578270}
-  - component: {fileID: -7668842134023879100}
   m_Layer: 0
   m_Name: Fire_orange
   m_TagString: Untagged
@@ -130,16 +129,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-7668842134023879100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5936670039431946155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d952074245498fc4a8eb36c226b127c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfx: {fileID: 2669608364828651773, guid: 4de4c7a1d0755714786ef2e65180d400, type: 3}

@@ -36,7 +36,7 @@ public class FollowPlayer : MonoBehaviour
         
         if (this.tag == "soldier") {
             speed = Random.Range(2, 5);
-        }        
+        }             
     }
 
     // Update is called once per frame
@@ -91,9 +91,14 @@ public class FollowPlayer : MonoBehaviour
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             this.currentXPLevel += 1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
-            GetComponent<ZombieShoot>().fireRate -= 250;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");
-            
+            foreach (GameObject zombie in zombieCount) {
+                zombie.GetComponent<damage>().health = GetComponent<damage>().maxHealth;
+                zombie.GetComponent<ZombieShoot>().fireRate -= 250;
+                zombie.GetComponent<FollowPlayer>().speed += 0.5f;
+                zombie.GetComponent<FollowPlayer>().range += 1f;
+            }
+
             StartCoroutine(WaitForXPUpdate());
 
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");
@@ -102,8 +107,7 @@ public class FollowPlayer : MonoBehaviour
                 //soldier.GetComponent<soldierflash>().dmg += 1;
             }
 
-            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
-            GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn -= 0.25f; 
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f); 
         }                    
     }    
 
@@ -116,8 +120,8 @@ public class FollowPlayer : MonoBehaviour
 
     IEnumerator WaitForXPUpdate() {
         foreach (GameObject zombie in zombieCount) {
-        yield return new WaitForSeconds(0.0f);
-        Instantiate(levelUp, zombie.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.0f);
+            Instantiate(levelUp, zombie.transform.position, Quaternion.identity);
         }
     }
 }

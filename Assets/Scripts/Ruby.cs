@@ -23,10 +23,7 @@ public class Ruby : MonoBehaviour
     {
         if(other.tag == "zombie") {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
-            zombies = GameObject.FindGameObjectsWithTag("zombie");
-            foreach (GameObject zombie in zombies) {
-                zombie.GetComponent<damage>().health += 0f;
-            }
+            other.GetComponent<damage>().health = other.GetComponent<damage>().maxHealth;
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
         }       

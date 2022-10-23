@@ -276,13 +276,12 @@ MonoBehaviour:
   run: {fileID: 9100000, guid: a16a4aca3775ed64886c965efea82aec, type: 2}
   idle: {fileID: 9100000, guid: 2992739374d60e94b9cc31541c828e9d, type: 2}
   target: {fileID: 0}
-  levelUp: {fileID: 2669608364828651773, guid: 93c6d1c61eea8ad4b9f351a2a23a9e2b, type: 3}
+  levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
   zombieCount: []
   soldierCount: []
   index: 0
   currentXPLevel: 0
   onFire: 0
-  healthbar: {fileID: 3940187829042434954}
 --- !u!114 &6614213287842399272
 MonoBehaviour:
   m_ObjectHideFlags: 0
