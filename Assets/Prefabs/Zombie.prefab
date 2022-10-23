@@ -282,6 +282,7 @@ MonoBehaviour:
   index: 0
   currentXPLevel: 0
   onFire: 0
+  justLeveledUp: 0
 --- !u!114 &6614213287842399272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +299,7 @@ MonoBehaviour:
   thisRenderer: {fileID: 6614213287842399266}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   dmg: 5
+  dmgBullet: 12.5
 --- !u!50 &6614213287842399275
 Rigidbody2D:
   serializedVersion: 4

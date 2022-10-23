@@ -287,6 +287,7 @@ MonoBehaviour:
   index: 0
   currentXPLevel: 0
   onFire: 0
+  justLeveledUp: 0
 --- !u!50 &6614213287842399275
 Rigidbody2D:
   serializedVersion: 4
@@ -324,6 +325,7 @@ MonoBehaviour:
   thisRenderer: {fileID: 6614213287842399266}
   dmg: 5
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
+  bulletDmg: 5
 --- !u!114 &4042259941973065783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +349,9 @@ MonoBehaviour:
   screamSFX: {fileID: 6901175269105295133, guid: 6d524c6ed5fc7044fa6c48cda2ee770c,
     type: 3}
   healthbar: {fileID: 1524852031614197432}
+  boss: 0
+  laserSoldier: 0
+  projectileSoldier: 0
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +408,7 @@ MonoBehaviour:
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
   flag: 0
   timeLeft: 1
+  dmg: 0
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0

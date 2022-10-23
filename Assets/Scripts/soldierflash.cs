@@ -15,6 +15,8 @@ public class soldierflash : MonoBehaviour
     public float dmg = 5f;   
     public GameObject blood;
 
+    public float bulletDmg;
+
     void Start()
     {
         origionalColor = thisRenderer.color;
@@ -36,7 +38,7 @@ public class soldierflash : MonoBehaviour
     {
         if(col.tag == "zombiebullet") {
             FlashRed();
-            this.transform.SendMessage("Damage", dmg);
+            this.transform.SendMessage("Damage", bulletDmg);
         }                           
     }    
 

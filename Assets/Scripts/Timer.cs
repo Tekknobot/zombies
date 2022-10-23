@@ -51,7 +51,16 @@ public class Timer : MonoBehaviour
             }
             else if (timeElapsed > 480) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.5f;                
-            }                                                                       
+            } 
+            else if (timeElapsed > 540) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.3f;                
+            }
+            else if (timeElapsed > 600) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.2f;                
+            }
+            else if (timeElapsed > 660) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.1f;                
+            }                                                                                                          
         }
     }
     void DisplayTime(float timeToDisplay)

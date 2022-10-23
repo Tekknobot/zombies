@@ -33,24 +33,38 @@ public class FollowPlayer : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (this.tag == "zombie") {
-            speed = Random.Range(2, 5);        
+            speed = Random.Range(2, 5);
+            zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+            foreach (GameObject zombie in zombieCount) {
+                GetComponent<FollowPlayer>().currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;
+            }
         }
-        
+
         if (this.tag == "soldier") {
             speed = Random.Range(2, 5);
-        }             
+            GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GetComponent<FollowPlayer>().currentXPLevel;
+            GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GetComponent<FollowPlayer>().currentXPLevel;            
+        }
+
+        if (this.tag == "soldier" && GetComponent<damageSoldier>().boss == true) {
+            speed = 2;
+        } 
+
+        if (this.tag == "soldier" && GetComponent<damageSoldier>().mech == true) {
+            speed = 1;
+        }               
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        zombieCount = GameObject.FindGameObjectsWithTag("zombie");  
+    {
+        zombieCount = GameObject.FindGameObjectsWithTag("zombie");
         if (Input.GetButton("Right Bumper")) {
             GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
             if (index >= zombieCount.Length) {
                 index = 0;
             }
-        }  
+        }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
         foreach (Collider2D collider in colliders) {
@@ -58,24 +72,24 @@ public class FollowPlayer : MonoBehaviour
                 if (Input.GetButton("Fire1")) {
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                     break;
-                }                 
-                if (collider.tag == "civilian" || collider.tag == "soldier") {
-                    target = collider.transform; 
-                    break;                    
                 }
-                else {                    
+                if (collider.tag == "civilian" || collider.tag == "soldier") {
+                    target = collider.transform;
+                    break;
+                }
+                else {
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-                }                
+                }
             }
             if (this.tag == "soldier") {
                 if (collider.tag == "zombie" && this.tag == "soldier") {
-                    target = collider.transform; 
+                    target = collider.transform;
                     break;
                 }
-                else {                    
+                else {
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                 }
-            }            
+            }
         }
 
         if (Vector2.Distance(transform.position, target.position) < range) {
@@ -87,7 +101,7 @@ public class FollowPlayer : MonoBehaviour
             Animator animator = gameObject.GetComponent<Animator>();
             animator.runtimeAnimatorController = idle as RuntimeAnimatorController;
         }
-        mySpriteRenderer.flipX = target.position.x < this.transform.position.x;    
+        mySpriteRenderer.flipX = target.position.x < this.transform.position.x;
 
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
@@ -101,11 +115,16 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<FollowPlayer>().range += 1f;
             }
 
+            soldierCount = GameObject.FindGameObjectsWithTag("soldier");
+            foreach (GameObject soldier in soldierCount) {
+                soldier.GetComponent<soldierflash>().dmg += 1;
+                soldier.GetComponent<soldierflash>().bulletDmg += 1;
+            }
             StartCoroutine(WaitForXPUpdate());
 
-            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f); 
-        }                    
-    }    
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
+        }
+    }
 
     void OnDrawGizmosSelected()
     {
@@ -127,17 +146,19 @@ public class FollowPlayer : MonoBehaviour
         GameObject.Find("LevelUpText").GetComponent<Text>().enabled = true;
         GameObject.Find("+1").GetComponent<Text>().enabled = true;
         GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = true;
-        GameObject.Find("PressA").GetComponent<Text>().enabled = true;        
-    
-        while(!Input.GetButtonDown("Fire1"))
-        {
-            yield return null;
-        }
-    
+        //GameObject.Find("PressA").GetComponent<Text>().enabled = true;
+
+        yield return new WaitForSeconds(3);
+
+        // while(!Input.GetButtonDown("Fire1"))
+        // {
+        //     yield return null;
+        // }
+
         //Time.timeScale = 1f;
         GameObject.Find("LevelUpText").GetComponent<Text>().enabled = false;
         GameObject.Find("+1").GetComponent<Text>().enabled = false;
         GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = false;
-        GameObject.Find("PressA").GetComponent<Text>().enabled = false;     
+        //GameObject.Find("PressA").GetComponent<Text>().enabled = false;
     }
 }

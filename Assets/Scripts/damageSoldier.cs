@@ -24,6 +24,7 @@ public class damageSoldier : MonoBehaviour
     public bool boss;
     public bool laserSoldier;
     public bool projectileSoldier;
+    public bool mech;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,31 @@ public class damageSoldier : MonoBehaviour
                 Instantiate(blood, transform.position, Quaternion.identity);
                 Instantiate(zombie, transform.position, Quaternion.identity);
                 Instantiate(gem, transform.position, Quaternion.identity);
+                if (projectileSoldier == true) {
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                }
+                if (laserSoldier == true) {
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                }  
+                if (boss == true) {
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity); 
+                    Instantiate(gem, transform.position, Quaternion.identity);                   
+                }  
+                if (mech == true) {
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity); 
+                    Instantiate(gem, transform.position, Quaternion.identity);  
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity);
+                    Instantiate(gem, transform.position, Quaternion.identity); 
+                    Instantiate(gem, transform.position, Quaternion.identity);                                      
+                }                                               
                 Instantiate(screamSFX, transform.position, Quaternion.identity);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<FollowPlayer>().speed = 0f;
@@ -70,16 +96,20 @@ public class damageSoldier : MonoBehaviour
         healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
 
         if (laserSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
         }
 
         if (projectileSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/200);
         }        
 
         if (boss == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/400);
         }
+
+        if (mech == true) {
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/400);
+        }        
     }    
 
     IEnumerator WaitForSFX()
