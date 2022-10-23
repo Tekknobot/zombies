@@ -12,6 +12,7 @@ public class laser : MonoBehaviour
     public AudioClip laserSFX;
     public bool flag = false; 
     public float timeLeft = 0.1f;  
+    public float dmg;
 
     // Use this for initialization
     void Start()
@@ -34,7 +35,7 @@ public class laser : MonoBehaviour
                 audio.clip = laserSFX;
                 audio.Play(); 
                 collider.GetComponent<flash>().FlashRed();
-                collider.GetComponent<flash>().SendMessage("Damage", 50); 
+                collider.GetComponent<flash>().SendMessage("Damage", dmg); 
                 flag = true;
                 break; 
             }   

@@ -11,6 +11,7 @@ public class flash : MonoBehaviour
     public GameObject blood;  
 
     public float dmg = 5f;
+    public float dmgBullet = 25f;
 
     float damageTime = 0.25f; //How often you want to damage to be done to the player
     //change to 0.25f for every quarter second/0.5f for half
@@ -38,7 +39,7 @@ public class flash : MonoBehaviour
         if(col.tag == "bullet") {
             FlashRed();
             Instantiate(blood, transform.position, Quaternion.identity);
-            this.transform.SendMessage("Damage", dmg);
+            this.transform.SendMessage("Damage", dmgBullet);
         }
 
         if(col.tag == "soldier") {

@@ -21,6 +21,9 @@ public class damageSoldier : MonoBehaviour
     public GameObject screamSFX;
 
     public GameObject healthbar;
+    public bool boss;
+    public bool laserSoldier;
+    public bool projectileSoldier;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +68,18 @@ public class damageSoldier : MonoBehaviour
         }
 
         healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+
+        if (laserSoldier == true) {
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+        }
+
+        if (projectileSoldier == true) {
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+        }        
+
+        if (boss == true) {
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
+        }
     }    
 
     IEnumerator WaitForSFX()

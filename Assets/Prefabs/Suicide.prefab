@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c116ecec50214991ff26275f4b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   blood: {fileID: 7118476831730622947, guid: 7d3cbc9ba6fd02648a582aed49f0bb5c, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}
@@ -347,6 +347,7 @@ MonoBehaviour:
   screamSFX: {fileID: 6901175269105295133, guid: 6d524c6ed5fc7044fa6c48cda2ee770c,
     type: 3}
   healthbar: {fileID: 1524852031614197432}
+  boss: 1
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +404,7 @@ MonoBehaviour:
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
   flag: 0
   timeLeft: 1
+  dmg: 0
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0

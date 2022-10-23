@@ -32,25 +32,25 @@ public class Timer : MonoBehaviour
             }
 
             if (timeElapsed > 60) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 18f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 13f;                
             }
             else if (timeElapsed > 120) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 16f;                
-            }
-            else if (timeElapsed > 180) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 14f;                
-            } 
-            else if (timeElapsed > 240) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 12f;                
-            }
-            else if (timeElapsed > 300) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 10f;                
-            }
-            else if (timeElapsed > 360) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 8f;                
             }
+            else if (timeElapsed > 180) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 5f;                
+            } 
+            else if (timeElapsed > 240) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+            }
+            else if (timeElapsed > 300) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 2;                
+            }
+            else if (timeElapsed > 360) {
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
+            }
             else if (timeElapsed > 480) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 6f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.5f;                
             }                                                                       
         }
     }

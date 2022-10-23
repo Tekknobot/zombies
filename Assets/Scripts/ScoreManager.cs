@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject civilianDeathCount;
     public GameObject xpCount;
     public GameObject levelCount;
+    public GameObject levelNumber;
 
     public GameObject[] zombieCount;
 
@@ -33,6 +34,10 @@ public class ScoreManager : MonoBehaviour
     {
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
         zombieDeathCount.GetComponent<Text>().text = zombieCount.Length.ToString();
+        
+        foreach (GameObject zombie in zombieCount) {
+            levelNumber.GetComponent<Text>().text = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel.ToString();
+        }
 
         xpCount.GetComponent<Text>().text = xp.ToString();
         //soldierDeathCount.GetComponent<Text>().text = soldierDeaths.ToString();

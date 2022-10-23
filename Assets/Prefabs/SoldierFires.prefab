@@ -347,6 +347,9 @@ MonoBehaviour:
   screamSFX: {fileID: 6901175269105295133, guid: 6d524c6ed5fc7044fa6c48cda2ee770c,
     type: 3}
   healthbar: {fileID: 1524852031614197432}
+  boss: 0
+  laserSoldier: 0
+  projectileSoldier: 1
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +406,7 @@ MonoBehaviour:
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
   flag: 0
   timeLeft: 1
+  dmg: 0
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0

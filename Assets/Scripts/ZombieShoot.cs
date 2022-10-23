@@ -53,6 +53,7 @@ public class ZombieShoot : MonoBehaviour
             GameObject projectile = Instantiate(bullet[Random.Range(1, 6)], myPos, Quaternion.identity); //create our bullet
             Vector2 direction = myPos - (Vector2)target.position; //get the direction to the target
             projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction * shootingPower; //shoot the bullet
+            //GameObject.Find("Main Camera").GetComponent<ShakeBehavior>().TriggerShake();
         }
     }  
 

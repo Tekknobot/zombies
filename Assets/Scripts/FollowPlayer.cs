@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class FollowPlayer : MonoBehaviour
 
     public int currentXPLevel = 0;
     public bool onFire = false;
+    public bool justLeveledUp = false;
 
     // Start is called before the first frame update
     void Start()
@@ -89,10 +91,10 @@ public class FollowPlayer : MonoBehaviour
 
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
-            this.currentXPLevel += 1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");
             foreach (GameObject zombie in zombieCount) {
+                zombie.GetComponent<FollowPlayer>().currentXPLevel += 1;
                 zombie.GetComponent<damage>().health = GetComponent<damage>().maxHealth;
                 zombie.GetComponent<ZombieShoot>().fireRate -= 250;
                 zombie.GetComponent<FollowPlayer>().speed += 0.5f;
@@ -100,12 +102,6 @@ public class FollowPlayer : MonoBehaviour
             }
 
             StartCoroutine(WaitForXPUpdate());
-
-            soldierCount = GameObject.FindGameObjectsWithTag("soldier");
-            foreach (GameObject soldier in soldierCount) {
-                //soldier.GetComponent<damageSoldier>().health += 1;
-                //soldier.GetComponent<soldierflash>().dmg += 1;
-            }
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f); 
         }                    
@@ -122,6 +118,26 @@ public class FollowPlayer : MonoBehaviour
         foreach (GameObject zombie in zombieCount) {
             yield return new WaitForSeconds(0.0f);
             Instantiate(levelUp, zombie.transform.position, Quaternion.identity);
+            //Time.timeScale = 0f;
+            StartCoroutine(UnPause());
         }
+    }
+
+    IEnumerator UnPause() {
+        GameObject.Find("LevelUpText").GetComponent<Text>().enabled = true;
+        GameObject.Find("+1").GetComponent<Text>().enabled = true;
+        GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = true;
+        GameObject.Find("PressA").GetComponent<Text>().enabled = true;        
+    
+        while(!Input.GetButtonDown("Fire1"))
+        {
+            yield return null;
+        }
+    
+        //Time.timeScale = 1f;
+        GameObject.Find("LevelUpText").GetComponent<Text>().enabled = false;
+        GameObject.Find("+1").GetComponent<Text>().enabled = false;
+        GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = false;
+        GameObject.Find("PressA").GetComponent<Text>().enabled = false;     
     }
 }
