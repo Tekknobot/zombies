@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6415773947152406489, guid: 7c2a38e3f1708e94dbace514c1ef62c4,
+  m_Sprite: {fileID: 1017333409371384374, guid: 53d1b158eeb371c4eb06ee090b1dc383,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 6614213287842399284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
+  m_Controller: {fileID: 9100000, guid: 958c57cd346ec864d889a304e3f3b9ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -278,12 +278,13 @@ MonoBehaviour:
   speed: 3
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
+  run: {fileID: 9100000, guid: 958c57cd346ec864d889a304e3f3b9ff, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 0}
   zombieCount: []
   soldierCount: []
+  zombie: {fileID: 0}
   index: 0
   currentXPLevel: 0
   onFire: 0
@@ -352,6 +353,7 @@ MonoBehaviour:
   boss: 0
   laserSoldier: 1
   projectileSoldier: 0
+  mech: 0
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,11 +406,11 @@ MonoBehaviour:
   gun: {fileID: 6614213287842399284}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   target: {fileID: 0}
-  range: 5
+  range: 10
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
   flag: 0
   timeLeft: 1
-  dmg: 20
+  dmg: 10
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0

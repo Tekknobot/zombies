@@ -68,7 +68,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6614213287842399284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5, y: -25.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 304484662878743424}
@@ -263,6 +263,7 @@ MonoBehaviour:
   levelUp: {fileID: 0}
   zombieCount: []
   soldierCount: []
+  zombie: {fileID: 0}
   index: 0
   currentXPLevel: 0
   onFire: 0
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashTime: 0.1
   thisRenderer: {fileID: 6614213287842399266}
-  dmg: 5
+  dmg: 5.5
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   bulletDmg: 5
 --- !u!114 &4042259941973065783
@@ -321,8 +322,8 @@ MonoBehaviour:
   blood: {fileID: 7118476831730622947, guid: 7d3cbc9ba6fd02648a582aed49f0bb5c, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}
-  boxCol: {fileID: 0}
-  boxCol2: {fileID: 0}
+  boxCol: {fileID: 8668446356167334165}
+  boxCol2: {fileID: 8968066298541193311}
   zombie: {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c, type: 3}
   gem: {fileID: 5535638297179634274, guid: 469447baf27e6e5419d09bda0c6301cc, type: 3}
   screamSFX: {fileID: 6901175269105295133, guid: 6d524c6ed5fc7044fa6c48cda2ee770c,
@@ -525,7 +526,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.61899567, y: 1.0021801}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -536,7 +537,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.762009, y: 8.99564}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!61 &8968066298541193311
 BoxCollider2D:
@@ -551,7 +552,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.61899567, y: 1.0021801}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -562,7 +563,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.762009, y: 8.99564}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!1001 &2130881105181548216
 PrefabInstance:

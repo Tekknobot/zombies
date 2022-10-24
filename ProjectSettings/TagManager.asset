@@ -16,6 +16,9 @@ TagManager:
   - zombiebullet
   - landmine
   - grenade
+  - fire
+  - ruby
+  - heart
   layers:
   - Default
   - TransparentFX

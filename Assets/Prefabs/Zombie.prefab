@@ -279,6 +279,7 @@ MonoBehaviour:
   levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
   zombieCount: []
   soldierCount: []
+  zombie: {fileID: 6614213287842399284}
   index: 0
   currentXPLevel: 0
   onFire: 0
@@ -299,7 +300,8 @@ MonoBehaviour:
   thisRenderer: {fileID: 6614213287842399266}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   dmg: 5
-  dmgBullet: 12.5
+  dmgBullet: 25
+  dmgFire: 5
 --- !u!50 &6614213287842399275
 Rigidbody2D:
   serializedVersion: 4

@@ -12,6 +12,7 @@ public class flash : MonoBehaviour
 
     public float dmg = 5f;
     public float dmgBullet = 25f;
+    public float dmgFire = 1f;
 
     float damageTime = 0.25f; //How often you want to damage to be done to the player
     //change to 0.25f for every quarter second/0.5f for half
@@ -45,7 +46,12 @@ public class flash : MonoBehaviour
         if(col.tag == "soldier") {
             FlashRed();
             this.transform.SendMessage("Damage", dmg);
-        }        
+        }   
+
+        if(col.tag == "fire") {
+            FlashRed();
+            this.transform.SendMessage("Damage", dmgFire);
+        }                
     } 
 
     void OnTriggerStay2D(Collider2D col)

@@ -284,6 +284,7 @@ MonoBehaviour:
   levelUp: {fileID: 0}
   zombieCount: []
   soldierCount: []
+  zombie: {fileID: 0}
   index: 0
   currentXPLevel: 0
   onFire: 0
@@ -352,6 +353,7 @@ MonoBehaviour:
   boss: 1
   laserSoldier: 0
   projectileSoldier: 0
+  mech: 0
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0

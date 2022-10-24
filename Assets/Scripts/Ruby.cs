@@ -6,6 +6,10 @@ public class Ruby : MonoBehaviour
 {
     public GameObject sfx;
     public GameObject[] zombies;
+    public GameObject zombie;
+
+    public bool zombieheart = false;
+    public int zombieGift = 9;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,16 @@ public class Ruby : MonoBehaviour
             other.GetComponent<damage>().health = other.GetComponent<damage>().maxHealth;
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
-        }       
+        }  
+
+        if(other.tag == "zombie" && zombieheart == true) {
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
+            other.GetComponent<damage>().health = other.GetComponent<damage>().maxHealth;
+            for (int i = 0; i < zombieGift; i++) {
+                Instantiate(zombie, transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);  
+        }              
     }
 
     IEnumerator WaitForCollider() {

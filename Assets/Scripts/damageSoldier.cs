@@ -74,12 +74,7 @@ public class damageSoldier : MonoBehaviour
                     Instantiate(gem, transform.position, Quaternion.identity);
                     Instantiate(gem, transform.position, Quaternion.identity); 
                     Instantiate(gem, transform.position, Quaternion.identity);                                      
-                }                                               
-                Instantiate(screamSFX, transform.position, Quaternion.identity);
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.GetComponent<FollowPlayer>().speed = 0f;
-                boxCol.enabled = false;
-                boxCol2.enabled = false;
+                }                                              
 
                 if (gameObject.tag == "soldier") {
                     GameObject.Find("ScoreManager").GetComponent<ScoreManager>().soldierDeaths += 1;
@@ -88,6 +83,12 @@ public class damageSoldier : MonoBehaviour
                 if (gameObject.tag == "civilian") {
                     GameObject.Find("ScoreManager").GetComponent<ScoreManager>().civilianDeaths += 1;
                 }                
+
+                Instantiate(screamSFX, transform.position, Quaternion.identity);
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.GetComponent<FollowPlayer>().speed = 0f;
+                boxCol.enabled = false;
+                boxCol2.enabled = false;
 
                 StartCoroutine(WaitForSFX());
             }

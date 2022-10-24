@@ -19,6 +19,7 @@ public class FollowPlayer : MonoBehaviour
     public GameObject levelUp;
     public GameObject[] zombieCount;
     public GameObject[] soldierCount;
+    public GameObject zombie;
 
     public int index;
 
@@ -90,6 +91,15 @@ public class FollowPlayer : MonoBehaviour
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                 }
             }
+            if (this.tag == "soldier" && GetComponent<damageSoldier>().mech == true) {
+                if (collider.tag == "zombie" && this.tag == "soldier") {
+                    target = collider.transform;
+                    break;
+                }
+                else {
+                    //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+                }
+            }            
         }
 
         if (Vector2.Distance(transform.position, target.position) < range) {
@@ -111,7 +121,7 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<FollowPlayer>().currentXPLevel += 1;
                 zombie.GetComponent<damage>().health = GetComponent<damage>().maxHealth;
                 zombie.GetComponent<ZombieShoot>().fireRate -= 250;
-                zombie.GetComponent<FollowPlayer>().speed += 0.5f;
+                zombie.GetComponent<FollowPlayer>().speed += 1f;
                 zombie.GetComponent<FollowPlayer>().range += 1f;
             }
 
@@ -123,6 +133,7 @@ public class FollowPlayer : MonoBehaviour
             StartCoroutine(WaitForXPUpdate());
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
+            Instantiate(zombie, this.transform.position, Quaternion.identity);
         }
     }
 
