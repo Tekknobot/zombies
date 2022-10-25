@@ -34,10 +34,12 @@ public class FollowPlayer : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (this.tag == "zombie") {
-            speed = Random.Range(2, 5);
+            speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");
             foreach (GameObject zombie in zombieCount) {
-                GetComponent<FollowPlayer>().currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;
+                currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;
+                //fireRate -= 250;
+                range += GetComponent<FollowPlayer>().currentXPLevel;                
             }
         }
 
