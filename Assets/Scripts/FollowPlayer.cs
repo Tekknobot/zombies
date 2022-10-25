@@ -118,7 +118,8 @@ public class FollowPlayer : MonoBehaviour
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
-            zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().barXP = 0;
+            zombieCount = GameObject.FindGameObjectsWithTag("zombie"); 
             foreach (GameObject zombie in zombieCount) {
                 zombie.GetComponent<FollowPlayer>().currentXPLevel += 1;
                 zombie.GetComponent<damage>().health = GetComponent<damage>().maxHealth;

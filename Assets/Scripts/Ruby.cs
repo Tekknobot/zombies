@@ -27,6 +27,7 @@ public class Ruby : MonoBehaviour
     {
         if(other.tag == "zombie") {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().barXP += 1;
             other.GetComponent<damage>().health = other.GetComponent<damage>().maxHealth;
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
