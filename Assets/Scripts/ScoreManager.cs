@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
     public int xp = 0;
     public int barXP = 0;
     public float xpNextLevel = 10;
+    public float lastXP = 0;
 
     public GameObject zombieDeathCount;
     public GameObject soldierDeathCount;
@@ -46,6 +47,6 @@ public class ScoreManager : MonoBehaviour
         //civilianDeathCount.GetComponent<Text>().text = civilianDeaths.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();
 
-        levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/xpNextLevel);
+        levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/(xpNextLevel-lastXP));
     }
 }
