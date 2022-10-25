@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class damageSoldier : MonoBehaviour
 {
     public float health = 90;
-    public GameObject blood;
+    public GameObject effect;
 
     public AudioClip soldierScreamSFX;
     public AudioSource audioSource_scream;
@@ -47,7 +47,10 @@ public class damageSoldier : MonoBehaviour
                 audioSource_scream.PlayOneShot(soldierScreamSFX);
                 hasPlayed = true;
 
-                Instantiate(blood, transform.position, Quaternion.identity);
+                GameObject newObject = Instantiate(effect, transform.position, Quaternion.identity);
+                if (boss == true) {
+                    newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                }
                 Instantiate(zombie, transform.position, Quaternion.identity);
                 Instantiate(gem, transform.position, Quaternion.identity);
                 if (projectileSoldier == true) {
@@ -96,20 +99,20 @@ public class damageSoldier : MonoBehaviour
 
         healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
 
-        if (laserSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
-        }
-
         if (projectileSoldier == true) {
             healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/200);
         }        
+
+        if (laserSoldier == true) {
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
+        }
 
         if (boss == true) {
             healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/400);
         }
 
         if (mech == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/400);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/500);
         }        
     }    
 

@@ -16,31 +16,47 @@ public class ZombieShoot : MonoBehaviour
     private float shootingTime; //local to store last time we shot so we can make sure its done every 3s
 
     void Start() {
-        choice = Random.Range(0,2);
-        if (choice == 0) {
-            this.GetComponent<FollowPlayer>().enabled = true; 
-            this.GetComponent<ZombieShoot>().enabled = true;
-        }
-        else if (choice == 1){
-            this.GetComponent<FollowPlayer>().enabled = true; 
-            this.GetComponent<ZombieShoot>().enabled = false;
-        }        
+        // choice = Random.Range(0,2);
+        // if (choice == 0) {
+        //     this.GetComponent<FollowPlayer>().enabled = true; 
+        //     this.GetComponent<ZombieShoot>().enabled = true;
+        // }
+        // else if (choice == 1){
+        //     this.GetComponent<FollowPlayer>().enabled = true; 
+        //     this.GetComponent<ZombieShoot>().enabled = false;
+        // }        
     }
  
     private void Update()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "soldier" || collider.tag == "civilian") {
+            if (collider.tag == "soldier") {
                 target = collider.transform;                                    
                 Fire(); //Constantly fire
                 break;
             }
+        }
+        foreach (Collider2D collider in colliders) { 
             if (collider.tag == "landmine" && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
                 target = collider.transform;
                 FireGrenade();
                 break;
             }
+        }
+        foreach (Collider2D collider in colliders) { 
+            if (collider.gameObject.GetComponent<damageSoldier>().boss == true && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
+                target = collider.transform;                                    
+                FireGrenade();
+                break;
+            }  
+        }
+        foreach (Collider2D collider in colliders) {                    
+            if (collider.gameObject.GetComponent<damageSoldier>().mech == true && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
+                target = collider.transform;                                    
+                FireGrenade();
+                break;
+            }  
         }
     }
  
@@ -67,5 +83,5 @@ public class ZombieShoot : MonoBehaviour
             Vector2 direction = myPos - (Vector2)target.position; //get the direction to the target
             projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction * shootingPower; //shoot the bullet
         }
-    }     
+    }         
 }

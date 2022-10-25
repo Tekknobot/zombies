@@ -31,9 +31,20 @@ public class zombiebullet : MonoBehaviour
         if (this.GetComponent<SpriteRenderer>().sprite.name == "zombie_grenade 0")
         {
             if(other.tag == "landmine") {
-                Instantiate(explosion, transform.position, Quaternion.identity);
+                GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
+                newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 Destroy(this.gameObject);
-            }              
+            }  
+            else if(other.GetComponent<damageSoldier>().boss == true) {
+                GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
+                newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                Destroy(this.gameObject);
+            }  
+            else if(other.GetComponent<damageSoldier>().mech == true) {
+                GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
+                newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                Destroy(this.gameObject);
+            }                                   
         }             
     }    
 

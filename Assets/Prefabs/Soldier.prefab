@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
+  effect: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}
   boxCol: {fileID: 6614213287842399277}

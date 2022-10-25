@@ -20,13 +20,9 @@ public class zombiebone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "soldier" || other.tag == "civilian") {
+        if(other.tag == "soldier") {
             Destroy(this.gameObject);
-        }
-
-        if(other.tag == "building") {
-            Destroy(this.gameObject);
-        }      
+        }  
     }    
 
     void OnBecameInvisible() {
