@@ -65,7 +65,6 @@ public class GroupSpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-
         if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 120) {
             if(spawnSide == 0) {
                 Instantiate(group[2], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class damageSoldier : MonoBehaviour
 {
     public float health = 90;
+    public float maxHealth = 10;
     public GameObject effect;
 
     public AudioClip soldierScreamSFX;
@@ -90,22 +91,22 @@ public class damageSoldier : MonoBehaviour
             }
         }
 
-        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/10);
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/this.maxHealth);
 
         if (projectileSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/40);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/this.maxHealth);
         }        
 
         if (laserSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/60);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/this.maxHealth);
         }
 
         if (boss == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/70);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/this.maxHealth);
         }
 
         if (mech == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/80);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/this.maxHealth);
         }        
     }    
 

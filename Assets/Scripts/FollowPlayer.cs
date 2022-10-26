@@ -121,6 +121,7 @@ public class FollowPlayer : MonoBehaviour
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
             Instantiate(zombie, this.transform.position, Quaternion.identity);
+            StartCoroutine(SlowMotionRoutine());
         }
     }
 
@@ -158,5 +159,12 @@ public class FollowPlayer : MonoBehaviour
         GameObject.Find("+1").GetComponent<Text>().enabled = false;
         GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = false;
         //GameObject.Find("PressA").GetComponent<Text>().enabled = false;
+    }
+
+    IEnumerator SlowMotionRoutine() {
+        GetComponent<SlowMotion>().enabled = true;
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 1;
+        GetComponent<SlowMotion>().enabled = false;
     }
 }

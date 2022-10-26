@@ -55,7 +55,7 @@ public class damage : MonoBehaviour
             }
         }
 
-        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/maxHealth);
     }    
 
     IEnumerator WaitForSFX()

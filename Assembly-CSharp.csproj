@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Ruby.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\ShakeBehavior.cs" />
+     <Compile Include="Assets\Scripts\SlowMotion.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\SpeedModifier.cs" />
      <Compile Include="Assets\Scripts\Throw.cs" />

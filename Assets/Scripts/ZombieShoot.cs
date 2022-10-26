@@ -31,7 +31,7 @@ public class ZombieShoot : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "soldier") {
+            if (collider.tag == "soldier" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length) {
                 target = collider.transform;                                    
                 Fire(); //Constantly fire
                 break;

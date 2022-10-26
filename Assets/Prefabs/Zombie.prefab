@@ -14,11 +14,12 @@ GameObject:
   - component: {fileID: 6614213287842399276}
   - component: {fileID: 6614213287842399279}
   - component: {fileID: 6614213287842399278}
+  - component: {fileID: 6614213287842399275}
   - component: {fileID: 6614213287842399273}
   - component: {fileID: 6614213287842399272}
-  - component: {fileID: 6614213287842399275}
   - component: {fileID: 4458262890319663748}
   - component: {fileID: 6946254477202095373}
+  - component: {fileID: -791796900224511588}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: zombie
@@ -258,6 +259,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &6614213287842399275
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614213287842399284}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &6614213287842399273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,30 +321,9 @@ MonoBehaviour:
   flashTime: 0.1
   thisRenderer: {fileID: 6614213287842399266}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
-  dmg: 5
-  dmgBullet: 25
-  dmgFire: 5
---- !u!50 &6614213287842399275
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6614213287842399284}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  dmg: 1
+  dmgBullet: 1
+  dmgFire: 1
 --- !u!114 &4458262890319663748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048a2e3ecc8c99a44be74563343e0395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 10
+  maxHealth: 10
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   zombieGrowlSFX: {fileID: 8300000, guid: 6c4d7ee230ef31544b184050c7dfd708, type: 3}
   audioSource_growl: {fileID: 6614213287842399278}
@@ -367,6 +368,20 @@ MonoBehaviour:
   fireRate: 3000
   shootingPower: 1
   range: 10
+--- !u!114 &-791796900224511588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614213287842399284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaa40e2fd60c48448a849de32bd3586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAmount: 0
+  maxAmount: 3
 --- !u!1001 &4473602961090663306
 PrefabInstance:
   m_ObjectHideFlags: 0
