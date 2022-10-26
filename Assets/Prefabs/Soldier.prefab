@@ -324,9 +324,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashTime: 0.1
   thisRenderer: {fileID: 6614213287842399266}
-  dmg: 5
+  dmg: 1
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
-  bulletDmg: 5
+  bulletDmg: 1
 --- !u!114 &4042259941973065783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c116ecec50214991ff26275f4b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 10
   effect: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}

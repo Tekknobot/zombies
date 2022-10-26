@@ -45,16 +45,16 @@ public class ZombieShoot : MonoBehaviour
             }
         }
         foreach (Collider2D collider in colliders) { 
-            if (collider.gameObject.GetComponent<damageSoldier>().boss == true && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
+            if (collider.tag == "suicide") {
                 target = collider.transform;                                    
-                FireGrenade();
+                Fire();
                 break;
             }  
         }
         foreach (Collider2D collider in colliders) {                    
-            if (collider.gameObject.GetComponent<damageSoldier>().mech == true && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
+            if (collider.tag == "mech") {
                 target = collider.transform;                                    
-                FireGrenade();
+                Fire();
                 break;
             }  
         }

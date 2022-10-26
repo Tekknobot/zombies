@@ -20,7 +20,7 @@ public class explosion : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "zombie" || other.tag == "soldier") {
+        if(other.tag == "zombie" || other.tag == "soldier" || other.tag == "suicide" || other.tag == "mech") {
             other.transform.SendMessage("Damage", dmg);
         } 
         //Destroy(this.gameObject);

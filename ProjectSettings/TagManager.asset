@@ -19,6 +19,8 @@ TagManager:
   - fire
   - ruby
   - heart
+  - mech
+  - suicide
   layers:
   - Default
   - TransparentFX

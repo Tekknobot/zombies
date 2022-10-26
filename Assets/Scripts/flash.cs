@@ -46,7 +46,17 @@ public class flash : MonoBehaviour
         if(col.tag == "soldier") {
             FlashRed();
             this.transform.SendMessage("Damage", dmg);
-        }   
+        } 
+
+        if(col.tag == "mech") {
+            FlashRed();
+            this.transform.SendMessage("Damage", dmg);
+        } 
+
+        if(col.tag == "suicide") {
+            FlashRed();
+            this.transform.SendMessage("Damage", dmg);
+        }                   
 
         if(col.tag == "fire") {
             FlashRed();
@@ -66,5 +76,27 @@ public class flash : MonoBehaviour
                 this.transform.SendMessage("Damage", dmg);
             }    
         }
+
+        if(col.tag == "suicide") {
+
+            currentDamageTime += Time.deltaTime;
+            if(currentDamageTime > damageTime)
+            {
+                FlashRed();
+                currentDamageTime = 0.0f;
+                this.transform.SendMessage("Damage", dmg);
+            }    
+        }
+
+        if(col.tag == "mech") {
+
+            currentDamageTime += Time.deltaTime;
+            if(currentDamageTime > damageTime)
+            {
+                FlashRed();
+                currentDamageTime = 0.0f;
+                this.transform.SendMessage("Damage", dmg);
+            }    
+        }        
     }             
 }

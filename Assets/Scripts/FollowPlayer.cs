@@ -34,28 +34,20 @@ public class FollowPlayer : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (this.tag == "zombie") {
-            speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);
-            zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+            GetComponent<ZombieShoot>().fireRate -= 250;
+            GetComponent<FollowPlayer>().speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);;
+            GetComponent<FollowPlayer>().range += 1f;             
+            zombieCount = GameObject.FindGameObjectsWithTag("zombie");        
             foreach (GameObject zombie in zombieCount) {
-                currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;
-                //fireRate -= 250;
-                range += GetComponent<FollowPlayer>().currentXPLevel;                
+                currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;                              
             }
         }
 
-        if (this.tag == "soldier") {
-            speed = Random.Range(2, 5);
+        if (this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") {
+            speed = Random.Range(1, 2);
             GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GetComponent<FollowPlayer>().currentXPLevel;
             GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GetComponent<FollowPlayer>().currentXPLevel;            
-        }
-
-        if (this.tag == "soldier" && GetComponent<damageSoldier>().boss == true) {
-            speed = 2;
-        } 
-
-        if (this.tag == "soldier" && GetComponent<damageSoldier>().mech == true) {
-            speed = 1;
-        }               
+        }             
     }
 
     // Update is called once per frame
@@ -76,7 +68,7 @@ public class FollowPlayer : MonoBehaviour
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                     break;
                 }
-                if (collider.tag == "civilian" || collider.tag == "soldier") {
+                if (collider.tag == "soldier" || collider.tag == "suicide" || collider.tag == "mech" ) {
                     target = collider.transform;
                     break;
                 }
@@ -85,23 +77,14 @@ public class FollowPlayer : MonoBehaviour
                 }
             }
             if (this.tag == "soldier") {
-                if (collider.tag == "zombie" && this.tag == "soldier") {
+                if (collider.tag == "zombie") {
                     target = collider.transform;
                     break;
                 }
                 else {
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                 }
-            }
-            if (this.tag == "soldier" && GetComponent<damageSoldier>().mech == true) {
-                if (collider.tag == "zombie" && this.tag == "soldier") {
-                    target = collider.transform;
-                    break;
-                }
-                else {
-                    //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-                }
-            }            
+            }          
         }
 
         if (Vector2.Distance(transform.position, target.position) < range) {
@@ -131,8 +114,8 @@ public class FollowPlayer : MonoBehaviour
 
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");
             foreach (GameObject soldier in soldierCount) {
-                soldier.GetComponent<soldierflash>().dmg += 1;
-                soldier.GetComponent<soldierflash>().bulletDmg += 1;
+                soldier.GetComponent<soldierflash>().dmg += 1f;
+                soldier.GetComponent<soldierflash>().bulletDmg += 1f;
             }
             StartCoroutine(WaitForXPUpdate());
 

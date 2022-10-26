@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 8968066298541193311}
   m_Layer: 0
   m_Name: Mech
-  m_TagString: soldier
+  m_TagString: mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618f646fb2c144846b2c52cdf813f911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1
   range: 50
   stoppingDistance: 0
   run: {fileID: 9100000, guid: ba1c97ef7e5c4cb4e8bd0c597a23093f, type: 2}

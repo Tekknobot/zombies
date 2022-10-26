@@ -47,36 +47,29 @@ public class damageSoldier : MonoBehaviour
                 audioSource_scream.PlayOneShot(soldierScreamSFX);
                 hasPlayed = true;
 
-                GameObject newObject = Instantiate(effect, transform.position, Quaternion.identity);
-                if (boss == true) {
-                    newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-                }
+                Instantiate(effect, transform.position, Quaternion.identity);
+                
                 Instantiate(zombie, transform.position, Quaternion.identity);
                 Instantiate(gem, transform.position, Quaternion.identity);
                 if (projectileSoldier == true) {
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
+                    for (int i = 0; i < 2; i++) {
+                        Instantiate(gem, transform.position, Quaternion.identity);
+                    }
                 }
                 if (laserSoldier == true) {
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
+                    for (int i = 0; i < 3; i++) {
+                        Instantiate(gem, transform.position, Quaternion.identity);
+                    }
                 }  
                 if (boss == true) {
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity); 
-                    Instantiate(gem, transform.position, Quaternion.identity);                   
+                    for (int i = 0; i < 8; i++) {
+                        Instantiate(gem, transform.position, Quaternion.identity);
+                    }                                     
                 }  
                 if (mech == true) {
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity); 
-                    Instantiate(gem, transform.position, Quaternion.identity);  
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity);
-                    Instantiate(gem, transform.position, Quaternion.identity); 
-                    Instantiate(gem, transform.position, Quaternion.identity);                                      
+                    for (int i = 0; i < 13; i++) {
+                        Instantiate(gem, transform.position, Quaternion.identity);
+                    }                                                            
                 }                                              
 
                 if (gameObject.tag == "soldier") {
@@ -97,22 +90,22 @@ public class damageSoldier : MonoBehaviour
             }
         }
 
-        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/100);
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/10);
 
         if (projectileSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/200);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/40);
         }        
 
         if (laserSoldier == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/300);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/60);
         }
 
         if (boss == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/400);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/70);
         }
 
         if (mech == true) {
-            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/500);
+            healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/80);
         }        
     }    
 

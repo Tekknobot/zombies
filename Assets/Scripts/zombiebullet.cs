@@ -20,7 +20,7 @@ public class zombiebullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "soldier" || other.tag == "civilian") {
+        if(other.tag == "soldier" || other.tag == "suicide" || other.tag == "mech") {
             Destroy(this.gameObject);
         }
 
@@ -35,12 +35,12 @@ public class zombiebullet : MonoBehaviour
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 Destroy(this.gameObject);
             }  
-            else if(other.GetComponent<damageSoldier>().boss == true) {
+            else if(other.tag == "suicide") {
                 GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 Destroy(this.gameObject);
             }  
-            else if(other.GetComponent<damageSoldier>().mech == true) {
+            else if(other.tag == "mech") {
                 GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 Destroy(this.gameObject);
