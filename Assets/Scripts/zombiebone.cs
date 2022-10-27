@@ -21,11 +21,13 @@ public class zombiebone : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "soldier") {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }  
     }    
 
     void OnBecameInvisible() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }    
 }

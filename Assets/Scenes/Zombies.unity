@@ -6540,6 +6540,58 @@ MonoBehaviour:
   maxDistance: 5
   target: {fileID: 1171482246}
   myTransform: {fileID: 1547394273}
+--- !u!1 &1177001618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177001619}
+  - component: {fileID: 1177001620}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1177001619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177001618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1177001620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177001618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b7e4b7b1d7e1c4cabddcba4dcc1a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectsToPool:
+  - {fileID: 7712507716706664509, guid: a50b9b2a21c219f4e9c71fc4517958bb, type: 3}
+  - {fileID: 7712507716706664509, guid: 48d87cefbf9becf42b49116c8ccd997c, type: 3}
+  - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
+  - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
+  - {fileID: 7712507716706664509, guid: 7e61da4ec99469f499124e13b1e59727, type: 3}
+  - {fileID: 7712507716706664509, guid: 0d365632a4829844585c34ed300424af, type: 3}
+  amountToPool: 200
 --- !u!1001 &1198664658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9235,7 +9287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70abb51854466554e9c3343d162bb31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 2
   rb: {fileID: 1547394274}
   animator: {fileID: 1547394275}
 --- !u!212 &1547394272
@@ -9245,7 +9297,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547394270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

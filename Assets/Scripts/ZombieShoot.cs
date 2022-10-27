@@ -66,10 +66,17 @@ public class ZombieShoot : MonoBehaviour
         {
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
             Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points
-            GameObject projectile = Instantiate(bullet[Random.Range(1, 6)], myPos, Quaternion.identity); //create our bullet
+            //GameObject projectile = Instantiate(bullet[Random.Range(1, 6)], myPos, Quaternion.identity); //create our bullet
+            
+            GameObject projectile = PoolManager.SharedInstance.GetPooledObject();
+            if (projectile != null) {
+                projectile.transform.position = myPos;
+                projectile.transform.rotation = Quaternion.identity;
+                projectile.SetActive(true);
+            }             
+            
             Vector2 direction = myPos - (Vector2)target.position; //get the direction to the target
             projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction * shootingPower; //shoot the bullet
-            //GameObject.Find("Main Camera").GetComponent<ShakeBehavior>().TriggerShake();
         }
     }  
 

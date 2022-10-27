@@ -306,6 +306,8 @@ MonoBehaviour:
   currentXPLevel: 0
   onFire: 0
   justLeveledUp: 0
+  levelupSFX: {fileID: 6901175269105295133, guid: 6bfd8d4fd2048324d8dce5d4f2cb605d,
+    type: 3}
 --- !u!114 &6614213287842399272
 MonoBehaviour:
   m_ObjectHideFlags: 0

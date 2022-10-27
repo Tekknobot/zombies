@@ -27,6 +27,8 @@ public class FollowPlayer : MonoBehaviour
     public bool onFire = false;
     public bool justLeveledUp = false;
 
+    public GameObject levelupSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +36,16 @@ public class FollowPlayer : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         if (this.tag == "zombie") {
-            GetComponent<ZombieShoot>().fireRate -= 250;
-            GetComponent<FollowPlayer>().speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);;
-            GetComponent<FollowPlayer>().range += 1f;             
             zombieCount = GameObject.FindGameObjectsWithTag("zombie");        
             foreach (GameObject zombie in zombieCount) {
                 currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;                              
-            }
+            }            
+            GetComponent<damage>().maxHealth = GetComponent<damage>().maxHealth+GetComponent<FollowPlayer>().currentXPLevel*10;
+            GetComponent<damage>().health = zombie.GetComponent<damage>().maxHealth;
+            GetComponent<ZombieShoot>().fireRate -= 250;
+            //GetComponent<FollowPlayer>().speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);;
+            GetComponent<FollowPlayer>().speed = 2+GetComponent<FollowPlayer>().currentXPLevel;
+            GetComponent<FollowPlayer>().range += 1f;             
         }
 
         if (this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") {
@@ -103,10 +108,12 @@ public class FollowPlayer : MonoBehaviour
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().barXP = 0;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().lastXP = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel;
+            GameObject.Find("Player").GetComponent<PlayerMovement>().moveSpeed += 1;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie"); 
             foreach (GameObject zombie in zombieCount) {
                 zombie.GetComponent<FollowPlayer>().currentXPLevel += 1;
-                zombie.GetComponent<damage>().health = GetComponent<damage>().maxHealth;
+                zombie.GetComponent<damage>().maxHealth += zombie.GetComponent<FollowPlayer>().currentXPLevel*10;
+                zombie.GetComponent<damage>().health = zombie.GetComponent<damage>().maxHealth;
                 zombie.GetComponent<ZombieShoot>().fireRate -= 250;
                 zombie.GetComponent<FollowPlayer>().speed += 1f;
                 zombie.GetComponent<FollowPlayer>().range += 1f;
@@ -121,6 +128,7 @@ public class FollowPlayer : MonoBehaviour
 
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel = Mathf.Round((GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) * 1.05f);
             Instantiate(zombie, this.transform.position, Quaternion.identity);
+            Instantiate(levelupSFX, this.transform.position, Quaternion.identity);
             StartCoroutine(SlowMotionRoutine());
         }
     }
@@ -149,12 +157,6 @@ public class FollowPlayer : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        // while(!Input.GetButtonDown("Fire1"))
-        // {
-        //     yield return null;
-        // }
-
-        //Time.timeScale = 1f;
         GameObject.Find("LevelUpText").GetComponent<Text>().enabled = false;
         GameObject.Find("+1").GetComponent<Text>().enabled = false;
         GameObject.Find("MaxHealthText").GetComponent<Text>().enabled = false;

@@ -21,11 +21,13 @@ public class zombiebullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "soldier" || other.tag == "suicide" || other.tag == "mech") {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
 
         if(other.tag == "building") {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }    
 
         if (this.GetComponent<SpriteRenderer>().sprite.name == "zombie_grenade 0")
@@ -33,22 +35,26 @@ public class zombiebullet : MonoBehaviour
             if(other.tag == "landmine") {
                 GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }  
             else if(other.tag == "suicide") {
                 GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }  
             else if(other.tag == "mech") {
                 GameObject newObject = Instantiate(explosion, transform.position, Quaternion.identity);
                 newObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }                                   
         }             
     }    
 
     void OnBecameInvisible() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }    
 }
