@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\flash.cs" />
      <Compile Include="Assets\Scripts\grenadeTimer.cs" />
      <Compile Include="Assets\Scripts\gunflash.cs" />
+     <Compile Include="Assets\Scripts\hand.cs" />
      <Compile Include="Assets\Scripts\healthManager.cs" />
      <Compile Include="Assets\Scripts\laser.cs" />
      <Compile Include="Assets\Scripts\overlap.cs" />

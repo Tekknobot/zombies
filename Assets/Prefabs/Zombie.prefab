@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4458262890319663748}
   - component: {fileID: 6946254477202095373}
   - component: {fileID: -791796900224511588}
+  - component: {fileID: 7952263613160521109}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: zombie
@@ -324,7 +325,7 @@ MonoBehaviour:
   thisRenderer: {fileID: 6614213287842399266}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   dmg: 1
-  dmgBullet: 1
+  dmgBullet: 2.5
   dmgFire: 1
 --- !u!114 &4458262890319663748
 MonoBehaviour:
@@ -384,6 +385,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAmount: 0
   maxAmount: 3
+--- !u!114 &7952263613160521109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614213287842399284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cf44bdbb29f674da5fc9c129236051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 1429817840325695770, guid: a32bee77600c4b049a3c9bff055466bc,
+    type: 3}
+  handSFX: {fileID: 6901175269105295133, guid: 512103352beee2749b1d85be044ca794, type: 3}
+  target: {fileID: 0}
+  range: 10
+  flag: 0
+  dmg: 1
+  handAmount: 1
 --- !u!1001 &4473602961090663306
 PrefabInstance:
   m_ObjectHideFlags: 0

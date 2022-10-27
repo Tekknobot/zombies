@@ -45,7 +45,9 @@ public class FollowPlayer : MonoBehaviour
             GetComponent<ZombieShoot>().fireRate -= 250;
             //GetComponent<FollowPlayer>().speed = Random.Range(2+GetComponent<FollowPlayer>().currentXPLevel, 5+GetComponent<FollowPlayer>().currentXPLevel);;
             GetComponent<FollowPlayer>().speed = 2+GetComponent<FollowPlayer>().currentXPLevel;
-            GetComponent<FollowPlayer>().range += 1f;             
+            GetComponent<FollowPlayer>().range += 1f;  
+            GetComponent<hand>().handAmount = 1+GetComponent<FollowPlayer>().currentXPLevel;   
+            GetComponent<hand>().dmg = 1+GetComponent<FollowPlayer>().currentXPLevel;       
         }
 
         if (this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") {
@@ -64,6 +66,10 @@ public class FollowPlayer : MonoBehaviour
             if (index >= zombieCount.Length) {
                 index = 0;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha1)) {
+            //GetComponent<hand>().HandUpdate();
         }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
@@ -117,6 +123,8 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<ZombieShoot>().fireRate -= 250;
                 zombie.GetComponent<FollowPlayer>().speed += 1f;
                 zombie.GetComponent<FollowPlayer>().range += 1f;
+                zombie.GetComponent<hand>().handAmount += 1;
+                zombie.GetComponent<hand>().dmg += 1;
             }
 
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");

@@ -21,6 +21,7 @@ TagManager:
   - heart
   - mech
   - suicide
+  - hand
   layers:
   - Default
   - TransparentFX

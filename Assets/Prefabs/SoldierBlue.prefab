@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 3785647477362483842}
   - component: {fileID: -5990309028767167642}
   m_Layer: 0
-  m_Name: SoldierRed
+  m_Name: SoldierBlue
   m_TagString: suicide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,9 +84,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7632749637262378040, guid: 547bc58163a423448a135b23e1bb6ee0,
+  m_Sprite: {fileID: 1645561810961682128, guid: 8160d1f3d62409f43866f730b9ff4e33,
     type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 6614213287842399284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
+  m_Controller: {fileID: 9100000, guid: db5c21fe0096a664e9d928ff66d62684, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   speed: 2
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
+  run: {fileID: 9100000, guid: db5c21fe0096a664e9d928ff66d62684, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   speed: 3
   range: 5
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
+  run: {fileID: 9100000, guid: db5c21fe0096a664e9d928ff66d62684, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
   target: {fileID: 0}
 --- !u!114 &7027271992008678649

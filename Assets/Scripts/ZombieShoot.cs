@@ -16,15 +16,14 @@ public class ZombieShoot : MonoBehaviour
     private float shootingTime; //local to store last time we shot so we can make sure its done every 3s
 
     void Start() {
-        // choice = Random.Range(0,2);
-        // if (choice == 0) {
-        //     this.GetComponent<FollowPlayer>().enabled = true; 
-        //     this.GetComponent<ZombieShoot>().enabled = true;
-        // }
-        // else if (choice == 1){
-        //     this.GetComponent<FollowPlayer>().enabled = true; 
-        //     this.GetComponent<ZombieShoot>().enabled = false;
-        // }        
+        choice = Random.Range(0,2);
+        if (choice == 0) {
+            this.GetComponent<ZombieShoot>().enabled = false;
+            this.GetComponent<hand>().enabled = true;
+        }
+        else if (choice == 1){
+            return;
+        }        
     }
  
     private void Update()
