@@ -8,7 +8,7 @@ public class GroupSpawner : MonoBehaviour
     public GameObject cameraObject;
     public float timeBtwSpawn;
     public float startTimeBtwSpawn = 5;
-    public float decreaseTime;
+    //public float decreaseTime;
     public int spawnSide;
     public GameObject[] soldierCount;
 

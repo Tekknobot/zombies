@@ -44,22 +44,22 @@ public class Timer : MonoBehaviour
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
             }
             else if (timeElapsed > 300) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 2;                
             }
             else if (timeElapsed > 360) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             }
             else if (timeElapsed > 480) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             } 
             else if (timeElapsed > 540) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             }
             else if (timeElapsed > 600) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             }
             else if (timeElapsed > 660) {
-                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 3f;                
+                GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             }                                                                                                          
         }
     }

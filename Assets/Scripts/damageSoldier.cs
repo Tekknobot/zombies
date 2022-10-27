@@ -27,6 +27,10 @@ public class damageSoldier : MonoBehaviour
     public bool projectileSoldier;
     public bool mech;
 
+    public int zombieLimit = 10;
+    public GameObject[] zombieCount;
+    public int currentXPLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +53,15 @@ public class damageSoldier : MonoBehaviour
                 hasPlayed = true;
 
                 Instantiate(effect, transform.position, Quaternion.identity);
-                
-                Instantiate(zombie, transform.position, Quaternion.identity);
+                zombieCount = GameObject.FindGameObjectsWithTag("zombie");        
+                foreach (GameObject zombie in zombieCount) {
+                    currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;                                                  
+                }  
+                if (GameObject.FindGameObjectsWithTag("zombie").Length < currentXPLevel+zombieLimit) {                
+                    Instantiate(zombie, transform.position, Quaternion.identity);
+                }                                 
                 Instantiate(gem, transform.position, Quaternion.identity);
+                
                 if (projectileSoldier == true) {
                     for (int i = 0; i < 2; i++) {
                         Instantiate(gem, transform.position, Quaternion.identity);

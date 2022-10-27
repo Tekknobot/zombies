@@ -54,6 +54,7 @@ public class FollowPlayer : MonoBehaviour
             speed = Random.Range(1, 2);
             GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GetComponent<FollowPlayer>().currentXPLevel;
             GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GetComponent<FollowPlayer>().currentXPLevel;            
+            GetComponent<damageSoldier>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel+GetComponent<damageSoldier>().zombieLimit;
         }             
     }
 
@@ -131,6 +132,7 @@ public class FollowPlayer : MonoBehaviour
             foreach (GameObject soldier in soldierCount) {
                 soldier.GetComponent<soldierflash>().dmg += 1f;
                 soldier.GetComponent<soldierflash>().bulletDmg += 1f;
+                soldier.GetComponent<damageSoldier>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel*10;
             }
             StartCoroutine(WaitForXPUpdate());
 

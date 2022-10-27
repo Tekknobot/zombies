@@ -22,7 +22,7 @@ public class ZombieShoot : MonoBehaviour
             this.GetComponent<hand>().enabled = true;
         }
         else if (choice == 1){
-            return;
+            this.GetComponent<hand>().enabled = true;
         }        
     }
  
@@ -30,7 +30,7 @@ public class ZombieShoot : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "soldier" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length) {
+            if (collider.tag == "soldier" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
                 target = collider.transform;                                    
                 Fire(); //Constantly fire
                 break;
@@ -44,14 +44,14 @@ public class ZombieShoot : MonoBehaviour
             }
         }
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "suicide") {
+            if (collider.tag == "suicide" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
                 target = collider.transform;                                    
                 Fire();
                 break;
             }  
         }
         foreach (Collider2D collider in colliders) {                    
-            if (collider.tag == "mech") {
+            if (collider.tag == "mech" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
                 target = collider.transform;                                    
                 Fire();
                 break;
