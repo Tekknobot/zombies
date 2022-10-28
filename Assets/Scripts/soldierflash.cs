@@ -38,7 +38,7 @@ public class soldierflash : MonoBehaviour
     {
         if(col.tag == "zombiebullet") {
             FlashRed();
-            this.transform.SendMessage("Damage", bulletDmg);
+            this.transform.SendMessage("DamageSoldier", bulletDmg);
         }                           
     }    
 
@@ -50,7 +50,7 @@ public class soldierflash : MonoBehaviour
             {
                 FlashRed();
                 currentDamageTime = 0.0f;
-                this.transform.SendMessage("Damage", dmg);
+                this.transform.SendMessage("DamageSoldier", dmg);
             }    
         }       
     }           

@@ -404,9 +404,9 @@ MonoBehaviour:
     type: 3}
   handSFX: {fileID: 6901175269105295133, guid: 512103352beee2749b1d85be044ca794, type: 3}
   target: {fileID: 0}
-  range: 10
+  range: 5
   flag: 0
-  dmg: 1
+  handDmg: 500
   handAmount: 1
 --- !u!1001 &4473602961090663306
 PrefabInstance:

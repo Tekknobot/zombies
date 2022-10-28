@@ -9,7 +9,7 @@ public class hand : MonoBehaviour
     public Transform target;
     public int range = 10;
     public bool flag = false;   
-    public float dmg = 1;
+    public float handDmg = 500;
     public int handAmount = 1;
 
     // Use this for initialization
@@ -23,22 +23,38 @@ public class hand : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if ((collider.tag == "soldier" || collider.tag == "suicide" || collider.tag == "mech") && flag == false
-                && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
-                target = collider.transform;               
+            if (collider.tag == "soldier" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+                target = collider.transform; 
+                collider.GetComponent<FollowPlayer>().speed = 0;  
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }   
+            if (collider.tag == "suicide" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+                target = collider.transform; 
+                collider.GetComponent<FollowPlayer>().speed = 0;  
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
+                StartCoroutine(WaitForAnimation(target));
+                //break; 
+            }  
+            if (collider.tag == "mech" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+                target = collider.transform; 
+                collider.GetComponent<FollowPlayer>().speed = 0;  
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
+                StartCoroutine(WaitForAnimation(target));
+                //break; 
+            }                          
         } 
     }
 
     IEnumerator WaitForAnimation(Transform target) {
         var myNewHand = Instantiate(handObject, target.transform.position, Quaternion.identity);
         myNewHand.transform.parent = target.transform;      
-        Instantiate(handSFX, target.transform.position, Quaternion.identity);  
-        yield return new WaitForSeconds(1f);
-        //flag = true;
+        Instantiate(handSFX, target.transform.position, Quaternion.identity);          
+        yield return new WaitForSeconds(2.9f);
+        target.GetComponent<FollowPlayer>().speed = 1;
         target.GetComponent<soldierflash>().FlashRed();
-        target.GetComponent<soldierflash>().SendMessage("Damage", dmg);        
+        target.transform.SendMessage("DamageSoldier", 500);        
+        flag = true;        
     }
 }

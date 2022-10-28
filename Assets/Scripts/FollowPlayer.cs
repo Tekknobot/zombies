@@ -50,8 +50,8 @@ public class FollowPlayer : MonoBehaviour
             GetComponent<FollowPlayer>().speed = 2+GetComponent<FollowPlayer>().currentXPLevel;
             GetComponent<FollowPlayer>().range += 1f;  
             GetComponent<hand>().handAmount = 1+GetComponent<FollowPlayer>().currentXPLevel;   
-            GetComponent<hand>().dmg = 1+GetComponent<FollowPlayer>().currentXPLevel; 
-            GetComponent<FollowPlayer>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel+10;      
+            GetComponent<hand>().handDmg = 1+GetComponent<FollowPlayer>().currentXPLevel; 
+            GetComponent<FollowPlayer>().zombieLimit = zombieCount[0].GetComponent<FollowPlayer>().zombieLimit;      
         }
 
         if ((this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") && currentXPLevel > 0) {
@@ -72,10 +72,6 @@ public class FollowPlayer : MonoBehaviour
             if (index >= zombieCount.Length) {
                 index = 0;
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Alpha1)) {
-            //GetComponent<hand>().HandUpdate();
         }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
@@ -145,8 +141,8 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<FollowPlayer>().speed += 1f;
                 zombie.GetComponent<FollowPlayer>().range += 1f;
                 zombie.GetComponent<hand>().handAmount += 1;
-                zombie.GetComponent<hand>().dmg += 1;
-                zombie.GetComponent<FollowPlayer>().zombieLimit += GetComponent<FollowPlayer>().currentXPLevel+10;
+                zombie.GetComponent<hand>().handDmg += 1;
+                zombie.GetComponent<FollowPlayer>().zombieLimit += 10;
 
             }
 
@@ -163,6 +159,10 @@ public class FollowPlayer : MonoBehaviour
             Instantiate(zombie, this.transform.position, Quaternion.identity);
             Instantiate(levelupSFX, this.transform.position, Quaternion.identity);
             StartCoroutine(SlowMotionRoutine());
+        }
+
+        if (GetComponent<FollowPlayer>().currentXPLevel >= 2) {
+            GetComponent<hand>().enabled = true;
         }
     }
 

@@ -36,7 +36,7 @@ public class damageSoldier : MonoBehaviour
         audioSource_scream.GetComponent<AudioSource>().clip = soldierScreamSFX;
     }
 
-    void Damage(float dmg) 
+    void DamageSoldier(float dmg) 
     {
         health -= dmg;
     }
