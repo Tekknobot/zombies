@@ -26,44 +26,27 @@ public class damage : MonoBehaviour
         audioSource_growl.GetComponent<AudioSource>().clip = zombieGrowlSFX;
     }
 
+    void Update () {
+        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/maxHealth);
+        if(health <= 0 && hasPlayed == false) {
+            StartCoroutine(WaitForAnim());
+            hasPlayed = true;
+        }        
+    }
+
     void Damage(float dmg) 
     {
         health -= dmg;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(health <= 0) 
-        {
-            if(!hasPlayed)
-            {
-                audioSource_growl.PlayOneShot(zombieGrowlSFX);
-                hasPlayed = true;
-
-                //gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.GetComponent<FollowPlayer>().speed = 0f;
-
-                boxCol.enabled = false;
-                boxCol2.enabled = false;
-
-                if (gameObject.tag == "zombie") {
-                    GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieDeaths += 1;
-                }   
-
-                StartCoroutine(WaitForAnim());
-            }
-        }
-
-        healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/maxHealth);
-    }    
+    } 
 
     IEnumerator WaitForAnim()
     {
+        audioSource_growl.PlayOneShot(zombieGrowlSFX);
         Instantiate(blood, transform.position, Quaternion.identity);  
         Animator animator = gameObject.GetComponent<Animator>();
-        animator.runtimeAnimatorController = gameObject.GetComponent<FollowPlayer>().death as RuntimeAnimatorController;           
+        animator.runtimeAnimatorController = gameObject.GetComponent<FollowPlayer>().death as RuntimeAnimatorController;          
         yield return new WaitForSeconds(0.91f);
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        hasPlayed = false;
     }
 }

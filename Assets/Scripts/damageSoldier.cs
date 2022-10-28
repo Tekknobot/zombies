@@ -44,6 +44,11 @@ public class damageSoldier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+        foreach (GameObject zombie in zombieCount) {
+            currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;                                                  
+        }
+
         if(health <= 0) 
         {
             if(!hasPlayed)
@@ -51,13 +56,13 @@ public class damageSoldier : MonoBehaviour
                 audioSource_scream.PlayOneShot(soldierScreamSFX);
                 hasPlayed = true;
 
-                Instantiate(effect, transform.position, Quaternion.identity);
-                zombieCount = GameObject.FindGameObjectsWithTag("zombie");        
-                foreach (GameObject zombie in zombieCount) {
-                    currentXPLevel = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel;                                                  
-                }  
-                if (GameObject.FindGameObjectsWithTag("zombie").Length < currentXPLevel+zombieCount[0].GetComponent<FollowPlayer>().zombieLimit) {                
-                    Instantiate(zombie, transform.position, Quaternion.identity);
+                Instantiate(effect, transform.position, Quaternion.identity);        
+                if (zombieCount.Length < currentXPLevel+zombieCount[0].GetComponent<FollowPlayer>().zombieLimit) {                
+                    GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
+                    zombie.transform.position = transform.position;
+                    zombie.transform.rotation = Quaternion.identity;
+                    zombie.SetActive(true);
+                    zombie.GetComponent<damage>().healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(zombie.GetComponent<damage>().maxHealth/zombie.GetComponent<damage>().maxHealth);
                 }                                 
                 Instantiate(gem, transform.position, Quaternion.identity);
 
@@ -121,7 +126,7 @@ public class damageSoldier : MonoBehaviour
 
     IEnumerator WaitForSFX()
     {
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }

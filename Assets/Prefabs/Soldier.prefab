@@ -303,7 +303,7 @@ MonoBehaviour:
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
   death: {fileID: 9100000, guid: 64d6a318bc91b994586e0da72d86ae0b, type: 2}
   target: {fileID: 0}
-  levelUp: {fileID: 0}
+  levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
   zombieCount: []
   soldierCount: []
   zombie: {fileID: 0}
