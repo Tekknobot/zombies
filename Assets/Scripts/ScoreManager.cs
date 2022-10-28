@@ -20,8 +20,10 @@ public class ScoreManager : MonoBehaviour
     public GameObject xpCount;
     public GameObject levelCount;
     public GameObject levelNumber;
+    public GameObject zombieCap;
 
     public GameObject[] zombieCount;
+    public GameObject[] soldierCount;
 
     public int currentXPLevel;
     public GameObject levelBar;
@@ -36,17 +38,18 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
+        soldierCount = GameObject.FindGameObjectsWithTag("soldier");
         zombieDeathCount.GetComponent<Text>().text = zombieCount.Length.ToString();
         
         foreach (GameObject zombie in zombieCount) {
             levelNumber.GetComponent<Text>().text = zombieCount[0].GetComponent<FollowPlayer>().currentXPLevel.ToString();
+            zombieCap.GetComponent<Text>().text = zombieCount[0].GetComponent<FollowPlayer>().zombieLimit.ToString();
         }
 
         xpCount.GetComponent<Text>().text = xp.ToString();
         //soldierDeathCount.GetComponent<Text>().text = soldierDeaths.ToString();
         //civilianDeathCount.GetComponent<Text>().text = civilianDeaths.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();
-
         levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/(xpNextLevel-lastXP));
     }
 }

@@ -18,11 +18,12 @@ public class ZombieShoot : MonoBehaviour
     void Start() {
         choice = Random.Range(0,2);
         if (choice == 0) {
-            this.GetComponent<ZombieShoot>().enabled = false;
-            this.GetComponent<hand>().enabled = true;
+            this.GetComponent<ZombieShoot>().enabled = true;
+            //this.GetComponent<hand>().enabled = true;
         }
         else if (choice == 1){
-            this.GetComponent<hand>().enabled = true;
+            this.GetComponent<ZombieShoot>().enabled = true;
+            //this.GetComponent<hand>().enabled = true;
         }        
     }
  
@@ -30,7 +31,7 @@ public class ZombieShoot : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "soldier" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
+            if (collider.tag == "soldier" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length) {
                 target = collider.transform;                                    
                 Fire(); //Constantly fire
                 break;
@@ -44,14 +45,14 @@ public class ZombieShoot : MonoBehaviour
             }
         }
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "suicide" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
+            if (collider.tag == "suicide" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length) {
                 target = collider.transform;                                    
                 Fire();
                 break;
             }  
         }
         foreach (Collider2D collider in colliders) {                    
-            if (collider.tag == "mech" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length/2) {
+            if (collider.tag == "mech" && GameObject.FindGameObjectsWithTag("zombiebullet").Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length) {
                 target = collider.transform;                                    
                 Fire();
                 break;

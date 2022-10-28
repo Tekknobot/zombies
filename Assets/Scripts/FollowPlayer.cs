@@ -12,6 +12,7 @@ public class FollowPlayer : MonoBehaviour
 
     public RuntimeAnimatorController run;
     public RuntimeAnimatorController idle;
+    public RuntimeAnimatorController death;
 
     public Transform target;
     private SpriteRenderer mySpriteRenderer;
@@ -28,6 +29,8 @@ public class FollowPlayer : MonoBehaviour
     public bool justLeveledUp = false;
 
     public GameObject levelupSFX;
+
+    public int zombieLimit = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -47,14 +50,16 @@ public class FollowPlayer : MonoBehaviour
             GetComponent<FollowPlayer>().speed = 2+GetComponent<FollowPlayer>().currentXPLevel;
             GetComponent<FollowPlayer>().range += 1f;  
             GetComponent<hand>().handAmount = 1+GetComponent<FollowPlayer>().currentXPLevel;   
-            GetComponent<hand>().dmg = 1+GetComponent<FollowPlayer>().currentXPLevel;       
+            GetComponent<hand>().dmg = 1+GetComponent<FollowPlayer>().currentXPLevel; 
+            GetComponent<FollowPlayer>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel+10;      
         }
 
-        if (this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") {
+        if ((this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") && currentXPLevel > 0) {
             speed = Random.Range(1, 2);
+            GetComponent<damageSoldier>().maxHealth = GetComponent<FollowPlayer>().currentXPLevel*GetComponent<damageSoldier>().maxHealth;
+            GetComponent<damageSoldier>().health = GetComponent<damageSoldier>().maxHealth;
             GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GetComponent<FollowPlayer>().currentXPLevel;
             GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GetComponent<FollowPlayer>().currentXPLevel;            
-            GetComponent<damageSoldier>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel+GetComponent<damageSoldier>().zombieLimit;
         }             
     }
 
@@ -80,7 +85,7 @@ public class FollowPlayer : MonoBehaviour
                     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
                     break;
                 }
-                if (collider.tag == "soldier" || collider.tag == "suicide" || collider.tag == "mech" ) {
+                if (collider.tag == "soldier" || collider.tag == "suicide" || collider.tag == "mech"  || collider.tag == "gem") {
                     target = collider.transform;
                     break;
                 }
@@ -99,17 +104,32 @@ public class FollowPlayer : MonoBehaviour
             }          
         }
 
-        if (Vector2.Distance(transform.position, target.position) < range) {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            Animator animator = gameObject.GetComponent<Animator>();
-            animator.runtimeAnimatorController = run as RuntimeAnimatorController;
+        if (this.tag == "zombie" && this.GetComponent<damage>().health > 0) 
+        {
+            if (Vector2.Distance(transform.position, target.position) < range) {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                Animator animator = gameObject.GetComponent<Animator>();
+                animator.runtimeAnimatorController = run as RuntimeAnimatorController;
+            }
+            else {
+                Animator animator = gameObject.GetComponent<Animator>();
+                animator.runtimeAnimatorController = idle as RuntimeAnimatorController;
+            }
         }
-        else {
-            Animator animator = gameObject.GetComponent<Animator>();
-            animator.runtimeAnimatorController = idle as RuntimeAnimatorController;
+
+        if (this.tag == "soldier" || this.tag == "mech" || this.tag == "suicide" && this.GetComponent<damageSoldier>().health > 0) 
+        {
+            if (Vector2.Distance(transform.position, target.position) < range) {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                Animator animator = gameObject.GetComponent<Animator>();
+                animator.runtimeAnimatorController = run as RuntimeAnimatorController;
+            }
+            else {
+                Animator animator = gameObject.GetComponent<Animator>();
+                animator.runtimeAnimatorController = idle as RuntimeAnimatorController;
+            }       
         }
         mySpriteRenderer.flipX = target.position.x < this.transform.position.x;
-
 
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
@@ -126,13 +146,16 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<FollowPlayer>().range += 1f;
                 zombie.GetComponent<hand>().handAmount += 1;
                 zombie.GetComponent<hand>().dmg += 1;
+                zombie.GetComponent<FollowPlayer>().zombieLimit += GetComponent<FollowPlayer>().currentXPLevel+10;
+
             }
 
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");
             foreach (GameObject soldier in soldierCount) {
+                soldier.GetComponent<damageSoldier>().maxHealth += soldier.GetComponent<FollowPlayer>().currentXPLevel*soldier.GetComponent<damageSoldier>().maxHealth;
+                //soldier.GetComponent<damageSoldier>().health = soldier.GetComponent<damage>().maxHealth;                
                 soldier.GetComponent<soldierflash>().dmg += 1f;
                 soldier.GetComponent<soldierflash>().bulletDmg += 1f;
-                soldier.GetComponent<damageSoldier>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel*10;
             }
             StartCoroutine(WaitForXPUpdate());
 

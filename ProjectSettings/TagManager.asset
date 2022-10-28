@@ -22,6 +22,7 @@ TagManager:
   - mech
   - suicide
   - hand
+  - gem
   layers:
   - Default
   - TransparentFX

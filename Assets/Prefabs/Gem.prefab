@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1510562118512021427}
   m_Layer: 0
   m_Name: Gem
-  m_TagString: Untagged
+  m_TagString: gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfx: {fileID: 6901175269105295133, guid: 20cf6b1e609d67a4d8f9e23a93706001, type: 3}
   zombies: []
+  zombie: {fileID: 0}
+  zombieheart: 0
+  zombieGift: 9
 --- !u!50 &-1510562118512021427
 Rigidbody2D:
   serializedVersion: 4

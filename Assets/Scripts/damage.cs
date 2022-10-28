@@ -41,9 +41,9 @@ public class damage : MonoBehaviour
                 audioSource_growl.PlayOneShot(zombieGrowlSFX);
                 hasPlayed = true;
 
-                Instantiate(blood, transform.position, Quaternion.identity);
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                //gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<FollowPlayer>().speed = 0f;
+
                 boxCol.enabled = false;
                 boxCol2.enabled = false;
 
@@ -51,16 +51,19 @@ public class damage : MonoBehaviour
                     GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieDeaths += 1;
                 }   
 
-                StartCoroutine(WaitForSFX());
+                StartCoroutine(WaitForAnim());
             }
         }
 
         healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(health/maxHealth);
     }    
 
-    IEnumerator WaitForSFX()
-    {     
-        yield return new WaitForSeconds(0.888f);
+    IEnumerator WaitForAnim()
+    {
+        Instantiate(blood, transform.position, Quaternion.identity);  
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.runtimeAnimatorController = gameObject.GetComponent<FollowPlayer>().death as RuntimeAnimatorController;           
+        yield return new WaitForSeconds(0.91f);
         Destroy(gameObject);
     }
 }

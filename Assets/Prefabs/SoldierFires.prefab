@@ -296,11 +296,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618f646fb2c144846b2c52cdf813f911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1
   range: 50
   stoppingDistance: 0
   run: {fileID: 9100000, guid: 16bfb6f9369120445b2cb8d98be32feb, type: 2}
   idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 0}
   zombieCount: []
@@ -312,6 +313,7 @@ MonoBehaviour:
   justLeveledUp: 0
   levelupSFX: {fileID: 6901175269105295133, guid: 6bfd8d4fd2048324d8dce5d4f2cb605d,
     type: 3}
+  zombieLimit: 0
 --- !u!114 &496035547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,8 +343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c116ecec50214991ff26275f4b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  maxHealth: 40
+  health: 50
+  maxHealth: 50
   effect: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_scream: {fileID: 6614213287842399278}
@@ -357,6 +359,8 @@ MonoBehaviour:
   laserSoldier: 0
   projectileSoldier: 1
   mech: 0
+  zombieCount: []
+  currentXPLevel: 0
 --- !u!114 &7834695186506612874
 MonoBehaviour:
   m_ObjectHideFlags: 0
