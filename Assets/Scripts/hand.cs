@@ -12,6 +12,8 @@ public class hand : MonoBehaviour
     public float handDmg = 500;
     public int handAmount = 1;
 
+    public RuntimeAnimatorController retreat;
+
     // Use this for initialization
     void Start()
     {
@@ -48,13 +50,17 @@ public class hand : MonoBehaviour
     }
 
     IEnumerator WaitForAnimation(Transform target) {
+        //Instantiate(handObject, target.transform.position, Quaternion.identity);
         var myNewHand = Instantiate(handObject, target.transform.position, Quaternion.identity);
-        myNewHand.transform.parent = target.transform;      
+        //myNewHand.transform.parent = target.transform;      
         Instantiate(handSFX, target.transform.position, Quaternion.identity);          
         yield return new WaitForSeconds(2.9f);
         target.GetComponent<FollowPlayer>().speed = 1;
         target.GetComponent<soldierflash>().FlashRed();
-        target.transform.SendMessage("DamageSoldier", 500);        
+        target.transform.SendMessage("DamageSoldier", 500);
+        Animator animator = myNewHand.GetComponent<Animator>();
+        animator.runtimeAnimatorController = retreat as RuntimeAnimatorController;        
+        yield return new WaitForSeconds(2.9f);        
         flag = true;        
     }
 }
