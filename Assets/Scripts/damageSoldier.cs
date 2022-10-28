@@ -57,12 +57,12 @@ public class damageSoldier : MonoBehaviour
                 hasPlayed = true;
 
                 Instantiate(effect, transform.position, Quaternion.identity);        
-                if (zombieCount.Length < currentXPLevel+zombieCount[0].GetComponent<FollowPlayer>().zombieLimit) {                
+                if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit) {                
                     GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
                     zombie.transform.position = transform.position;
                     zombie.transform.rotation = Quaternion.identity;
                     zombie.SetActive(true);
-                    zombie.GetComponent<damage>().healthbar.GetComponent<HealthBarHandler>().SetHealthBarValue(zombie.GetComponent<damage>().maxHealth/zombie.GetComponent<damage>().maxHealth);
+                    zombie.GetComponent<damage>().health = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth;
                 }                                 
                 Instantiate(gem, transform.position, Quaternion.identity);
 
@@ -127,6 +127,7 @@ public class damageSoldier : MonoBehaviour
     IEnumerator WaitForSFX()
     {
         yield return new WaitForSeconds(0.1f);
+        hasPlayed = false;
         Destroy(gameObject);
     }
 }

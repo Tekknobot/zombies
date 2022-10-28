@@ -51,7 +51,8 @@ public class FollowPlayer : MonoBehaviour
             GetComponent<FollowPlayer>().range += 1f;  
             GetComponent<hand>().handAmount = 1+GetComponent<FollowPlayer>().currentXPLevel;   
             GetComponent<hand>().handDmg = 1+GetComponent<FollowPlayer>().currentXPLevel; 
-            GetComponent<FollowPlayer>().zombieLimit = GetComponent<FollowPlayer>().currentXPLevel+10;      
+            GetComponent<FollowPlayer>().zombieLimit = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+10;      
+            GetComponent<damage>().maxHealth = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth;
         }
 
         if ((this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") && currentXPLevel > 0) {
@@ -134,7 +135,7 @@ public class FollowPlayer : MonoBehaviour
         if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp >= GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel) {
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel+1;
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().barXP = 0;
-            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().lastXP = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel;
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().lastXP = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xpNextLevel; 
             GameObject.Find("Player").GetComponent<PlayerMovement>().moveSpeed += 1;
             zombieCount = GameObject.FindGameObjectsWithTag("zombie"); 
             foreach (GameObject zombie in zombieCount) {
@@ -147,8 +148,9 @@ public class FollowPlayer : MonoBehaviour
                 zombie.GetComponent<hand>().handAmount += 1;
                 zombie.GetComponent<hand>().handDmg += 1;
                 zombie.GetComponent<FollowPlayer>().zombieLimit += GetComponent<FollowPlayer>().currentXPLevel+10;
-
             }
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth += zombie.GetComponent<FollowPlayer>().currentXPLevel*10;
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit = zombie.GetComponent<FollowPlayer>().zombieLimit;
 
             soldierCount = GameObject.FindGameObjectsWithTag("soldier");
             foreach (GameObject soldier in soldierCount) {

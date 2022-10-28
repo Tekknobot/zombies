@@ -6279,7 +6279,8 @@ MonoBehaviour:
   - {fileID: 7712507716706664509, guid: 48d87cefbf9becf42b49116c8ccd997c, type: 3}
   - {fileID: 7712507716706664509, guid: be78981b3241b714d97593793a57db31, type: 3}
   - {fileID: 7712507716706664509, guid: 0d365632a4829844585c34ed300424af, type: 3}
-  - {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c, type: 3}
+  zombieToPool: {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c,
+    type: 3}
   amountToPool: 200
 --- !u!1 &1247579496
 GameObject:
@@ -8673,7 +8674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70abb51854466554e9c3343d162bb31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   rb: {fileID: 1547394274}
   animator: {fileID: 1547394275}
 --- !u!212 &1547394272
@@ -11581,6 +11582,8 @@ MonoBehaviour:
   soldierCount: []
   currentXPLevel: 0
   levelBar: {fileID: 1315471821}
+  zombieLimit: 10
+  zombieMaxHealth: 10
 --- !u!4 &2071941056
 Transform:
   m_ObjectHideFlags: 0

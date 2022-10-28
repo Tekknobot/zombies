@@ -28,6 +28,9 @@ public class ScoreManager : MonoBehaviour
     public int currentXPLevel;
     public GameObject levelBar;
 
+    public int zombieLimit = 10;
+    public float zombieMaxHealth;
+
     // Start is called before the first frame update
     void Start()
     {

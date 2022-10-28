@@ -15,14 +15,24 @@ public class ZombieStart : MonoBehaviour
     {
         
     }
+    
+    void InstantiateCircle () 
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            float theta = i * 2 * Mathf.PI / 5;
+            float x = Mathf.Sin(theta)*1; // rad
+            float y = Mathf.Cos(theta)*1;
+        
+            GameObject ob = PoolManager.SharedInstance.GetPooledZombie();
+            ob.transform.parent = transform;
+            ob.transform.position = new Vector3(x, y, 0);  
+            ob.SetActive(true); 
+        }
+    } 
 
     IEnumerator WaitForPool() {
         yield return new WaitForSeconds(0.1f);
-        for (int i = 0; i < 5; i++) {
-            GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
-            zombie.transform.position = transform.position;
-            zombie.transform.rotation = Quaternion.identity;
-            zombie.SetActive(true);  
-        }         
-    }
+        InstantiateCircle();
+    } 
 }
