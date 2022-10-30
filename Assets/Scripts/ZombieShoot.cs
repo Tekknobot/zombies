@@ -19,10 +19,10 @@ public class ZombieShoot : MonoBehaviour
         choice = Random.Range(0,2);
         if (choice == 0) {
             this.GetComponent<ZombieShoot>().enabled = true;
-            this.GetComponent<hand>().enabled = false;
+            this.GetComponent<hand>().enabled = true;
         }
         else if (choice == 1){
-            this.GetComponent<ZombieShoot>().enabled = false;
+            this.GetComponent<ZombieShoot>().enabled = true;
             this.GetComponent<hand>().enabled = true;
         }        
     }
@@ -40,7 +40,7 @@ public class ZombieShoot : MonoBehaviour
         foreach (Collider2D collider in colliders) { 
             if (collider.tag == "landmine" && GameObject.FindGameObjectsWithTag("grenade").Length == 0) {
                 target = collider.transform;
-                FireGrenade();
+                //FireGrenade();
                 break;
             }
         }

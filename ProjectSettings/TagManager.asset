@@ -23,6 +23,7 @@ TagManager:
   - suicide
   - hand
   - gem
+  - dead
   layers:
   - Default
   - TransparentFX

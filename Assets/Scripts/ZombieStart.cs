@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ZombieStart : MonoBehaviour
 {
+    public int zombies = 1;
+    public float radius = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +21,11 @@ public class ZombieStart : MonoBehaviour
     
     void InstantiateCircle () 
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < zombies; i++)
         {
-            float theta = i * 2 * Mathf.PI / 5;
-            float x = Mathf.Sin(theta)*1; // rad
-            float y = Mathf.Cos(theta)*1;
+            float theta = i * 2 * Mathf.PI / zombies;
+            float x = Mathf.Sin(theta)*radius; // rad
+            float y = Mathf.Cos(theta)*radius;
         
             GameObject ob = PoolManager.SharedInstance.GetPooledZombie();
             ob.transform.parent = transform;

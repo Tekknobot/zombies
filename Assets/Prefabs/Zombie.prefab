@@ -356,7 +356,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -900219001093089007, guid: 835676c8523707144863d8d6e0af3ddc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -603,7 +603,7 @@ MonoBehaviour:
   thisRenderer: {fileID: 6614213287842399266}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   dmg: 1
-  dmgBullet: 2.5
+  dmgBullet: 4
   dmgFire: 1
 --- !u!114 &4458262890319663748
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class hand : MonoBehaviour
     public float handDmg = 500;
     public int handAmount = 1;
 
-    public RuntimeAnimatorController retreat;
+    public RuntimeAnimatorController retreat; 
 
     // Use this for initialization
     void Start()
@@ -25,24 +25,26 @@ public class hand : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
-            if (collider.tag == "soldier" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+            if (collider.tag == "soldier" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
                 collider.GetComponent<FollowPlayer>().speed = 0;  
-                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                collider.tag = "dead";            
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }   
-            if (collider.tag == "suicide" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+            if (collider.tag == "suicide" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
                 collider.GetComponent<FollowPlayer>().speed = 0;  
-                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; 
+                collider.tag = "dead";           
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }  
-            if (collider.tag == "mech" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount) {
+            if (collider.tag == "mech" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
-                collider.GetComponent<FollowPlayer>().speed = 0;  
-                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
+                collider.GetComponent<FollowPlayer>().speed = 0;                      
+                collider.tag = "dead";        
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }                          
@@ -50,17 +52,22 @@ public class hand : MonoBehaviour
     }
 
     IEnumerator WaitForAnimation(Transform target) {
-        //Instantiate(handObject, target.transform.position, Quaternion.identity);
-        var myNewHand = Instantiate(handObject, target.transform.position, Quaternion.identity);
-        //myNewHand.transform.parent = target.transform;      
-        Instantiate(handSFX, target.transform.position, Quaternion.identity);          
-        yield return new WaitForSeconds(2.9f);
-        target.GetComponent<FollowPlayer>().speed = 1;
-        target.GetComponent<soldierflash>().FlashRed();
-        target.transform.SendMessage("DamageSoldier", 500);
+        var myNewHand = Instantiate(handObject, target.transform.position, Quaternion.identity);      
+        Instantiate(handSFX, target.transform.position, Quaternion.identity);                 
         Animator animator = myNewHand.GetComponent<Animator>();
-        animator.runtimeAnimatorController = retreat as RuntimeAnimatorController;        
-        yield return new WaitForSeconds(2.9f);        
+        yield return new WaitForSeconds(2.9f);
+        if (target == null) {
+            animator.runtimeAnimatorController = retreat as RuntimeAnimatorController;
+            myNewHand.GetComponent<BoxCollider2D>().enabled = false;
+            yield return new WaitForSeconds(3.2f);            
+            Destroy(myNewHand);
+            yield return null;
+        }         
+        target.transform.SendMessage("DamageSoldier", target.GetComponent<damageSoldier>().maxHealth);
+        animator.runtimeAnimatorController = retreat as RuntimeAnimatorController; 
+        myNewHand.GetComponent<BoxCollider2D>().enabled = false;       
+        yield return new WaitForSeconds(3.2f); 
+        target.GetComponent<FollowPlayer>().speed = 1;       
         flag = true;        
     }
 }

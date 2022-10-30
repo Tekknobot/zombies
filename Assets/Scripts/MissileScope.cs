@@ -28,7 +28,7 @@ public class MissileScope : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
 
-       if (GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > minute && flag == false) {
+        if (GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > minute && flag == false) {
             GetComponent<SpriteRenderer>().enabled = true;
             audioData.Play();
             StartCoroutine(TargetHorde());        
@@ -37,11 +37,13 @@ public class MissileScope : MonoBehaviour
 
     IEnumerator TargetHorde() {
         flag = true;
+        speed = 0;
         yield return new WaitForSeconds(5);
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
         audioData.Stop();
         minute += 60;
+        speed = 7;
         flag = false;        
     }
 }

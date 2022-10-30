@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1017333409371384374, guid: 53d1b158eeb371c4eb06ee090b1dc383,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -417,7 +417,7 @@ MonoBehaviour:
   laserSFX: {fileID: 8300000, guid: 0b8e7aa5aca8b8f43b7f376dafb5c389, type: 3}
   flag: 0
   timeLeft: 1
-  dmg: 10
+  dmg: 1
 --- !u!120 &3785647477362483842
 LineRenderer:
   m_ObjectHideFlags: 0
