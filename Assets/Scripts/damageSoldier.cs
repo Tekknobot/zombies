@@ -26,6 +26,7 @@ public class damageSoldier : MonoBehaviour
     public bool laserSoldier;
     public bool projectileSoldier;
     public bool mech;
+    public bool soldierMelee;
 
     public GameObject[] zombieCount;
     public int currentXPLevel;
@@ -57,7 +58,8 @@ public class damageSoldier : MonoBehaviour
                 hasPlayed = true;
 
                 Instantiate(effect, transform.position, Quaternion.identity);        
-                if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit) {                
+                if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit
+                    && soldierMelee == true || laserSoldier == true) {                
                     GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
                     zombie.transform.position = transform.position;
                     zombie.transform.rotation = Quaternion.identity;

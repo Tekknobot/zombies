@@ -9,7 +9,7 @@ public class explosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(TimeScaleRoutine());        
     }
 
     // Update is called once per frame
@@ -27,5 +27,10 @@ public class explosion : MonoBehaviour
             other.transform.SendMessage("DamageSoldier", dmg);
         }         
         //Destroy(this.gameObject);
-    }    
+    }   
+
+    IEnumerator TimeScaleRoutine() {
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 1;
+    }     
 }

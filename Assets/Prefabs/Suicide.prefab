@@ -38,7 +38,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6614213287842399284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5, y: -25.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 304484662878743424}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7632749637262378040, guid: 547bc58163a423448a135b23e1bb6ee0,
+  m_Sprite: {fileID: 5327856281743764883, guid: 9cec0f5965ecf234a9fbb842d896745a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,10 +106,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.022912502, y: 0.033327103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -120,7 +120,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1758728}
+  m_Size: {x: 2.6871881, y: 0.68429565}
   m_EdgeRadius: 0
 --- !u!61 &6614213287842399276
 BoxCollider2D:
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.022912502, y: 0.033327103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -146,7 +146,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1758728}
+  m_Size: {x: 2.6871881, y: 0.68429565}
   m_EdgeRadius: 0
 --- !u!95 &6614213287842399279
 Animator:
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 6614213287842399284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3c49a523cb118b446a7c726e428660c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -299,8 +299,8 @@ MonoBehaviour:
   speed: 1
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
-  idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  run: {fileID: 9100000, guid: 3c49a523cb118b446a7c726e428660c1, type: 2}
+  idle: {fileID: 9100000, guid: 3c49a523cb118b446a7c726e428660c1, type: 2}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
@@ -395,8 +395,8 @@ MonoBehaviour:
   speed: 3
   range: 5
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a62dc32d7d4cf8848a40650cc48c94b2, type: 2}
-  idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  run: {fileID: 9100000, guid: 3c49a523cb118b446a7c726e428660c1, type: 2}
+  idle: {fileID: 9100000, guid: 3c49a523cb118b446a7c726e428660c1, type: 2}
   target: {fileID: 0}
 --- !u!114 &7027271992008678649
 MonoBehaviour:
@@ -534,11 +534,11 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.25067997, y: -0.5723438, z: 0}
-  - {x: 0.20742798, y: -0.5735245, z: 0}
-  - {x: 0.21017933, y: -0.43390465, z: 0}
-  - {x: -0.25234413, y: -0.4306717, z: 0}
-  m_ShapePathHash: 1601553269
+  - {x: -1.5504398, y: -0.3140583, z: 0}
+  - {x: 1.3072252, y: -0.3027401, z: 0}
+  - {x: 1.3016443, y: -0.25893784, z: 0}
+  - {x: -1.5479383, y: -0.25153923, z: 0}
+  m_ShapePathHash: -317735811
   m_Mesh: {fileID: 0}
   m_InstanceId: -244664
 --- !u!1001 &2130881105181548216
