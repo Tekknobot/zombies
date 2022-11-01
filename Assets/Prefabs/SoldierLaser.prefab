@@ -42,6 +42,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 304484662878743424}
+  - {fileID: 4012833650762800803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1017333409371384374, guid: 53d1b158eeb371c4eb06ee090b1dc383,
+  m_Sprite: {fileID: -619748866635530156, guid: 05065efc0e036e944a28bd874bd61414,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,7 +114,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -139,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -299,8 +300,8 @@ MonoBehaviour:
   speed: 1
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: 958c57cd346ec864d889a304e3f3b9ff, type: 2}
-  idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  run: {fileID: 9100000, guid: 2c54f1037ffa88a43b871c6381b30519, type: 2}
+  idle: {fileID: 9100000, guid: 2c54f1037ffa88a43b871c6381b30519, type: 2}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
@@ -346,8 +347,10 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   effect: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
+  explosion: {fileID: 0}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
-  audioSource_scream: {fileID: 6614213287842399278}
+  audioSource: {fileID: 6614213287842399278, guid: 282d637f6f6ef1541afbd78ffdbc9551,
+    type: 3}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
   zombie: {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c, type: 3}
@@ -359,6 +362,7 @@ MonoBehaviour:
   laserSoldier: 1
   projectileSoldier: 0
   mech: 0
+  soldierMelee: 0
   zombieCount: []
   currentXPLevel: 0
 --- !u!114 &7834695186506612874
@@ -395,8 +399,8 @@ MonoBehaviour:
   speed: 3
   range: 5
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
-  idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  run: {fileID: 9100000, guid: 2c54f1037ffa88a43b871c6381b30519, type: 2}
+  idle: {fileID: 9100000, guid: 2c54f1037ffa88a43b871c6381b30519, type: 2}
   target: {fileID: 0}
 --- !u!114 &7027271992008678649
 MonoBehaviour:
@@ -410,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07c37e9fadba1c48ab019001fd74f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 6614213287842399284}
+  gun: {fileID: 8689666052589552339}
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   target: {fileID: 0}
   range: 10
@@ -540,7 +544,37 @@ MonoBehaviour:
   - {x: -0.25234413, y: -0.4306717, z: 0}
   m_ShapePathHash: 1601553269
   m_Mesh: {fileID: 0}
-  m_InstanceId: 169936
+  m_InstanceId: 34468
+--- !u!1 &8689666052589552339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4012833650762800803}
+  m_Layer: 0
+  m_Name: Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4012833650762800803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689666052589552339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6614213287842399285}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2130881105181548216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,7 +645,7 @@ PrefabInstance:
     - target: {fileID: 1849807519095010616, guid: 862aa09fc94473d408bb191d8cc4df48,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.731
+      value: 1.413
       objectReference: {fileID: 0}
     - target: {fileID: 1849807519095010616, guid: 862aa09fc94473d408bb191d8cc4df48,
         type: 3}

@@ -25,7 +25,7 @@ public class laser : MonoBehaviour
     {
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         
-        _lineRenderer.SetPosition(0, transform.position);
+        _lineRenderer.SetPosition(0, gun.transform.position);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders) { 
             if (collider.tag == "zombie" && flag == false) {

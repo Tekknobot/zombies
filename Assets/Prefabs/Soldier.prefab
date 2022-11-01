@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6415773947152406489, guid: 7c2a38e3f1708e94dbace514c1ef62c4,
+  m_Sprite: {fileID: -884799783840759205, guid: a9affdcbc9d13814899f7af1c18d3a92,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 6614213287842399284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -177,7 +177,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -299,8 +299,8 @@ MonoBehaviour:
   speed: 1
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: a4609a2efef7b1a428c806884cde0a78, type: 2}
-  idle: {fileID: 9100000, guid: 518ed5d9fc4800240b5b0f0d981994a7, type: 2}
+  run: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
+  idle: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
   death: {fileID: 9100000, guid: 64d6a318bc91b994586e0da72d86ae0b, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
@@ -346,8 +346,9 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   effect: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
+  explosion: {fileID: 0}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
-  audioSource_scream: {fileID: 6614213287842399278}
+  audioSource: {fileID: 6614213287842399278}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
   zombie: {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c, type: 3}
@@ -396,8 +397,8 @@ MonoBehaviour:
   speed: 3
   range: 5
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: 57e6e290c3bd0004aa46aa492b6412b5, type: 2}
-  idle: {fileID: 9100000, guid: 57e6e290c3bd0004aa46aa492b6412b5, type: 2}
+  run: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
+  idle: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
   target: {fileID: 0}
 --- !u!114 &7027271992008678649
 MonoBehaviour:
@@ -541,7 +542,7 @@ MonoBehaviour:
   - {x: -0.25234413, y: -0.4306717, z: 0}
   m_ShapePathHash: 1601553269
   m_Mesh: {fileID: 0}
-  m_InstanceId: 169936
+  m_InstanceId: 21074
 --- !u!1001 &2130881105181548216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,7 +613,7 @@ PrefabInstance:
     - target: {fileID: 1849807519095010616, guid: 862aa09fc94473d408bb191d8cc4df48,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.731
+      value: 1.421
       objectReference: {fileID: 0}
     - target: {fileID: 1849807519095010616, guid: 862aa09fc94473d408bb191d8cc4df48,
         type: 3}

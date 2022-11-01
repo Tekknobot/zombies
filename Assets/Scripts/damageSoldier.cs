@@ -8,9 +8,10 @@ public class damageSoldier : MonoBehaviour
     public float health = 90;
     public float maxHealth = 10;
     public GameObject effect;
+    public GameObject explosion;
 
     public AudioClip soldierScreamSFX;
-    public AudioSource audioSource_scream;
+    public AudioSource audioSource;
 
     private bool hasPlayed = false;
 
@@ -34,7 +35,7 @@ public class damageSoldier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource_scream.GetComponent<AudioSource>().clip = soldierScreamSFX;
+        audioSource.GetComponent<AudioSource>().clip = soldierScreamSFX;
     }
 
     void DamageSoldier(float dmg) 
@@ -54,12 +55,9 @@ public class damageSoldier : MonoBehaviour
         {
             if(!hasPlayed)
             {
-                audioSource_scream.PlayOneShot(soldierScreamSFX);
-                hasPlayed = true;
-
                 Instantiate(effect, transform.position, Quaternion.identity);        
                 if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit
-                    && soldierMelee == true || laserSoldier == true) {                
+                    && soldierMelee == true || laserSoldier == true) {                    
                     GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
                     zombie.transform.position = transform.position;
                     zombie.transform.rotation = Quaternion.identity;
@@ -71,11 +69,16 @@ public class damageSoldier : MonoBehaviour
                 if (projectileSoldier == true) {
                     for (int i = 0; i < 2; i++) {
                         Instantiate(gem, transform.position, Quaternion.identity);
+                        Instantiate(explosion, transform.position, Quaternion.identity);
+                        audioSource.clip = soldierScreamSFX;
+                        audioSource.Play();
                     }
                 }
                 if (laserSoldier == true) {
                     for (int i = 0; i < 3; i++) {
                         Instantiate(gem, transform.position, Quaternion.identity);
+                        audioSource.clip = soldierScreamSFX;
+                        audioSource.Play();                        
                     }
                 }  
                 if (boss == true) {
@@ -104,6 +107,7 @@ public class damageSoldier : MonoBehaviour
                 boxCol2.enabled = false;
 
                 StartCoroutine(WaitForSFX());
+                hasPlayed = true;
             }
         }
 

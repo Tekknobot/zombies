@@ -28,23 +28,20 @@ public class hand : MonoBehaviour
             if (collider.tag == "soldier" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
                 collider.GetComponent<FollowPlayer>().speed = 0;  
-                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-                collider.tag = "dead";            
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;           
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }   
             if (collider.tag == "suicide" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
                 collider.GetComponent<FollowPlayer>().speed = 0;  
-                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; 
-                collider.tag = "dead";           
+                collider.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;            
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }  
             if (collider.tag == "mech" && flag == false && GameObject.FindGameObjectsWithTag("hand").Length < handAmount/2) {
                 target = collider.transform; 
-                collider.GetComponent<FollowPlayer>().speed = 0;                      
-                collider.tag = "dead";        
+                collider.GetComponent<FollowPlayer>().speed = 0;                              
                 StartCoroutine(WaitForAnimation(target));
                 //break; 
             }                          
@@ -61,13 +58,12 @@ public class hand : MonoBehaviour
             myNewHand.GetComponent<BoxCollider2D>().enabled = false;
             yield return new WaitForSeconds(3.2f);            
             Destroy(myNewHand);
-            yield return null;
+            yield break;
         }         
         target.transform.SendMessage("DamageSoldier", target.GetComponent<damageSoldier>().maxHealth);
         animator.runtimeAnimatorController = retreat as RuntimeAnimatorController; 
         myNewHand.GetComponent<BoxCollider2D>().enabled = false;       
-        yield return new WaitForSeconds(3.2f); 
-        target.GetComponent<FollowPlayer>().speed = 1;       
+        yield return new WaitForSeconds(3.2f);       
         flag = true;        
     }
 }

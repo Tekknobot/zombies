@@ -2125,7 +2125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &380053730
 MonoBehaviour:
@@ -6667,7 +6667,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299892401}
-  - component: {fileID: 1299892400}
   - component: {fileID: 1299892402}
   m_Layer: 0
   m_Name: Map
@@ -6676,18 +6675,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!156049354 &1299892400
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299892399}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
 --- !u!4 &1299892401
 Transform:
   m_ObjectHideFlags: 0
@@ -12386,7 +12373,7 @@ PrefabInstance:
     - target: {fileID: 6763356886698669538, guid: a57e39c854ca79040bdb66176a297a0d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6763356886698669538, guid: a57e39c854ca79040bdb66176a297a0d,
         type: 3}
