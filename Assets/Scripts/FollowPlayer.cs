@@ -33,7 +33,7 @@ public class FollowPlayer : MonoBehaviour
     public int zombieLimit = 10;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -55,12 +55,11 @@ public class FollowPlayer : MonoBehaviour
             GetComponent<damage>().maxHealth = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth;
         }
 
-        if ((this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") && currentXPLevel > 0) {
-            speed = Random.Range(1, 2);
-            GetComponent<damageSoldier>().maxHealth = GetComponent<FollowPlayer>().currentXPLevel*GetComponent<damageSoldier>().maxHealth;
+        if ((this.tag == "soldier" || this.tag == "suicide" ||  this.tag == "mech") && GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel > 0) {
+            GetComponent<damageSoldier>().maxHealth = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel*GetComponent<damageSoldier>().maxHealth;
             GetComponent<damageSoldier>().health = GetComponent<damageSoldier>().maxHealth;
-            GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GetComponent<FollowPlayer>().currentXPLevel;
-            GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GetComponent<FollowPlayer>().currentXPLevel;            
+            GetComponent<soldierflash>().dmg = GetComponent<soldierflash>().dmg + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;
+            GetComponent<soldierflash>().bulletDmg = GetComponent<soldierflash>().bulletDmg + GameObject.Find("ScoreManager").GetComponent<ScoreManager>().currentXPLevel;            
         }             
     }
 

@@ -57,7 +57,9 @@ public class damageSoldier : MonoBehaviour
             {
                 Instantiate(effect, transform.position, Quaternion.identity);        
                 if (GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieCount.Length < GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieLimit
-                    && soldierMelee == true || laserSoldier == true) {                    
+                    && soldierMelee == true || laserSoldier == true) {   
+                    audioSource.clip = soldierScreamSFX;
+                    audioSource.Play();                     
                     GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
                     zombie.transform.position = transform.position;
                     zombie.transform.rotation = Quaternion.identity;
@@ -71,7 +73,7 @@ public class damageSoldier : MonoBehaviour
                         Instantiate(gem, transform.position, Quaternion.identity);
                         Instantiate(explosion, transform.position, Quaternion.identity);
                         audioSource.clip = soldierScreamSFX;
-                        audioSource.Play();
+                        audioSource.Stop();
                     }
                 }
                 if (laserSoldier == true) {

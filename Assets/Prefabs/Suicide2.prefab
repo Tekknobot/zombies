@@ -106,7 +106,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.022912502, y: 0.033327103}
@@ -346,8 +346,10 @@ MonoBehaviour:
   health: 150
   maxHealth: 150
   effect: {fileID: 7118476831730622947, guid: 7d3cbc9ba6fd02648a582aed49f0bb5c, type: 3}
+  explosion: {fileID: 0}
   soldierScreamSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
-  audioSource_scream: {fileID: 6614213287842399278}
+  audioSource: {fileID: 6614213287842399278, guid: 282d637f6f6ef1541afbd78ffdbc9551,
+    type: 3}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
   zombie: {fileID: 6614213287842399284, guid: 8848d3ae0d151574c9daf6a1ab24524c, type: 3}
@@ -359,6 +361,7 @@ MonoBehaviour:
   laserSoldier: 0
   projectileSoldier: 0
   mech: 0
+  soldierMelee: 0
   zombieCount: []
   currentXPLevel: 0
 --- !u!114 &7834695186506612874

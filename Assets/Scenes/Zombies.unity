@@ -12329,7 +12329,7 @@ PrefabInstance:
       objectReference: {fileID: 1547394273}
     - target: {fileID: 838578478, guid: a57e39c854ca79040bdb66176a297a0d, type: 3}
       propertyPath: speed
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 838578478, guid: a57e39c854ca79040bdb66176a297a0d, type: 3}
       propertyPath: minute

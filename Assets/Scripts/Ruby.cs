@@ -37,7 +37,11 @@ public class Ruby : MonoBehaviour
             GameObject.Find("ScoreManager").GetComponent<ScoreManager>().xp += 1;
             other.GetComponent<damage>().health = other.GetComponent<damage>().maxHealth;
             for (int i = 0; i < zombieGift; i++) {
-                Instantiate(zombie, transform.position, Quaternion.identity);
+                GameObject zombie = PoolManager.SharedInstance.GetPooledZombie();
+                zombie.transform.position = transform.position;
+                zombie.transform.rotation = Quaternion.identity;
+                zombie.SetActive(true);
+                zombie.GetComponent<damage>().health = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth;            
             }
             Destroy(this.gameObject);  
         }              
