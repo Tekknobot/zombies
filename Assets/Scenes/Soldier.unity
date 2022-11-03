@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 195457659}
   - component: {fileID: 195457660}
   m_Layer: 0
-  m_Name: PoolManager2
+  m_Name: PoolManagerMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2418,6 +2418,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1547634317, guid: f8e4d9766f7e8344fbbb44c9848e029a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547634317, guid: f8e4d9766f7e8344fbbb44c9848e029a, type: 3}
+      propertyPath: movementSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: shootingPower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: fireRate
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399284, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: m_Name
@@ -2461,7 +2479,7 @@ PrefabInstance:
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
@@ -2878,7 +2896,7 @@ MonoBehaviour:
   interpVelocity: 0
   minDistance: 50
   followDistance: 100
-  target: {fileID: 1547394270}
+  target: {fileID: 1535296013}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &524474672
 GameObject:
@@ -7823,7 +7841,7 @@ GameObject:
   - component: {fileID: 1438892606}
   - component: {fileID: 1438892605}
   m_Layer: 5
-  m_Name: levelCount
+  m_Name: levelNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8688,6 +8706,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1535296013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6614213287842399284, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+    type: 3}
+  m_PrefabInstance: {fileID: 444584328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547394270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9014,6 +9038,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1571632586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571632587}
+  - component: {fileID: 1571632588}
+  - component: {fileID: 1571632589}
+  m_Layer: 0
+  m_Name: ScoreManagerMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571632587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571632586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571632588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571632586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6a114c7a7125d4ab41fa13d48423ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieDeaths: 0
+  soldierDeaths: 0
+  xp: 0
+  barXP: 0
+  xpNextLevel: 10
+  lastXP: 0
+  xpCount: {fileID: 1987176549}
+  levelCount: {fileID: 470677671}
+  levelNumber: {fileID: 1438892603}
+  zombieCount: []
+  soldierCount: []
+  currentXPLevel: 0
+  levelBar: {fileID: 1315471821}
+  particles: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63,
+    type: 3}
+  levelUpSFX: {fileID: 6901175269105295133, guid: 6bfd8d4fd2048324d8dce5d4f2cb605d,
+    type: 3}
+--- !u!114 &1571632589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571632586}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaa40e2fd60c48448a849de32bd3586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAmount: 0
+  maxAmount: 3
 --- !u!1 &1592648744
 GameObject:
   m_ObjectHideFlags: 0
@@ -9455,7 +9554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1711360818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11604,7 +11703,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071941054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b40052c4771bf14384a5965c7c3a99c, type: 3}
   m_Name: 

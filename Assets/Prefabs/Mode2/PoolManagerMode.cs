@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager2 : MonoBehaviour
+public class PoolManagerMode : MonoBehaviour
 {
-    public static PoolManager2 SharedInstance;
+    public static PoolManagerMode SharedInstance;
     public List<GameObject> pooledObjects;
     public List<GameObject> pooledZombies;
     public List<GameObject> pooledBullets;

@@ -11,6 +11,13 @@ public class PlayerGun : MonoBehaviour
     public float range = 10f;
     private float shootingTime; //local to store last time we shot so we can make sure its done every 3s
 
+    float tmpVar;
+
+    public bool pistol = true;
+    public bool shotgun;
+    public bool machinegun;
+    public bool grenadeLauncher;
+
     // Update is called once per frame
     void Update ()
     {
@@ -18,20 +25,23 @@ public class PlayerGun : MonoBehaviour
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if (Input.GetButton("Fire1")) {
-            Fire();            
+        if (Input.GetButton("Fire1") && pistol == true) {
+            FirePistol();            
         }
+
+        if (Input.GetButton("Fire1") && shotgun == true) {
+            FireShotgun();            
+        }        
     }
 
-    private void Fire()
+    private void FirePistol()
     {
         if (Time.time > shootingTime)
         {
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
             Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points
-            //GameObject projectile = Instantiate(bullet[Random.Range(1, 6)], myPos, Quaternion.identity); //create our bullet
             
-            GameObject projectile = PoolManager2.SharedInstance.GetPooledBullet();
+            GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
             if (projectile != null) {
                 projectile.transform.position = myPos;
                 projectile.transform.rotation = Quaternion.identity;
@@ -42,4 +52,27 @@ public class PlayerGun : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction * shootingPower; //shoot the bullet
         }
     }      
+
+    private void FireShotgun()
+    {
+        if (Time.time > shootingTime)
+        {
+            shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
+            Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points
+            
+            tmpVar = -1;
+            for (int i = 0; i < 5; i++) {
+                GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
+                if (projectile != null) {
+                    projectile.transform.position = myPos;
+                    projectile.transform.rotation = Quaternion.identity;
+                    projectile.SetActive(true);
+                    tmpVar += 0.5f;
+                }                                            
+
+                Vector2 direction = myPos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector2(0,tmpVar); //get the direction to the target
+                projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction * shootingPower; //shoot the bullet
+            }
+        }
+    }    
 }

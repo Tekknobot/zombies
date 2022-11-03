@@ -47,6 +47,8 @@ public class Ruby : MonoBehaviour
         }    
 
         if(other.tag == "PlayerPrefab") {
+            GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().xp += 1;
+            GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().barXP += 1;
             Instantiate(sfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);  
         }                   
