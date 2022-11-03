@@ -44,7 +44,12 @@ public class Ruby : MonoBehaviour
                 zombie.GetComponent<damage>().health = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().zombieMaxHealth;            
             }
             Destroy(this.gameObject);  
-        }              
+        }    
+
+        if(other.tag == "PlayerPrefab") {
+            Instantiate(sfx, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);  
+        }                   
     }
 
     IEnumerator WaitForCollider() {

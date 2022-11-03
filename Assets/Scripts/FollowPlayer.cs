@@ -67,16 +67,6 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
-        if (Input.GetButton("Right Bumper")) {
-            GameObject.Find("Player").transform.position = zombieCount[index++].transform.position;
-            if (index >= zombieCount.Length) {
-                index = 0;
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Alpha1)) {
-            //GetComponent<hand>().HandUpdate();
-        }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f);
         foreach (Collider2D collider in colliders) {

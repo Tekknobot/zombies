@@ -19,15 +19,23 @@ public class bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "zombie") {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
 
         if(other.tag == "building") {
-            Destroy(this.gameObject);
-        }        
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
+        } 
+
+        if(other.tag == "ZombieA") {
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
+        }               
     }    
 
     void OnBecameInvisible() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }    
 }

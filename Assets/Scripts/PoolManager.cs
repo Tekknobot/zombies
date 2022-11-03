@@ -7,8 +7,10 @@ public class PoolManager : MonoBehaviour
     public static PoolManager SharedInstance;
     public List<GameObject> pooledObjects;
     public List<GameObject> pooledZombies;
+    public List<GameObject> pooledBullets;
     public GameObject[] objectsToPool;
     public GameObject zombieToPool;
+    public GameObject bulletToPool;
     public int amountToPool;
 
     void Awake()
@@ -35,6 +37,15 @@ public class PoolManager : MonoBehaviour
             tmpZombie.SetActive(false);
             pooledZombies.Add(tmpZombie);
         }
+
+        pooledBullets = new List<GameObject>();
+        GameObject tmpBullets;
+        for(int i = 0; i < amountToPool; i++)
+        {
+            tmpBullets = Instantiate(bulletToPool);
+            tmpBullets.SetActive(false);
+            pooledBullets.Add(tmpBullets);
+        }        
     }
 
     public GameObject GetPooledObject()
@@ -52,6 +63,16 @@ public class PoolManager : MonoBehaviour
         for(int i = 0; i < amountToPool; i++) {
             if(!pooledZombies[i].activeInHierarchy) {
                 return pooledZombies[i];
+            }
+        }
+        return null;
+    }    
+
+    public GameObject GetPooledBullet()
+    {
+        for(int i = 0; i < amountToPool; i++) {
+            if(!pooledBullets[i].activeInHierarchy) {
+                return pooledBullets[i];
             }
         }
         return null;
