@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         float rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //transform.rotation = Quaternion.Euler(0f, 0f, rot2);
 
-        if(rot2 < 69 &&  rot2 > -69)
+        if(rot2 < 90 &&  rot2 > -90)
         {
             Debug.Log("Facing right");
             GetComponent<SpriteRenderer>().flipX = false; 

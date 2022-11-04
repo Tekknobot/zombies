@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public bool playerBullet;
+    public float speed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +16,9 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerBullet == true) {
+            GetComponent<Rigidbody2D>().velocity = speed * transform.right;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

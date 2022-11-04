@@ -2443,6 +2443,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1615105063985988948, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615105063985988948, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607395854760244636, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7020832388830667288, guid: 0ff5bdfad04740745a6e04216c5624bf,
+        type: 3}
+    - target: {fileID: 2607395854760244636, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: shotgun
