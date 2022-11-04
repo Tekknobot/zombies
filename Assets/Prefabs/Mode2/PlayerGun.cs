@@ -20,6 +20,10 @@ public class PlayerGun : MonoBehaviour
     public bool machinegun;
     public bool grenadeLauncher;
 
+    public int magCurrent = 0;
+    public int magSize = 5;
+    public bool canShoot = false;
+
     // Update is called once per frame
     void Update ()
     {
@@ -35,8 +39,8 @@ public class PlayerGun : MonoBehaviour
             FireShotgun();            
         }    
 
-        if (Input.GetButton("Fire1") && machinegun == true) {
-            FireMachinegun();            
+        if (Input.GetButton("Fire1") && machinegun == true && canShoot == false) {
+            FireMachinegun();           
         }              
     }
 
@@ -57,7 +61,7 @@ public class PlayerGun : MonoBehaviour
             }             
 
             Vector2 direction = myPos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the direction to the target
-            projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet
+            projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                
         }
     }      
 
@@ -100,15 +104,27 @@ public class PlayerGun : MonoBehaviour
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
             Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points
             
-            GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
-            if (projectile != null) {
-                projectile.transform.position = myPos;
-                projectile.transform.rotation = Quaternion.identity;
-                projectile.SetActive(true);
-            }             
-            
-            Vector2 direction = myPos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the direction to the target
-            projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet
+            if (magSize > magCurrent) {
+                GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
+                if (projectile != null) {
+                    projectile.transform.position = myPos;
+                    projectile.transform.rotation = Quaternion.identity;
+                    projectile.SetActive(true);
+                    Vector2 direction = myPos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the direction to the target
+                    projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                    
+                    magCurrent += 1;
+                }             
+            }
+            else {
+                StartCoroutine(Reload());
+            }
         }
     }         
+
+    IEnumerator Reload() {
+        canShoot = true;
+        yield return new WaitForSeconds(2);
+        magCurrent = 0;
+        canShoot = false;
+    }
 }

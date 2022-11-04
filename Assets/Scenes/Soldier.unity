@@ -2426,12 +2426,27 @@ PrefabInstance:
     - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: shotgun
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: pistol
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: machinegun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: mag_total
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: magSize
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399284, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
