@@ -21,6 +21,8 @@ public class DamageMode : MonoBehaviour
     public GameObject healthbar;
 
     public RuntimeAnimatorController death;
+
+    public GameObject[] pickups;
        
 
     // Start is called before the first frame update
@@ -48,6 +50,15 @@ public class DamageMode : MonoBehaviour
         audioSource_this.PlayOneShot(objectSFX);
         Instantiate(blood, transform.position, Quaternion.identity);  
         Instantiate(gemXP, transform.position, Quaternion.identity);
+        foreach (var pickup in pickups) {
+            int calc_dropChance = Random.Range (0, 101);
+        
+            if (calc_dropChance > pickup.GetComponent<Pickup>().dropRarity && GameObject.FindGameObjectsWithTag("Pickup").Length < 1) {
+                Instantiate(pickups[Random.Range(0, pickups.Length)], transform.position, Quaternion.identity);
+            }
+            break;
+        }
+        
         Animator animator = gameObject.GetComponent<Animator>();
         animator.runtimeAnimatorController = death as RuntimeAnimatorController; 
         GetComponent<FollowPlayerMode>().speed = 0;         

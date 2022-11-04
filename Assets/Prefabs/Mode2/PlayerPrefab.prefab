@@ -97,13 +97,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891205073696318006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071978, w: 0.7070159}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6614213287842399285}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.01501}
 --- !u!212 &2607395854760244636
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,9 +169,13 @@ MonoBehaviour:
   target: {fileID: 0}
   weaponMuzzle: {fileID: 1615105063985988948}
   bullet: []
-  fireRate: 500
-  shootingPower: 1
+  fireRate: 1
+  shootingPower: 10
   range: 10
+  pistol: 0
+  shotgun: 1
+  machinegun: 0
+  grenadeLauncher: 0
 --- !u!1 &2045514487385493859
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +783,7 @@ MonoBehaviour:
   boxCol2: {fileID: 6614213287842399276}
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
+  pickups: []
 --- !u!114 &1597089825165991466
 MonoBehaviour:
   m_ObjectHideFlags: 0

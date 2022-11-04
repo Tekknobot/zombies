@@ -593,6 +593,10 @@ MonoBehaviour:
   boxCol2: {fileID: 6614213287842399276}
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
+  pickups:
+  - {fileID: 5535638297179634274, guid: dd91cce6f6f9cf24fab7e193fd5604c2, type: 3}
+  - {fileID: 5535638297179634274, guid: 967e70e3ca5183744b961b789ef45b9b, type: 3}
+  - {fileID: 5535638297179634274, guid: 6a4c7c5593c373447bf9fbfa0e802131, type: 3}
 --- !u!114 &8720220336838115784
 MonoBehaviour:
   m_ObjectHideFlags: 0
