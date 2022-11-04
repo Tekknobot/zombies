@@ -26,6 +26,8 @@ TagManager:
   - dead
   - ZombieA
   - PlayerPrefab
+  - Car
+  - Pickup
   layers:
   - Default
   - TransparentFX
