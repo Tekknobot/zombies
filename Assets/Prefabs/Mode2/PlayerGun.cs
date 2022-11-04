@@ -23,7 +23,7 @@ public class PlayerGun : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        dir = ((Camera.main.ScreenToWorldPoint(Input.mousePosition)) - transform.position);
+        dir = ((Camera.main.ScreenToWorldPoint(Input.mousePosition)) - this.transform.localPosition);
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -68,14 +68,14 @@ public class PlayerGun : MonoBehaviour
             fireRate = 500;
             shootingPower = 10;
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
-            Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points    
+            Vector2 myPos = new Vector2(weaponMuzzle.localPosition.x, weaponMuzzle.localPosition.y); //our curr position is where our muzzle points    
 
             deg = 0;
 
             for (int i = 0; i < 8; i++) {
                 GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
                 if (projectile != null) {
-                    projectile.transform.position = myPos;
+                    projectile.transform.position = this.transform.position;
                     projectile.transform.rotation = Quaternion.identity;
                     projectile.SetActive(true);
                     deg += 8f;
@@ -83,9 +83,9 @@ public class PlayerGun : MonoBehaviour
                     var y = projectile.transform.position.y - dir.y;                    
                     float spreadAngle = deg;
                     float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg-35);
-                    var MovementDirection = new Vector2(Mathf.Cos((rotateAngle) * Mathf.Deg2Rad), Mathf.Sin((rotateAngle) * Mathf.Deg2Rad));
-                    Vector2 direction = myPos.normalized - dir.normalized + MovementDirection.normalized; //get the direction to the target
-                    projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
+                    var MovementDirection = new Vector2(Mathf.Cos((rotateAngle) * Mathf.Deg2Rad), Mathf.Sin((rotateAngle) * Mathf.Deg2Rad)).normalized;
+                    Vector2 direction = MovementDirection; //get the direction to the target
+                    projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet  
                 }     
             }
         }
