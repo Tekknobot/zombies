@@ -22,6 +22,8 @@ public class PlayerGun : MonoBehaviour
 
     public int magCurrent = 0;
     public int magSize = 5;
+    public int shotgunSpreadCount = 3;
+    public int offset;
     public bool canShoot = false;
 
     // Update is called once per frame
@@ -76,7 +78,7 @@ public class PlayerGun : MonoBehaviour
 
             deg = 0;
 
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < shotgunSpreadCount; i++) {
                 GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
                 if (projectile != null) {
                     projectile.transform.position = this.transform.position;
@@ -86,7 +88,7 @@ public class PlayerGun : MonoBehaviour
                     var x = projectile.transform.position.x - dir.x;
                     var y = projectile.transform.position.y - dir.y;                    
                     float spreadAngle = deg;
-                    float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg-35);
+                    float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg-offset);
                     var MovementDirection = new Vector2(Mathf.Cos((rotateAngle) * Mathf.Deg2Rad), Mathf.Sin((rotateAngle) * Mathf.Deg2Rad)).normalized;
                     Vector2 direction = MovementDirection; //get the direction to the target
                     projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet  

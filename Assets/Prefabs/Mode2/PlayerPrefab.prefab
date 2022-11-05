@@ -182,6 +182,8 @@ MonoBehaviour:
   grenadeLauncher: 0
   magCurrent: 0
   magSize: 5
+  shotgunSpreadCount: 3
+  offset: 15
   canShoot: 0
 --- !u!1 &2045514487385493859
 GameObject:
@@ -784,13 +786,15 @@ MonoBehaviour:
   maxHealth: 10
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   gemXP: {fileID: 5535638297179634274, guid: 469447baf27e6e5419d09bda0c6301cc, type: 3}
+  explosion: {fileID: 0}
   objectSFX: {fileID: 8300000, guid: 18ee9c2f9e7b8384aa25856591ebe4ff, type: 3}
   audioSource_this: {fileID: 6614213287842399278}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
-  pickups: []
+  drops: []
+  explodes: 0
 --- !u!114 &1597089825165991466
 MonoBehaviour:
   m_ObjectHideFlags: 0

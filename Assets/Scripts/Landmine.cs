@@ -23,12 +23,12 @@ public class Landmine : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "zombie") {
+        if(col.tag == "zombie" || col.tag == "ZombieA") {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
-        if(col.tag == "soldier") {
+        if(col.tag == "soldier" || col.tag == "PlayerPrefab") {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }   

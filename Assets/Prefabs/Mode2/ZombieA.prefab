@@ -353,7 +353,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: -4647326752556215133, guid: 4aefa13b1c4ea3e4685fb2930c7b0051,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -587,16 +587,17 @@ MonoBehaviour:
   maxHealth: 10
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   gemXP: {fileID: 5535638297179634274, guid: 469447baf27e6e5419d09bda0c6301cc, type: 3}
+  explosion: {fileID: 0}
   objectSFX: {fileID: 8300000, guid: 6c4d7ee230ef31544b184050c7dfd708, type: 3}
   audioSource_this: {fileID: 6614213287842399278}
   boxCol: {fileID: 6614213287842399277}
   boxCol2: {fileID: 6614213287842399276}
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
-  pickups:
-  - {fileID: 5535638297179634274, guid: dd91cce6f6f9cf24fab7e193fd5604c2, type: 3}
+  drops:
   - {fileID: 5535638297179634274, guid: 967e70e3ca5183744b961b789ef45b9b, type: 3}
   - {fileID: 5535638297179634274, guid: 6a4c7c5593c373447bf9fbfa0e802131, type: 3}
+  explodes: 0
 --- !u!114 &8720220336838115784
 MonoBehaviour:
   m_ObjectHideFlags: 0

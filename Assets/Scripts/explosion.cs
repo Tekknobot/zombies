@@ -25,7 +25,14 @@ public class explosion : MonoBehaviour
         } 
         if(other.tag == "soldier" || other.tag == "suicide" || other.tag == "mech") {
             other.transform.SendMessage("DamageSoldier", dmg);
-        }         
+        }     
+
+        if(other.tag == "ZombieA") {
+            other.transform.SendMessage("Damage", dmg);
+        } 
+        if(other.tag == "PlayerPrefab") {
+            other.transform.SendMessage("Damage", dmg);
+        }              
         //Destroy(this.gameObject);
     }   
 

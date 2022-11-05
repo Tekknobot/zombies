@@ -9,20 +9,17 @@ public class DamageMode : MonoBehaviour
     public float maxHealth = 100;
     public GameObject blood;
     public GameObject gemXP;
-
+    public GameObject explosion;
     public AudioClip objectSFX;
     public AudioSource audioSource_this;
-
     private bool hasPlayed = false;
-
     public BoxCollider2D boxCol;
     public BoxCollider2D boxCol2; 
-
     public GameObject healthbar;
-
     public RuntimeAnimatorController death;
+    public GameObject[] drops;
 
-    public GameObject[] pickups;
+    public bool explodes;
        
 
     // Start is called before the first frame update
@@ -50,11 +47,14 @@ public class DamageMode : MonoBehaviour
         audioSource_this.PlayOneShot(objectSFX);
         Instantiate(blood, transform.position, Quaternion.identity);  
         Instantiate(gemXP, transform.position, Quaternion.identity);
-        foreach (var pickup in pickups) {
+        if (explodes == true) {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        }
+        foreach (var drop in drops) {
             int calc_dropChance = Random.Range (0, 101);
         
-            if (calc_dropChance > pickup.GetComponent<Pickup>().dropRarity && GameObject.FindGameObjectsWithTag("Pickup").Length < 1) {
-                Instantiate(pickups[Random.Range(0, pickups.Length)], transform.position, Quaternion.identity);
+            if (calc_dropChance > drop.GetComponent<Pickup>().dropRarity) {
+                Instantiate(drops[Random.Range(0, drops.Length)], transform.position, Quaternion.identity);
             }
             break;
         }
