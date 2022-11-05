@@ -84,13 +84,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -884799783840759205, guid: a9affdcbc9d13814899f7af1c18d3a92,
+  m_Sprite: {fileID: -468114023126436487, guid: eb5509fb4867c694ca174c8b1db4eb89,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 1.5625, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -113,8 +113,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 4, y: 4}
+    oldSize: {x: 1.5625, y: 2}
+    newSize: {x: 1.5625, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -139,8 +139,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 4, y: 4}
+    oldSize: {x: 1.5625, y: 2}
+    newSize: {x: 1.5625, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 6614213287842399284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8d763cb566127174bb6c5b7f45392dd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -299,8 +299,8 @@ MonoBehaviour:
   speed: 1
   range: 50
   stoppingDistance: 0
-  run: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
-  idle: {fileID: 9100000, guid: 5f114357312b2f74dbd199ff56f8e5b3, type: 2}
+  run: {fileID: 9100000, guid: 8d763cb566127174bb6c5b7f45392dd5, type: 2}
+  idle: {fileID: 9100000, guid: 8d763cb566127174bb6c5b7f45392dd5, type: 2}
   death: {fileID: 9100000, guid: 64d6a318bc91b994586e0da72d86ae0b, type: 2}
   target: {fileID: 0}
   levelUp: {fileID: 4025565184072064533, guid: d9edf0c5bef890341a92334f3af44c63, type: 3}
