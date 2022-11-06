@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -40,6 +41,10 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            SceneManager.LoadScene("Soldier");
+        }    
+
         zombieCount = GameObject.FindGameObjectsWithTag("zombie");
         soldierCount = GameObject.FindGameObjectsWithTag("soldier");
         zombieDeathCount.GetComponent<Text>().text = zombieCount.Length.ToString();

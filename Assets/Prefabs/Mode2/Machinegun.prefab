@@ -169,4 +169,4 @@ MonoBehaviour:
   shotgun: 0
   machinegun: 1
   grenadeLauncher: 0
-  dropRarity: 75
+  dropRarity: 50

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Soldier.unity
+    guid: 4a4ea252aac206343b0ecdb056e1f460
+  - enabled: 1
     path: Assets/Scenes/Zombies.unity
     guid: 023548f5d4c4ec945b850e454edc9867
   m_configObjects: {}

@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2D.gravityScale = 0.0f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         FaceMouse();
 
@@ -30,12 +30,13 @@ public class PlayerController : MonoBehaviour
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         Move(targetVelocity); 
+
     }
 
     void Move(Vector2 targetVelocity)
     {        
         // Set rigidbody velocity
-        rigidbody2D.velocity = (targetVelocity * movementSpeed) * Time.deltaTime; // Multiply the target by deltaTime to make movement speed consistent across different framerates
+        rigidbody2D.velocity = targetVelocity * movementSpeed * Time.deltaTime; // Multiply the target by deltaTime to make movement speed consistent across different framerates
     }
 
     private void Flip()

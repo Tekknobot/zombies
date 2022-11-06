@@ -102,7 +102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6614213287842399285}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &2607395854760244636
 SpriteRenderer:
@@ -171,6 +171,8 @@ MonoBehaviour:
   weaponMuzzle: {fileID: 1615105063985988948}
   bullet:
   - {fileID: 7712507716706664509, guid: 92cc60b03c89dad4a921dad2f62d8a6f, type: 3}
+  reloadSFX: {fileID: 6901175269105295133, guid: f939762416f49a04299fc804941c0bff,
+    type: 3}
   fireRate: 1
   shootingPower: 10
   range: 10
@@ -182,6 +184,8 @@ MonoBehaviour:
   grenadeLauncher: 0
   magCurrent: 0
   magSize: 5
+  magMax: 5
+  shotgunMax: 2
   shotgunSpreadCount: 3
   offset: 15
   canShoot: 0
@@ -219,7 +223,7 @@ RectTransform:
   - {fileID: 1703131132392659654}
   - {fileID: 4846704866196384624}
   m_Father: {fileID: 6614213287842399285}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -497,8 +501,8 @@ Transform:
   m_LocalPosition: {x: 13.5, y: -25.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2863928807741515442}
   - {fileID: 1615105063985988948}
+  - {fileID: 2863928807741515442}
   - {fileID: 1511145563}
   m_Father: {fileID: 0}
   m_RootOrder: 0
