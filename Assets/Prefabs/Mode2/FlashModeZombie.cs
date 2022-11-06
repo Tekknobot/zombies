@@ -46,7 +46,7 @@ public class FlashModeZombie : MonoBehaviour
             this.transform.SendMessage("Damage", dmg);
         }    
 
-        if(col.tag == "bullet") {
+        if(col.tag == "bullet" || col.tag == "Orbiter") {
             FlashRed();
             this.transform.SendMessage("Damage", dmg);
         }                    

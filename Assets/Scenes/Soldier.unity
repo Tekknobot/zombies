@@ -4606,7 +4606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051320460
 GameObject:
@@ -4782,17 +4782,27 @@ PrefabInstance:
     - target: {fileID: 2607395854760244636, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
-        type: 3}
-      propertyPath: pistol
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
-      propertyPath: shotgun
+      propertyPath: pistol
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: shotgun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: grenadeLauncher
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172438985323112685, guid: f8e4d9766f7e8344fbbb44c9848e029a,
+        type: 3}
+      propertyPath: machinegun
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399284, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
@@ -4837,7 +4847,7 @@ PrefabInstance:
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
@@ -7760,6 +7770,9 @@ MonoBehaviour:
   group:
   - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
   - {fileID: 6614213287842399284, guid: 736459488b86da64d8ffa11ceb9a5a2f, type: 3}
+  - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
+  - {fileID: 6614213287842399284, guid: 736459488b86da64d8ffa11ceb9a5a2f, type: 3}
+  - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
   cameraObject: {fileID: 519420028}
   timeBtwSpawn: 0
   startTimeBtwSpawn: 20
@@ -9983,6 +9996,7 @@ MonoBehaviour:
     type: 3}
   levelUpSFX: {fileID: 6901175269105295133, guid: 6bfd8d4fd2048324d8dce5d4f2cb605d,
     type: 3}
+  orbiter: {fileID: 7712507716706664509, guid: bdd5ea810c10a8c46a4032d859443487, type: 3}
 --- !u!4 &2071941056
 Transform:
   m_ObjectHideFlags: 0

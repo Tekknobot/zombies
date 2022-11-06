@@ -28,6 +28,7 @@ TagManager:
   - PlayerPrefab
   - Car
   - Pickup
+  - Orbiter
   layers:
   - Default
   - TransparentFX

@@ -594,10 +594,7 @@ MonoBehaviour:
   boxCol2: {fileID: 6614213287842399276}
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
-  drops:
-  - {fileID: 5535638297179634274, guid: 967e70e3ca5183744b961b789ef45b9b, type: 3}
-  - {fileID: 5535638297179634274, guid: 6a4c7c5593c373447bf9fbfa0e802131, type: 3}
-  - {fileID: 5535638297179634274, guid: 4f31c62351cd3f5448d9871f269b8369, type: 3}
+  drops: []
   explodes: 0
 --- !u!114 &8720220336838115784
 MonoBehaviour:

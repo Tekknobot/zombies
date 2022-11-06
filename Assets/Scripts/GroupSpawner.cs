@@ -19,7 +19,7 @@ public class GroupSpawner : MonoBehaviour
  
     void Update()
     {
-        if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 0) {
+        if(timeBtwSpawn <= 0 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 0) {
             if(spawnSide == 0) {
                 Instantiate(group[0], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);
@@ -42,7 +42,7 @@ public class GroupSpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-        if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 60) {
+        if(timeBtwSpawn <= 0 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 60) {
             if(spawnSide == 0) {
                 Instantiate(group[1], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);
@@ -65,7 +65,7 @@ public class GroupSpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-        if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 120) {
+        if(timeBtwSpawn <= 0 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 120) {
             if(spawnSide == 0) {
                 Instantiate(group[2], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);
@@ -88,7 +88,7 @@ public class GroupSpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-        if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 180) {
+        if(timeBtwSpawn <= 0 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 180) {
             if(spawnSide == 0) {
                 Instantiate(group[3], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);
@@ -111,7 +111,7 @@ public class GroupSpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-        if(timeBtwSpawn <= 0 && soldierCount.Length < 200 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 240) {
+        if(timeBtwSpawn <= 0 && GameObject.Find("Timer").GetComponent<Timer>().timeElapsed > 240) {
             if(spawnSide == 0) {
                 Instantiate(group[4], new Vector3(cameraObject.transform.position.x+(-18f), cameraObject.transform.position.y+(Random.Range(-18f, 18f)), cameraObject.transform.position.z+0f), Quaternion.identity);
                 spawnSide = Random.Range(0, 4);

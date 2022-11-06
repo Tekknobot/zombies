@@ -30,6 +30,10 @@ public class ScoreManagerMode : MonoBehaviour
     public GameObject particles;
     public GameObject levelUpSFX;
 
+    public GameObject orbiter;
+
+    public GameObject weaponLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +58,20 @@ public class ScoreManagerMode : MonoBehaviour
         levelNumber.GetComponent<Text>().text = currentXPLevel.ToString();
         xpCount.GetComponent<Text>().text = xp.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();
+        
+        if (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().pistol == true) {
+            weaponLabel.GetComponent<Text>().text = "PISTOL";
+        }
+        if (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().shotgun == true) {
+            weaponLabel.GetComponent<Text>().text = "SHOTGUN";
+        }
+        if (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().machinegun == true) {
+            weaponLabel.GetComponent<Text>().text = "MACHINE GUN";
+        }
+        if (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().grenadeLauncher == true) {
+            weaponLabel.GetComponent<Text>().text = "GRENADE LAUNCHER";
+        }                
+
         if (xp >= xpNextLevel) {
             currentXPLevel = currentXPLevel + 1;
             barXP = 0;
@@ -61,7 +79,8 @@ public class ScoreManagerMode : MonoBehaviour
             xpNextLevel = Mathf.Round((xpNextLevel + xpNextLevel) * 1.05f);
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().health = GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth;   
-            GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;         
+            GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;   
+            Instantiate(orbiter, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);      
             StartCoroutine(SlowMotionRoutine());
         }
         levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/(xpNextLevel-lastXP));

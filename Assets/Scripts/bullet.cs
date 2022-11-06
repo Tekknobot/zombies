@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     public bool bulletDefault;   
     public bool grenade;
+    public bool orbiter;
     public Sprite spriteGrenade;
     public GameObject explosion;
 
@@ -49,7 +50,7 @@ public class bullet : MonoBehaviour
         if(other.tag == "ZombieA") {
             //Destroy(this.gameObject);
             gameObject.SetActive(false);
-        }                      
+        }            
     }    
 
     void OnBecameInvisible() {

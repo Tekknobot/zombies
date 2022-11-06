@@ -45,11 +45,15 @@ public class DamageMode : MonoBehaviour
     IEnumerator WaitForAnim()
     {
         audioSource_this.PlayOneShot(objectSFX);
-        Instantiate(blood, transform.position, Quaternion.identity);  
-        Instantiate(gemXP, transform.position, Quaternion.identity);
+        Instantiate(blood, transform.position, Quaternion.identity);
+        for (int i = 0; i < Random.Range(1,6); i++) {
+            Instantiate(gemXP, transform.position, Quaternion.identity);
+        }  
+
         if (explodes == true) {
             Instantiate(explosion, transform.position, Quaternion.identity);
         }
+        
         foreach (var drop in drops) {
             int calc_dropChance = Random.Range (0, 101);
         
