@@ -14,9 +14,7 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (shotgunBullet == true) {
-            StartCoroutine(DeActivate());
-        }
+
     }
 
     // Update is called once per frame
@@ -63,11 +61,6 @@ public class bullet : MonoBehaviour
 
     void OnBecameInvisible() {
         //Destroy(gameObject);
-        gameObject.SetActive(false);
-    }    
-
-    IEnumerator DeActivate() {
-        yield return new WaitForSeconds(0.25f);
         gameObject.SetActive(false);
     }
 }

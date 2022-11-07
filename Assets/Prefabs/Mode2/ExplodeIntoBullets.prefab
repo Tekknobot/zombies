@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa630ef39e5e1e049a53811627f31df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7712507716706664509, guid: 92cc60b03c89dad4a921dad2f62d8a6f, type: 3}
+  bullet: {fileID: 7712507716706664509, guid: e0826b20100c41743987aac6add0da73, type: 3}
   bulletSpreadCount: 12
+  degrees: 30
   dir: {x: 0, y: 0}
   angle: 0
   shootingPower: 5

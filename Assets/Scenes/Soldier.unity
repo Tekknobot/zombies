@@ -5780,7 +5780,7 @@ PrefabInstance:
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6614213287842399285, guid: f8e4d9766f7e8344fbbb44c9848e029a,
         type: 3}
@@ -7941,7 +7941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494686863
 GameObject:
@@ -8726,7 +8726,7 @@ MonoBehaviour:
   group:
   - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
   - {fileID: 6614213287842399284, guid: 736459488b86da64d8ffa11ceb9a5a2f, type: 3}
-  - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
+  - {fileID: 5605663956828842071, guid: 9d41bb27a86d253458280a3a67817b0b, type: 3}
   - {fileID: 6614213287842399284, guid: 736459488b86da64d8ffa11ceb9a5a2f, type: 3}
   - {fileID: 6614213287842399284, guid: 98b9f0297ff13ab4a99ce651007e995e, type: 3}
   cameraObject: {fileID: 519420028}
@@ -8746,7 +8746,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649891715
 GameObject:

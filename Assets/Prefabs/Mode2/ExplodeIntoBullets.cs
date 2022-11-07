@@ -25,7 +25,7 @@ public class ExplodeIntoBullets : MonoBehaviour
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;  
 
         for (int i = 0; i < bulletSpreadCount; i++) {
-            GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
+            GameObject projectile = PoolManagerMode.SharedInstance.GetPooledShotGunBullet();
             if (projectile != null) {
                 projectile.transform.position = this.transform.position;
                 projectile.transform.rotation = Quaternion.identity;

@@ -6,6 +6,7 @@ public class ZombieStart : MonoBehaviour
 {
     public int zombies = 1;
     public float radius = 0;
+    public GameObject zombie;
     
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,9 @@ public class ZombieStart : MonoBehaviour
             float x = Mathf.Sin(theta)*radius; // rad
             float y = Mathf.Cos(theta)*radius;
         
-            GameObject ob = PoolManager.SharedInstance.GetPooledZombie();
+            GameObject ob = Instantiate(zombie, transform.position, Quaternion.identity);
             ob.transform.parent = transform;
-            ob.transform.position = new Vector3(x, y, 0);  
-            ob.SetActive(true); 
+            ob.transform.position = new Vector3(transform.position.x+x, transform.position.y+y, 0);  
         }
     } 
 
