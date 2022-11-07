@@ -21,6 +21,7 @@ public class DamageMode : MonoBehaviour
 
     public bool zombie;
     public bool explodes;
+    public bool helper;
     public GameObject exploder;   
 
     // Start is called before the first frame update
@@ -69,7 +70,9 @@ public class DamageMode : MonoBehaviour
         boxCol.enabled = false;
         boxCol2.enabled = false;      
         if (GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().exploderOn == true) {
-            Instantiate(exploder, transform.position, Quaternion.identity);
+            GameObject tempObj = Instantiate(exploder, transform.position, Quaternion.identity);
+            tempObj.GetComponent<ExplodeIntoBullets>().bulletSpreadCount = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().currentXPLevel*3;
+            tempObj.GetComponent<ExplodeIntoBullets>().degrees = 360/(GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().currentXPLevel*3);
         }  
         yield return new WaitForSeconds(0.91f);
         if (zombie == true) {
@@ -77,6 +80,9 @@ public class DamageMode : MonoBehaviour
         }
         audioSource_this.enabled = false;
         GetComponent<DamageMode>().enabled = false;
+        if (helper == true) {
+            this.gameObject.SetActive(false);
+        }        
         hasPlayed = false;
     }
 }

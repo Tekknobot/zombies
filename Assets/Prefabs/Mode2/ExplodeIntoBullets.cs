@@ -7,6 +7,7 @@ public class ExplodeIntoBullets : MonoBehaviour
     public GameObject bullet;
     public int bulletSpreadCount = 12;
     float deg;
+    public int degrees = 30;
     public Vector2 dir;
     public float angle; 
     public float shootingPower = 10f; //force of projection   
@@ -29,7 +30,7 @@ public class ExplodeIntoBullets : MonoBehaviour
                 projectile.transform.position = this.transform.position;
                 projectile.transform.rotation = Quaternion.identity;
                 projectile.SetActive(true);
-                deg += 30f;
+                deg += degrees;
                 var x = projectile.transform.position.x - dir.x;
                 var y = projectile.transform.position.y - dir.y;                    
                 float spreadAngle = deg;

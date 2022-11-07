@@ -32,7 +32,7 @@ public class ScoreManagerMode : MonoBehaviour
     public GameObject weaponLabel;
 
     public int dmgBullet = 1;
-    public int fireRate = 500;
+    public int fireRate = 250;
     public int shootingPower = 10;
 
     public GameObject UpgradeUIPanel;

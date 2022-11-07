@@ -24,6 +24,7 @@ public class FlashMode : MonoBehaviour
     void Start()
     {
         origionalColor = thisRenderer.color;
+        Physics2D.IgnoreCollision(GameObject.Find("PlayerPrefab").GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     public void FlashRed()

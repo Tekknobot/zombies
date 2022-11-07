@@ -3,6 +3,7 @@
  
 public class PlayerGun : MonoBehaviour
 {
+    public GameObject crosshair;
     public Transform target; //where we want to shoot(player? mouse?)
     public Transform weaponMuzzle; //The empty game object which will be our weapon muzzle to shoot from
     public GameObject[] bullet; //Your set-up prefab
@@ -42,19 +43,19 @@ public class PlayerGun : MonoBehaviour
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        if (Input.GetButton("Fire1") && pistol == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && pistol == true && canShoot == false) {
             FirePistol();            
         }
 
-        if (Input.GetButton("Fire1") && shotgun == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && shotgun == true && canShoot == false) {
             FireShotgun();            
         }    
 
-        if (Input.GetButton("Fire1") && machinegun == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && machinegun == true && canShoot == false) {
             FireMachinegun();           
         }  
 
-        if (Input.GetButton("Fire1") && grenadeLauncher == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && grenadeLauncher == true && canShoot == false) {
             FireGrenade();           
         }           
 
@@ -92,7 +93,7 @@ public class PlayerGun : MonoBehaviour
                     projectile.transform.position = myPos;
                     projectile.transform.rotation = Quaternion.identity;
                     projectile.SetActive(true);
-                    Vector2 direction = myPos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the direction to the target
+                    Vector2 direction = myPos - (Vector2)crosshair.transform.position; //get the direction to the target
                     projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
                     magCurrent += 1;
                 }             

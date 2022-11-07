@@ -45,7 +45,13 @@ public class FlashModeZombie : MonoBehaviour
             FlashRed();
             Instantiate(blood, transform.position, Quaternion.identity);
             this.transform.SendMessage("Damage", dmg);
-        }    
+        }   
+
+        if(col.tag == "Helper") {
+            FlashRed();
+            Instantiate(blood, transform.position, Quaternion.identity);
+            this.transform.SendMessage("Damage", dmg);
+        }          
 
         if(col.tag == "bullet" || col.tag == "Orbiter") {
             FlashRed();
@@ -63,6 +69,16 @@ public class FlashModeZombie : MonoBehaviour
                 currentDamageTime = 0.0f;
                 this.transform.SendMessage("Damage", dmg);
             }    
-        }         
+        }     
+
+        if(col.tag == "Helper") {
+            currentDamageTime += Time.deltaTime;
+            if(currentDamageTime > damageTime)
+            {
+                FlashRed();
+                currentDamageTime = 0.0f;
+                this.transform.SendMessage("Damage", dmg);
+            }    
+        }             
     }             
 }

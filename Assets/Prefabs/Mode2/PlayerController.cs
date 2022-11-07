@@ -53,9 +53,9 @@ public class PlayerController : MonoBehaviour
 
     void FaceMouse()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, rot2);
+        //Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        //float rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        float rot2 = Mathf.Atan2(Input.GetAxis("Joystick Y"),Input.GetAxis("Joystick X")) * Mathf.Rad2Deg;
 
         if(rot2 < 90 &&  rot2 > -90)
         {
