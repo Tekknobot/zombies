@@ -596,7 +596,10 @@ MonoBehaviour:
   healthbar: {fileID: 3940187829042434954}
   death: {fileID: 9100000, guid: 52db35827b40dd440841280184216e45, type: 2}
   drops: []
+  zombie: 1
   explodes: 1
+  exploder: {fileID: 6375918081073308286, guid: 47975e04922c00245a1943f542f27481,
+    type: 3}
 --- !u!114 &8720220336838115784
 MonoBehaviour:
   m_ObjectHideFlags: 0

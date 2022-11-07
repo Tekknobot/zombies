@@ -19,8 +19,9 @@ public class DamageMode : MonoBehaviour
     public RuntimeAnimatorController death;
     public GameObject[] drops;
 
+    public bool zombie;
     public bool explodes;
-       
+    public GameObject exploder;   
 
     // Start is called before the first frame update
     void Start()
@@ -46,14 +47,14 @@ public class DamageMode : MonoBehaviour
     {
         audioSource_this.PlayOneShot(objectSFX);
         Instantiate(blood, transform.position, Quaternion.identity);
-        for (int i = 0; i < Random.Range(1,6); i++) {
+        for (int i = 0; i < Random.Range(1,5); i++) {
             Instantiate(gemXP, transform.position, Quaternion.identity);
         }  
 
         if (explodes == true) {
             Instantiate(explosion, transform.position, Quaternion.identity);
         }
-        
+
         foreach (var drop in drops) {
             int calc_dropChance = Random.Range (0, 101);
         
@@ -65,9 +66,17 @@ public class DamageMode : MonoBehaviour
         
         Animator animator = gameObject.GetComponent<Animator>();
         animator.runtimeAnimatorController = death as RuntimeAnimatorController; 
-        GetComponent<FollowPlayerMode>().speed = 0;         
+        boxCol.enabled = false;
+        boxCol2.enabled = false;      
+        if (GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().exploderOn == true) {
+            Instantiate(exploder, transform.position, Quaternion.identity);
+        }  
         yield return new WaitForSeconds(0.91f);
-        this.gameObject.SetActive(false);
+        if (zombie == true) {
+            this.gameObject.SetActive(false);
+        }
+        audioSource_this.enabled = false;
+        GetComponent<DamageMode>().enabled = false;
         hasPlayed = false;
     }
 }

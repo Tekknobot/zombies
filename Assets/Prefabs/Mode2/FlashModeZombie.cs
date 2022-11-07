@@ -24,6 +24,7 @@ public class FlashModeZombie : MonoBehaviour
     void Start()
     {
         origionalColor = thisRenderer.color;
+        dmgBullet = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().dmgBullet;
     }
 
     public void FlashRed()
@@ -48,7 +49,7 @@ public class FlashModeZombie : MonoBehaviour
 
         if(col.tag == "bullet" || col.tag == "Orbiter") {
             FlashRed();
-            this.transform.SendMessage("Damage", dmg);
+            this.transform.SendMessage("Damage", dmgBullet);
         }                    
     } 
 

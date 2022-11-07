@@ -29,6 +29,12 @@ public class PlayerGun : MonoBehaviour
     public int offset;
     public bool canShoot = false;
 
+    public AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update ()
     {
@@ -73,8 +79,8 @@ public class PlayerGun : MonoBehaviour
     {
         if (Time.time > shootingTime)
         {
-            fireRate = 500;
-            shootingPower = 10;
+            fireRate = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().fireRate;
+            shootingPower = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().shootingPower;
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
             Vector2 myPos = new Vector2(weaponMuzzle.position.x, weaponMuzzle.position.y); //our curr position is where our muzzle points
             
@@ -102,18 +108,16 @@ public class PlayerGun : MonoBehaviour
     {
         if (Time.time > shootingTime)
         {
-            fireRate = 500;
-            shootingPower = 10;
+            fireRate = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().fireRate;
+            shootingPower = GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().shootingPower;
             shootingTime = Time.time + fireRate / 1000; //set the local var. to current time of shooting
             Vector2 myPos = new Vector2(weaponMuzzle.localPosition.x, weaponMuzzle.localPosition.y); //our curr position is where our muzzle points    
 
             if (magSize > magCurrent) {
                 deg = 0;
                 for (int i = 0; i < shotgunSpreadCount; i++) {
-                    GameObject projectile = PoolManagerMode.SharedInstance.GetPooledBullet();
+                    GameObject projectile = PoolManagerMode.SharedInstance.GetPooledShotGunBullet();
                     if (projectile != null) {
-                        projectile.GetComponent<bullet>().grenade = false;
-                        projectile.GetComponent<bullet>().bulletDefault = true;
                         projectile.transform.position = this.transform.position;
                         projectile.transform.rotation = Quaternion.identity;
                         projectile.SetActive(true);
@@ -127,6 +131,7 @@ public class PlayerGun : MonoBehaviour
                         projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet  
                     }     
                 }
+                audioSource.Play();
                 magCurrent += 1;
             }
             else {

@@ -5,12 +5,10 @@ using UnityEngine;
 public class PoolManagerMode : MonoBehaviour
 {
     public static PoolManagerMode SharedInstance;
-    public List<GameObject> pooledObjects;
-    public List<GameObject> pooledZombies;
     public List<GameObject> pooledBullets;
-    public GameObject[] objectsToPool;
-    public GameObject zombieToPool;
+    public List<GameObject> pooledShotGunBullets;
     public GameObject bulletToPool;
+    public GameObject shotgunBulletToPool;
     public int amountToPool;
 
     void Awake()
@@ -28,27 +26,16 @@ public class PoolManagerMode : MonoBehaviour
             tmpBullets.SetActive(false);
             pooledBullets.Add(tmpBullets);
         }        
+
+        pooledShotGunBullets = new List<GameObject>();
+        GameObject tmpShotGunBullets;
+        for(int i = 0; i < amountToPool; i++)
+        {
+            tmpShotGunBullets = Instantiate(shotgunBulletToPool);
+            tmpShotGunBullets.SetActive(false);
+            pooledShotGunBullets.Add(tmpShotGunBullets);
+        }         
     }
-
-    public GameObject GetPooledObject()
-    {
-        for(int i = 0; i < amountToPool; i++) {
-            if(!pooledObjects[i].activeInHierarchy) {
-                return pooledObjects[i];
-            }
-        }
-        return null;
-    }       
-
-    public GameObject GetPooledZombie()
-    {
-        for(int i = 0; i < amountToPool; i++) {
-            if(!pooledZombies[i].activeInHierarchy) {
-                return pooledZombies[i];
-            }
-        }
-        return null;
-    }    
 
     public GameObject GetPooledBullet()
     {
@@ -58,5 +45,15 @@ public class PoolManagerMode : MonoBehaviour
             }
         }
         return null;
-    }       
+    }     
+
+    public GameObject GetPooledShotGunBullet()
+    {
+        for(int i = 0; i < amountToPool; i++) {
+            if(!pooledShotGunBullets[i].activeInHierarchy) {
+                return pooledShotGunBullets[i];
+            }
+        }
+        return null;
+    }     
 }

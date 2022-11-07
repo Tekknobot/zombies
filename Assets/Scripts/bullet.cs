@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public bool bulletDefault;   
+    public bool bulletDefault; 
+    public bool shotgunBullet;  
     public bool grenade;
     public bool orbiter;
     public Sprite spriteGrenade;
@@ -13,7 +14,9 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+        if (shotgunBullet == true) {
+            StartCoroutine(DeActivate());
+        }
     }
 
     // Update is called once per frame
@@ -26,6 +29,11 @@ public class bullet : MonoBehaviour
         }    
 
         if (bulletDefault == true) {
+            this.GetComponent<Rotate>().enabled = false;
+            this.GetComponent<Animator>().enabled = true;
+        }
+
+        if (shotgunBullet == true) {
             this.GetComponent<Rotate>().enabled = false;
             this.GetComponent<Animator>().enabled = true;
         }
@@ -57,4 +65,9 @@ public class bullet : MonoBehaviour
         //Destroy(gameObject);
         gameObject.SetActive(false);
     }    
+
+    IEnumerator DeActivate() {
+        yield return new WaitForSeconds(0.25f);
+        gameObject.SetActive(false);
+    }
 }

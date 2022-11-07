@@ -47,6 +47,8 @@
      <Compile Include="Assets\Driving\Scripts\OrthographicCameraScript.cs" />
      <Compile Include="Assets\Driving\Scripts\Util.cs" />
      <Compile Include="Assets\Prefabs\Mode2\DamageMode.cs" />
+     <Compile Include="Assets\Prefabs\Mode2\DeActivate.cs" />
+     <Compile Include="Assets\Prefabs\Mode2\ExplodeIntoBullets.cs" />
      <Compile Include="Assets\Prefabs\Mode2\FlashMode.cs" />
      <Compile Include="Assets\Prefabs\Mode2\FlashModeZombie.cs" />
      <Compile Include="Assets\Prefabs\Mode2\FollowPlayerMode.cs" />
@@ -118,6 +120,8 @@
      <Compile Include="Assets\Scripts\weaponSwitch.cs" />
      <Compile Include="Assets\Scripts\zombiebone.cs" />
      <Compile Include="Assets\Scripts\zombiebullet.cs" />
+     <Compile Include="Assets\UI\MoveRect.cs" />
+     <Compile Include="Assets\UI\UpgradeButtonDefault.cs" />
      <None Include="Assets\Materials\2Sided.shader" />
      <None Include="Assets\AnimationImporter\readme.txt" />
      <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />

@@ -26,13 +26,18 @@ public class ScoreManagerMode : MonoBehaviour
 
     public int currentXPLevel;
     public GameObject levelBar;
-
     public GameObject particles;
     public GameObject levelUpSFX;
-
     public GameObject orbiter;
-
     public GameObject weaponLabel;
+
+    public int dmgBullet = 1;
+    public int fireRate = 500;
+    public int shootingPower = 10;
+
+    public GameObject UpgradeUIPanel;
+
+    public bool exploderOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +47,7 @@ public class ScoreManagerMode : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
@@ -58,7 +63,7 @@ public class ScoreManagerMode : MonoBehaviour
         levelNumber.GetComponent<Text>().text = currentXPLevel.ToString();
         xpCount.GetComponent<Text>().text = xp.ToString();
         levelCount.GetComponent<Text>().text = xpNextLevel.ToString();
-        
+
         if (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().pistol == true) {
             weaponLabel.GetComponent<Text>().text = "PISTOL";
         }
@@ -80,20 +85,21 @@ public class ScoreManagerMode : MonoBehaviour
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().health = GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth;   
             GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;   
-            Instantiate(orbiter, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);      
+            //Instantiate(orbiter, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity); 
+            UpgradeUIPanel.SetActive(true);
+            Time.timeScale = 0;
             StartCoroutine(SlowMotionRoutine());
         }
         levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/(xpNextLevel-lastXP));
-
         ammoCount.GetComponent<Text>().text = (GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magSize - GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magCurrent).ToString();
     }
 
     IEnumerator SlowMotionRoutine() {
-        GetComponent<SlowMotion>().enabled = true;
+        //GetComponent<SlowMotion>().enabled = true;
         Instantiate(particles, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
         Instantiate(levelUpSFX, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1);
-        Time.timeScale = 1;
-        GetComponent<SlowMotion>().enabled = false;
+        yield return new WaitForSeconds(0);
+        //Time.timeScale = 1;
+        //GetComponent<SlowMotion>().enabled = false;
     }     
 }

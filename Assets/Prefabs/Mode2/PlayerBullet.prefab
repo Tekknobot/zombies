@@ -139,7 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c48b96bccbc6e41874024f8e5b51f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDefault: 0
+  shotgunBullet: 0
   grenade: 0
+  orbiter: 0
   spriteGrenade: {fileID: -24037388442170048, guid: ed930175f99286f4ebeb2f453c32c582,
     type: 3}
   explosion: {fileID: 7118476831730622947, guid: 7d3cbc9ba6fd02648a582aed49f0bb5c,
