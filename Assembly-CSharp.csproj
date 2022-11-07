@@ -46,6 +46,7 @@
      <Compile Include="Assets\Driving\Scripts\HeadlightsScript.cs" />
      <Compile Include="Assets\Driving\Scripts\OrthographicCameraScript.cs" />
      <Compile Include="Assets\Driving\Scripts\Util.cs" />
+     <Compile Include="Assets\Prefabs\Mode2\CameraShake.cs" />
      <Compile Include="Assets\Prefabs\Mode2\CrosshairFollow.cs" />
      <Compile Include="Assets\Prefabs\Mode2\DamageMode.cs" />
      <Compile Include="Assets\Prefabs\Mode2\DeActivate.cs" />

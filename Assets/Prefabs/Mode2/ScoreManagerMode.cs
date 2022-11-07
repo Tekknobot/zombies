@@ -85,6 +85,7 @@ public class ScoreManagerMode : MonoBehaviour
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().health = GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth;   
             GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;   
+            GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerController>().movementSpeed += 25;  
             //Instantiate(orbiter, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity); 
             UpgradeUIPanel.SetActive(true);
             Time.timeScale = 0;

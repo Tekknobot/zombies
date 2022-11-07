@@ -32,6 +32,7 @@ public class PlayerGun : MonoBehaviour
 
     public AudioSource audioSource;
     public GameObject crosshairFollow;
+    public GameObject cameraParent;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
@@ -113,11 +114,13 @@ public class PlayerGun : MonoBehaviour
                     if (crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
                         Vector2 direction = myPos - (Vector2)crosshair.transform.position; //get the direction to the target
                         projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
+                        StartCoroutine(cameraParent.GetComponent<CameraShake>().PlayCameraShakeAnimation(0.1f, 0.1f));
                         magCurrent += 1;                    
                     }
                     else {
                         Vector2 direction = myPos - ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
                         projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
+                        StartCoroutine(cameraParent.GetComponent<CameraShake>().PlayCameraShakeAnimation(0.1f, 0.1f));
                         magCurrent += 1;                        
                     }
                 }             

@@ -9,7 +9,8 @@ public class explosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TimeScaleRoutine());        
+        StartCoroutine(TimeScaleRoutine());
+        StartCoroutine(GameObject.Find("Main Camera").GetComponent<CameraShake>().PlayCameraShakeAnimation(0.3f, 0.1f));        
     }
 
     // Update is called once per frame
@@ -26,7 +27,6 @@ public class explosion : MonoBehaviour
         if(other.tag == "soldier" || other.tag == "suicide" || other.tag == "mech") {
             other.transform.SendMessage("DamageSoldier", dmg);
         }     
-
         if(other.tag == "ZombieA") {
             other.transform.SendMessage("Damage", dmg);
         } 

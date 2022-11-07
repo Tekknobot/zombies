@@ -22,11 +22,13 @@ public class CrosshairFollow : MonoBehaviour {
 
         if (controller == true) {
             crosshair.GetComponent<SpriteRenderer>().enabled = true;
+            Cursor.visible = false;
             float heading = Mathf.Atan2(Input.GetAxis("Joystick Y"),Input.GetAxis("Joystick X")) * Mathf.Rad2Deg;
             transform.rotation=Quaternion.Euler(0f,0f,heading);
         }
         else {
             crosshair.GetComponent<SpriteRenderer>().enabled = false;
+            Cursor.visible = true;
         }
     }
 }

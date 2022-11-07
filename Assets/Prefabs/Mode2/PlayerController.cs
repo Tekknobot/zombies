@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 1000.0f;
     public bool facingRight = true;
 
+    public GameObject crosshairParent;
+
+    public float rot2;
+
     void Awake()
     {
         // Setup Rigidbody for frictionless top down movement and dynamic collision
@@ -53,9 +57,13 @@ public class PlayerController : MonoBehaviour
 
     void FaceMouse()
     {
-        //Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        //float rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        float rot2 = Mathf.Atan2(Input.GetAxis("Joystick Y"),Input.GetAxis("Joystick X")) * Mathf.Rad2Deg;
+        if (crosshairParent.GetComponent<CrosshairFollow>().controller == false) {
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;            
+        }
+        else if (crosshairParent.GetComponent<CrosshairFollow>().controller == true){
+            rot2 = Mathf.Atan2(Input.GetAxis("Joystick Y"),Input.GetAxis("Joystick X")) * Mathf.Rad2Deg;
+        }
 
         if(rot2 < 90 &&  rot2 > -90)
         {
