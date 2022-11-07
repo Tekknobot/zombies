@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
  
-public class UpgradeButtonDefault : MonoBehaviour
+public class UpgradeButtonDefault : MonoBehaviour, IPointerEnterHandler, ISelectHandler 
 {
     public bool green;
     public bool red;
@@ -18,7 +18,27 @@ public class UpgradeButtonDefault : MonoBehaviour
     public GameObject orbiter;
     public GameObject helper;
 
-    public void OnPointerEnter()
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //do your stuff when highlighted
+        if (green == true) {
+            upgradeText.GetComponent<Text>().text = "BULLET DAMAGE INCREASES";
+        }
+        if (red == true) {
+            upgradeText.GetComponent<Text>().text = "BULLET SPEED INCREASES";
+        }
+        if (blue == true) {
+            upgradeText.GetComponent<Text>().text = "ENEMIES EXPLODE INTO BULLETS";
+        }       
+        if (yellow == true) {
+            upgradeText.GetComponent<Text>().text = "ADDS ORBTING PROJECTILE";
+        }  
+        if (orange == true) {
+            upgradeText.GetComponent<Text>().text = "ADDS HELPER";
+        }                                
+    }
+
+    public void OnSelect(BaseEventData eventData)
     {
         //do your stuff when highlighted
         if (green == true) {

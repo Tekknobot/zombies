@@ -304,7 +304,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7265121}
-        m_MethodName: ClickedObject
+        m_MethodName: ClickedYellow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1475,8 +1475,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7265121}
-        m_MethodName: ClickedObject
+      - m_Target: {fileID: 211036469}
+        m_MethodName: ClickedOrange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3138,8 +3138,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7265121}
-        m_MethodName: ClickedObject
+      - m_Target: {fileID: 564606018}
+        m_MethodName: ClickedBlue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5215,8 +5215,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7265121}
-        m_MethodName: ClickedObject
+      - m_Target: {fileID: 934278035}
+        m_MethodName: ClickedGreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8839,8 +8839,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7265121}
-        m_MethodName: ClickedObject
+      - m_Target: {fileID: 1623917947}
+        m_MethodName: ClickedRed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
