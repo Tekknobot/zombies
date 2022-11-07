@@ -31,6 +31,7 @@ public class PlayerGun : MonoBehaviour
     public bool canShoot = false;
 
     public AudioSource audioSource;
+    public GameObject crosshairFollow;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
@@ -43,21 +44,37 @@ public class PlayerGun : MonoBehaviour
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        if (Input.GetAxis("RightTrigger") == 1 && pistol == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && pistol == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
             FirePistol();            
         }
 
-        if (Input.GetAxis("RightTrigger") == 1 && shotgun == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && shotgun == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
             FireShotgun();            
         }    
 
-        if (Input.GetAxis("RightTrigger") == 1 && machinegun == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && machinegun == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
             FireMachinegun();           
         }  
 
-        if (Input.GetAxis("RightTrigger") == 1 && grenadeLauncher == true && canShoot == false) {
+        if (Input.GetAxis("RightTrigger") == 1 && grenadeLauncher == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
             FireGrenade();           
-        }           
+        }    
+
+        if (Input.GetAxis("Fire1") == 1 && pistol == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == false) {
+            FirePistol();            
+        }
+
+        if (Input.GetAxis("Fire1") == 1 && shotgun == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == false) {
+            FireShotgun();            
+        }    
+
+        if (Input.GetAxis("Fire1") == 1 && machinegun == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == false) {
+            FireMachinegun();           
+        }  
+
+        if (Input.GetAxis("Fire1") == 1 && grenadeLauncher == true && canShoot == false && crosshairFollow.GetComponent<CrosshairFollow>().controller == false) {
+            FireGrenade();           
+        }               
 
         if (pistol == true) {
             magSize = magMax;
@@ -93,9 +110,16 @@ public class PlayerGun : MonoBehaviour
                     projectile.transform.position = myPos;
                     projectile.transform.rotation = Quaternion.identity;
                     projectile.SetActive(true);
-                    Vector2 direction = myPos - (Vector2)crosshair.transform.position; //get the direction to the target
-                    projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
-                    magCurrent += 1;
+                    if (crosshairFollow.GetComponent<CrosshairFollow>().controller == true) {
+                        Vector2 direction = myPos - (Vector2)crosshair.transform.position; //get the direction to the target
+                        projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
+                        magCurrent += 1;                    
+                    }
+                    else {
+                        Vector2 direction = myPos - ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+                        projectile.GetComponent<Rigidbody2D>().velocity = -1 * direction.normalized * shootingPower; //shoot the bullet                                    
+                        magCurrent += 1;                        
+                    }
                 }             
             }
             else {
