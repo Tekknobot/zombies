@@ -30,6 +30,7 @@ public class ScoreManagerMode : MonoBehaviour
     public GameObject levelUpSFX;
     public GameObject levelUpAnimation;
     public GameObject whiteScreen;
+    public GameObject whiteScreenSFX;
     public GameObject orbiter;
     public GameObject weaponLabel;
 
@@ -84,7 +85,7 @@ public class ScoreManagerMode : MonoBehaviour
             barXP = 0;
             lastXP = xpNextLevel;
             xpNextLevel = Mathf.Round((xpNextLevel + xpNextLevel) * 1.05f);
-            GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
+            //GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().health = GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth;   
             GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;   
             GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerController>().movementSpeed += 15;   
@@ -101,6 +102,7 @@ public class ScoreManagerMode : MonoBehaviour
         Instantiate(levelUpSFX, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1.10f);
         whiteScreen.SetActive(true);
+        Instantiate(whiteScreenSFX, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
         whiteScreen.SetActive(false);
         levelUpAnimation.SetActive(false);

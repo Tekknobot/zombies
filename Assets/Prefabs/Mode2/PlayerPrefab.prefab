@@ -734,6 +734,7 @@ Transform:
   - {fileID: 2863928807741515442}
   - {fileID: 1511145563}
   - {fileID: 129854120}
+  - {fileID: 1618202585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1018,8 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dfd74bddf89824582df7990e214e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 15
+  maxHealth: 15
   blood: {fileID: 4025565184072064533, guid: cd78591cd22bff04e9b270c2316f7fb6, type: 3}
   gemXP: {fileID: 5535638297179634274, guid: 469447baf27e6e5419d09bda0c6301cc, type: 3}
   explosion: {fileID: 0}
@@ -1054,3 +1055,78 @@ MonoBehaviour:
   dmgFire: 1
   zombie: 0
   player: 1
+--- !u!1001 &8556296228887566875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6614213287842399285}
+    m_Modifications:
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556296228347336133, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b, type: 3}
+--- !u!4 &1618202585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8556296228347336130, guid: 858b43b0cc2aa4648bc75a5a50fbfd6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8556296228887566875}
+  m_PrefabAsset: {fileID: 0}
