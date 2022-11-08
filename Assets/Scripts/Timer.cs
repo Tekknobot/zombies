@@ -49,16 +49,16 @@ public class Timer : MonoBehaviour
             else if (timeElapsed > 360) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 1f;                
             }
-            else if (timeElapsed > 480) {
+            else if (timeElapsed > 420) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.9f;                
             } 
-            else if (timeElapsed > 540) {
+            else if (timeElapsed > 480) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.8f;                
             }
-            else if (timeElapsed > 600) {
+            else if (timeElapsed > 540) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.7f;                
             }
-            else if (timeElapsed > 660) {
+            else if (timeElapsed > 600) {
                 GameObject.Find("GroupSpawner").GetComponent<GroupSpawner>().startTimeBtwSpawn = 0.6f;                
             }                                                                                                          
         }

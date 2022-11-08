@@ -28,6 +28,8 @@ public class ScoreManagerMode : MonoBehaviour
     public GameObject levelBar;
     public GameObject particles;
     public GameObject levelUpSFX;
+    public GameObject levelUpAnimation;
+    public GameObject whiteScreen;
     public GameObject orbiter;
     public GameObject weaponLabel;
 
@@ -85,10 +87,8 @@ public class ScoreManagerMode : MonoBehaviour
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth += currentXPLevel*10;
             GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().health = GameObject.Find("PlayerPrefab").GetComponent<DamageMode>().maxHealth;   
             GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerGun>().magMax += 1;   
-            GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerController>().movementSpeed += 15;  
-            //Instantiate(orbiter, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity); 
-            UpgradeUIPanel.SetActive(true);
-            Time.timeScale = 0;
+            GameObject.Find("PlayerPrefab").GetComponentInChildren<PlayerController>().movementSpeed += 15;   
+            //Time.timeScale = 0;
             StartCoroutine(SlowMotionRoutine());
         }
         levelBar.GetComponent<HealthBarHandler>().SetHealthBarValue(barXP/(xpNextLevel-lastXP));
@@ -96,11 +96,15 @@ public class ScoreManagerMode : MonoBehaviour
     }
 
     IEnumerator SlowMotionRoutine() {
-        //GetComponent<SlowMotion>().enabled = true;
+        levelUpAnimation.SetActive(true);
         Instantiate(particles, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
         Instantiate(levelUpSFX, GameObject.Find("PlayerPrefab").transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0);
-        //Time.timeScale = 1;
-        //GetComponent<SlowMotion>().enabled = false;
+        yield return new WaitForSeconds(1.10f);
+        whiteScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        whiteScreen.SetActive(false);
+        levelUpAnimation.SetActive(false);
+        UpgradeUIPanel.SetActive(true);
+        Time.timeScale = 0;
     }     
 }

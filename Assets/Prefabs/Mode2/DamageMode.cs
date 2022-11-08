@@ -75,11 +75,11 @@ public class DamageMode : MonoBehaviour
             tempObj.GetComponent<ExplodeIntoBullets>().degrees = 360/(GameObject.Find("ScoreManagerMode").GetComponent<ScoreManagerMode>().currentXPLevel*3);
         }  
         yield return new WaitForSeconds(0.91f);
+        audioSource_this.enabled = false;
+        GetComponent<DamageMode>().enabled = false;        
         if (zombie == true) {
             this.gameObject.SetActive(false);
         }
-        audioSource_this.enabled = false;
-        GetComponent<DamageMode>().enabled = false;
         if (helper == true) {
             this.gameObject.SetActive(false);
         }        

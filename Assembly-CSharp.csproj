@@ -63,6 +63,7 @@
      <Compile Include="Assets\Prefabs\Mode2\PoolManagerMode.cs" />
      <Compile Include="Assets\Prefabs\Mode2\Rotate.cs" />
      <Compile Include="Assets\Prefabs\Mode2\ScoreManagerMode.cs" />
+     <Compile Include="Assets\Prefabs\Mode2\UnityLineRenderer.cs" />
      <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Constant.cs" />
      <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Enum.cs" />
      <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
